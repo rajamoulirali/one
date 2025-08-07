@@ -45,15 +45,14 @@
 	</build>
 
 	<distributionManagement>
-		 <snapshotRepository>
-		     <id>nexusRepo</id>
-		     <url>http://34.208.218.12:8081/repository/sample-snapshots/</url>
-		 </snapshotRepository>
-		
+		<snapshotRepository>
+			<id>nexusRepo</id>
+			<url>http://34.208.218.12:8081/repository/sample-snapshots/</url>
+		</snapshotRepository>
 		<repository>
-		     <id>nexusRepo</id>
-		     <url>http://44.202.251.20:8081/repository/flm-releases/</url>
+			<id>nexusRepo</id>
+			<url>http://44.202.251.20:8081/repository/flm-releases/</url>
 		</repository>
-   	</distributionManagement>
+	</distributionManagement>
 
 </project>
