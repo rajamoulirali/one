@@ -1,19 +1,39 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ralis Bus Tours & Travels | Bus Booking</title>
+    <meta name="description" content="Ralis Bus Tours & Travels - Online Bus Ticket Booking">
+
+    <title>Ralis Bus Tours & Travels | Bus Ticket Booking</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --primary: #d9232e;
+            --primary-dark: #b71924;
+            --primary-light: #fff1f2;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --bg: #f5f6f8;
+            --white: #ffffff;
+            --green: #16834b;
+            --green-light: #eaf8f0;
+            --orange: #f59e0b;
+            --shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -21,9 +41,10 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
-            background: #f5f7fb;
-            color: #172033;
+            font-family: "Inter", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
         }
 
         button,
@@ -36,76 +57,71 @@
             cursor: pointer;
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         /* ================= NAVBAR ================= */
 
         .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid #e8ebf2;
-        }
-
-        .nav-container {
-            max-width: 1250px;
-            margin: auto;
-            height: 74px;
-            padding: 0 20px;
+            height: 72px;
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 0 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #172033;
+            gap: 11px;
+            font-weight: 800;
         }
 
         .logo-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            background: #e63946;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--primary);
             color: white;
-            box-shadow: 0 8px 20px rgba(230,57,70,.25);
+            display: grid;
+            place-items: center;
+            font-size: 21px;
         }
 
-        .logo-text strong {
-            display: block;
-            font-family: "Poppins", sans-serif;
-            font-size: 19px;
-            line-height: 20px;
+        .logo-text {
+            line-height: 1.05;
         }
 
-        .logo-text span {
-            font-size: 11px;
-            color: #6b7280;
+        .logo-main {
+            font-size: 20px;
+            color: #171717;
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            color: var(--primary);
+            letter-spacing: 2px;
+            font-weight: 800;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #4b5563;
-            font-weight: 600;
+            gap: 28px;
             font-size: 14px;
-            transition: .2s;
+            font-weight: 600;
+            color: #4b5563;
         }
 
         .nav-links a:hover {
-            color: #e63946;
+            color: var(--primary);
         }
 
         .nav-actions {
@@ -114,170 +130,177 @@
             gap: 10px;
         }
 
-        .icon-btn {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #e5e7eb;
-            background: white;
-            border-radius: 10px;
-            font-size: 17px;
-        }
-
-        .icon-btn:hover {
-            background: #f7f8fa;
-        }
-
         .login-btn {
-            border: none;
-            background: #172033;
-            color: white;
-            padding: 11px 18px;
-            border-radius: 9px;
-            font-weight: 700;
+            border: 1px solid var(--border);
+            background: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .login-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
         .mobile-menu {
             display: none;
+            border: 0;
+            background: white;
+            font-size: 24px;
         }
 
         /* ================= HERO ================= */
 
         .hero {
-            min-height: 490px;
             background:
-                linear-gradient(90deg, rgba(12,18,32,.95), rgba(12,18,32,.72), rgba(12,18,32,.3)),
-                url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1800&q=85")
-                center/cover;
+                linear-gradient(120deg, rgba(82, 10, 18, .92), rgba(217, 35, 46, .82)),
+                url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1800&q=80");
+            background-size: cover;
+            background-position: center;
+            min-height: 430px;
+            padding: 55px 6% 70px;
             color: white;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-container {
-            max-width: 1250px;
-            width: 100%;
-            margin: auto;
-            padding: 65px 20px;
         }
 
         .hero-content {
-            max-width: 720px;
+            max-width: 1180px;
+            margin: auto;
         }
 
-        .hero-badge {
+        .hero-small {
             display: inline-flex;
-            padding: 8px 14px;
-            border-radius: 30px;
-            background: rgba(255,255,255,.13);
-            border: 1px solid rgba(255,255,255,.2);
-            font-size: 13px;
-            margin-bottom: 18px;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.25);
+            padding: 7px 12px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
         }
 
         .hero h1 {
-            font-family: "Poppins", sans-serif;
-            font-size: clamp(38px, 5vw, 64px);
-            line-height: 1.05;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 span {
-            color: #ff5964;
+            font-size: clamp(32px, 4vw, 48px);
+            line-height: 1.08;
+            max-width: 650px;
+            margin-bottom: 12px;
+            font-weight: 800;
         }
 
         .hero p {
-            font-size: 17px;
-            color: #dbe0ea;
             max-width: 620px;
-            line-height: 1.7;
+            color: rgba(255,255,255,.88);
             margin-bottom: 30px;
         }
 
-        /* ================= SEARCH BOX ================= */
+        /* ================= SEARCH CARD ================= */
 
         .search-card {
-            max-width: 1150px;
-            margin: -65px auto 0;
-            position: relative;
-            z-index: 10;
             background: white;
-            border-radius: 18px;
-            padding: 24px;
-            box-shadow: 0 20px 60px rgba(20,30,50,.14);
+            color: var(--text);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.20);
+            max-width: 1180px;
         }
 
         .trip-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 22px;
+            gap: 22px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 18px;
         }
 
         .trip-tab {
-            border: none;
-            padding: 9px 18px;
-            border-radius: 20px;
-            background: #f1f3f7;
-            color: #5b6473;
+            background: none;
+            border: 0;
+            padding: 10px 2px;
+            font-size: 14px;
             font-weight: 700;
+            color: var(--muted);
+            border-bottom: 3px solid transparent;
         }
 
         .trip-tab.active {
-            background: #172033;
-            color: white;
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
         .search-grid {
             display: grid;
-            grid-template-columns: 1.25fr 1.25fr 1fr 1fr auto;
-            gap: 12px;
+            grid-template-columns: 1.25fr 1.25fr 1fr .9fr auto;
+            gap: 10px;
             align-items: end;
+        }
+
+        .field {
+            position: relative;
         }
 
         .field label {
             display: block;
-            font-size: 12px;
-            font-weight: 700;
-            color: #687182;
-            margin-bottom: 7px;
+            font-size: 11px;
+            color: #6b7280;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: .4px;
         }
 
-        .field-box {
-            height: 52px;
-            border: 1px solid #dfe3ea;
-            border-radius: 10px;
+        .input-wrap {
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            min-height: 54px;
             display: flex;
             align-items: center;
+            gap: 9px;
             padding: 0 13px;
-            background: #fff;
+            background: white;
         }
 
-        .field-box:focus-within {
-            border-color: #e63946;
-            box-shadow: 0 0 0 3px rgba(230,57,70,.08);
+        .input-wrap:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(217,35,46,.08);
         }
 
-        .field-box span {
-            margin-right: 8px;
-            font-size: 17px;
+        .input-wrap span {
+            font-size: 18px;
         }
 
-        .field-box input,
-        .field-box select {
+        .input-wrap input,
+        .input-wrap select {
             width: 100%;
-            border: none;
+            border: 0;
             outline: none;
             background: transparent;
-            color: #172033;
             font-size: 14px;
             font-weight: 600;
+            color: var(--text);
+        }
+
+        .swap-button {
+            position: absolute;
+            right: -23px;
+            bottom: 13px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: white;
+            color: var(--primary);
+            z-index: 2;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.1);
         }
 
         .search-btn {
-            height: 52px;
-            border: none;
-            border-radius: 10px;
-            padding: 0 23px;
-            background: #e63946;
+            height: 54px;
+            padding: 0 25px;
+            border: 0;
+            border-radius: 9px;
+            background: var(--primary);
             color: white;
             font-weight: 800;
             font-size: 14px;
@@ -285,334 +308,496 @@
         }
 
         .search-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(230,57,70,.22);
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .quick-dates {
+            display: flex;
+            gap: 7px;
+            margin-top: 10px;
+        }
+
+        .date-chip {
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 7px;
+            padding: 6px 10px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .date-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* ================= TRUST ================= */
+
+        .trust-row {
+            max-width: 1180px;
+            margin: -35px auto 0;
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
+        }
+
+        .trust-item {
+            padding: 22px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border-right: 1px solid var(--border);
+        }
+
+        .trust-item:last-child {
+            border-right: 0;
+        }
+
+        .trust-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 13px;
+        }
+
+        .trust-item small {
+            color: var(--muted);
+            font-size: 11px;
         }
 
         /* ================= MAIN ================= */
 
         .container {
-            max-width: 1250px;
+            max-width: 1180px;
             margin: auto;
-            padding: 0 20px;
+            padding: 55px 20px;
         }
 
-        section {
-            padding: 75px 0;
+        .section-title {
+            margin-bottom: 24px;
         }
 
-        .section-heading {
-            text-align: center;
-            margin-bottom: 35px;
+        .section-title h2 {
+            font-size: 27px;
+            margin-bottom: 5px;
         }
 
-        .section-heading h2 {
-            font-family: "Poppins", sans-serif;
-            font-size: 32px;
-            margin-bottom: 8px;
+        .section-title p {
+            color: var(--muted);
+            font-size: 14px;
         }
 
-        .section-heading p {
-            color: #6b7280;
-        }
+        /* ================= ROUTES ================= */
 
-        /* ================= FEATURES ================= */
-
-        .features {
+        .route-grid {
             display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 18px;
-            padding-top: 60px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid #e8ebf0;
-            transition: .25s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(20,30,50,.08);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: #fff0f1;
-            font-size: 23px;
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-            font-size: 16px;
-            margin-bottom: 7px;
-        }
-
-        .feature-card p {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #747c8b;
-        }
-
-        /* ================= POPULAR ROUTES ================= */
-
-        .routes-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 18px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
         }
 
         .route-card {
-            min-height: 175px;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            color: white;
-            background-size: cover;
-            background-position: center;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: .2s;
             cursor: pointer;
         }
 
-        .route-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(transparent 20%, rgba(0,0,0,.85));
+        .route-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: rgba(217,35,46,.25);
         }
 
-        .route-content {
-            position: absolute;
-            bottom: 18px;
-            left: 18px;
-            right: 18px;
+        .route-card .route-icon {
+            font-size: 25px;
+            margin-bottom: 15px;
         }
 
-        .route-content small {
-            opacity: .8;
+        .route-card strong {
+            font-size: 14px;
         }
 
-        .route-content h3 {
-            font-size: 18px;
-            margin: 4px 0;
+        .route-card small {
+            display: block;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .route-price {
+            margin-top: 15px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 800;
         }
 
         /* ================= RESULTS ================= */
 
-        .results-section {
-            background: #f0f2f6;
+        #resultsSection {
+            display: none;
+        }
+
+        .results-header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            position: sticky;
+            top: 72px;
+            z-index: 100;
+        }
+
+        .results-header-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .route-heading {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .route-heading small {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+            margin-top: 3px;
+        }
+
+        .sort-select {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            padding: 10px 13px;
+            font-size: 13px;
         }
 
         .results-layout {
+            max-width: 1180px;
+            margin: 25px auto;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 25px;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
         }
 
-        .filters {
+        /* ================= FILTERS ================= */
+
+        .filter-card {
             background: white;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 18px;
             height: fit-content;
-            border: 1px solid #e6e9ee;
+            position: sticky;
+            top: 140px;
         }
 
-        .filters h3 {
-            font-size: 16px;
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
+        }
+
+        .filter-header strong {
+            font-size: 15px;
+        }
+
+        .clear-filter {
+            border: 0;
+            background: none;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
         }
 
         .filter-group {
             padding: 17px 0;
-            border-top: 1px solid #edf0f4;
+            border-top: 1px solid var(--border);
         }
 
         .filter-group:first-of-type {
-            border-top: none;
+            border-top: 0;
         }
 
-        .filter-title {
-            font-size: 13px;
-            font-weight: 800;
+        .filter-group h4 {
+            font-size: 12px;
             margin-bottom: 12px;
         }
 
-        .filter-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 10px 0;
-            color: #606979;
-            font-size: 13px;
-        }
-
-        .filter-option input {
-            accent-color: #e63946;
-        }
-
-        .results-header {
+        .check-row {
             display: flex;
             justify-content: space-between;
+            margin: 9px 0;
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .check-row label {
+            display: flex;
+            gap: 8px;
             align-items: center;
-            margin-bottom: 18px;
         }
 
-        .results-header h2 {
-            font-size: 23px;
+        .check-row input {
+            accent-color: var(--primary);
         }
 
-        .results-header p {
-            font-size: 13px;
-            color: #727a89;
-            margin-top: 5px;
+        .filter-count {
+            color: #9ca3af;
         }
 
-        .sort-select {
-            border: 1px solid #dfe3ea;
-            padding: 10px 12px;
-            border-radius: 9px;
-            background: white;
+        .range-value {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 12px;
         }
 
-        /* ================= BUS CARD ================= */
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--primary);
+        }
+
+        /* ================= BUS CARDS ================= */
 
         .bus-list {
-            display: grid;
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
 
         .bus-card {
             background: white;
-            border: 1px solid #e5e8ed;
-            border-radius: 15px;
-            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
             transition: .2s;
         }
 
         .bus-card:hover {
-            box-shadow: 0 12px 30px rgba(20,30,50,.08);
-            border-color: #d9dde5;
+            box-shadow: var(--shadow);
         }
 
         .bus-main {
+            padding: 20px;
             display: grid;
-            grid-template-columns: 1.3fr 1.4fr 1fr .8fr;
-            gap: 20px;
+            grid-template-columns: 1.4fr 1fr .7fr .7fr auto;
+            gap: 18px;
             align-items: center;
         }
 
-        .bus-company {
+        .bus-operator {
             display: flex;
-            align-items: center;
             gap: 12px;
+            align-items: center;
         }
 
         .bus-logo {
-            width: 50px;
-            height: 50px;
-            background: #f1f3f7;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 25px;
+            width: 46px;
+            height: 46px;
+            border-radius: 9px;
+            background: var(--primary-light);
+            display: grid;
+            place-items: center;
+            font-size: 22px;
         }
 
-        .bus-company strong {
-            display: block;
-            font-size: 15px;
+        .operator-name {
+            font-size: 14px;
+            font-weight: 800;
         }
 
-        .bus-company span {
-            color: #7a8290;
-            font-size: 12px;
-        }
-
-        .timing {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .time strong {
-            font-size: 18px;
-        }
-
-        .time small {
-            display: block;
-            color: #818998;
-            margin-top: 3px;
-        }
-
-        .route-line {
-            flex: 1;
-            text-align: center;
-            color: #929aa8;
+        .bus-type {
+            color: var(--muted);
             font-size: 11px;
-        }
-
-        .route-line div {
-            border-top: 1px dashed #bdc3cc;
-            margin: 5px 0;
-        }
-
-        .bus-price {
-            text-align: right;
-        }
-
-        .bus-price strong {
-            display: block;
-            font-size: 20px;
-        }
-
-        .bus-price span {
-            color: #808896;
-            font-size: 11px;
-        }
-
-        .select-seat-btn {
-            margin-top: 15px;
-            width: 100%;
-            height: 42px;
-            border: none;
-            background: #172033;
-            color: white;
-            border-radius: 8px;
-            font-weight: 700;
-        }
-
-        .select-seat-btn:hover {
-            background: #e63946;
-        }
-
-        .bus-extra {
-            margin-top: 17px;
-            padding-top: 14px;
-            border-top: 1px solid #edf0f4;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: #f4f6f8;
-            padding: 5px 9px;
-            border-radius: 6px;
-            color: #626b79;
-            font-size: 11px;
-            font-weight: 600;
+            margin-top: 4px;
         }
 
         .rating {
-            color: #18864b;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: var(--green);
+            color: white;
+            padding: 3px 6px;
+            border-radius: 5px;
+            font-size: 10px;
             font-weight: 800;
+            margin-top: 6px;
+        }
+
+        .time {
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .city {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .duration {
+            text-align: center;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .duration-line {
+            width: 75px;
+            height: 1px;
+            background: #d1d5db;
+            margin: 7px auto;
+            position: relative;
+        }
+
+        .duration-line::after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #9ca3af;
+            position: absolute;
+            right: 0;
+            top: -2px;
+        }
+
+        .price {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .per-seat {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .seat-left {
+            color: var(--green);
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .view-seat-btn {
+            background: var(--primary);
+            color: white;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px 16px;
             font-size: 12px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .view-seat-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .bus-details {
+            display: none;
+            border-top: 1px solid var(--border);
+            background: #fafafa;
+            padding: 18px 20px;
+        }
+
+        .bus-details.open {
+            display: block;
+        }
+
+        .amenities {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .amenity {
+            border: 1px solid var(--border);
+            background: white;
+            padding: 6px 9px;
+            border-radius: 6px;
+            font-size: 10px;
+            color: #4b5563;
+        }
+
+        .points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .point-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .point-box small {
+            color: var(--muted);
+            font-size: 10px;
+        }
+
+        .point-box strong {
+            display: block;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        /* ================= OFFERS ================= */
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .offer {
+            border-radius: 13px;
+            padding: 22px;
+            color: white;
+            min-height: 145px;
+            background: linear-gradient(135deg, #b71924, #ed3543);
+        }
+
+        .offer:nth-child(2) {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+
+        .offer:nth-child(3) {
+            background: linear-gradient(135deg, #0369a1, #0284c7);
+        }
+
+        .offer-code {
+            display: inline-block;
+            background: rgba(255,255,255,.18);
+            border: 1px dashed rgba(255,255,255,.6);
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-top: 14px;
         }
 
         /* ================= MODAL ================= */
@@ -621,10 +806,9 @@
             display: none;
             position: fixed;
             inset: 0;
-            z-index: 2000;
-            background: rgba(8,12,20,.65);
-            backdrop-filter: blur(5px);
-            padding: 20px;
+            background: rgba(15,23,42,.65);
+            z-index: 3000;
+            padding: 25px;
             overflow-y: auto;
         }
 
@@ -635,108 +819,101 @@
         }
 
         .modal {
+            width: min(950px, 100%);
             background: white;
-            width: 100%;
-            max-width: 900px;
+            border-radius: 16px;
             max-height: 92vh;
             overflow-y: auto;
-            border-radius: 20px;
-            box-shadow: 0 30px 80px rgba(0,0,0,.25);
+            box-shadow: 0 30px 80px rgba(0,0,0,.3);
         }
 
         .modal-header {
-            padding: 20px 25px;
-            border-bottom: 1px solid #edf0f4;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 2;
         }
 
-        .modal-header h2 {
-            font-size: 20px;
+        .modal-header h3 {
+            font-size: 17px;
         }
 
-        .close-btn {
-            border: none;
-            background: #f1f3f6;
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
+        .close-modal {
+            border: 0;
+            background: #f3f4f6;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
             font-size: 18px;
         }
 
         .modal-body {
-            padding: 25px;
-        }
-
-        /* ================= SEAT SELECTION ================= */
-
-        .booking-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .bus-preview {
-            background: #f5f7fa;
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .bus-preview h3 {
-            text-align: center;
-            margin-bottom: 18px;
-        }
-
-        .driver {
-            background: #172033;
-            color: white;
-            width: 80px;
-            text-align: center;
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 11px;
-            margin: 0 auto 20px;
+            padding: 22px;
         }
 
         .seat-layout {
-            max-width: 270px;
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 30px;
+        }
+
+        .bus-seat-map {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+            max-width: 450px;
             margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 13px;
+        }
+
+        .driver {
+            background: #e5e7eb;
+            width: 70px;
+            height: 50px;
+            margin-left: auto;
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+            margin-bottom: 25px;
         }
 
         .seat-row {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) 35px repeat(1, 1fr);
+            gap: 9px;
             margin-bottom: 10px;
         }
 
         .seat {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px 8px 5px 5px;
-            border: 1px solid #cfd5de;
-            background: #f7f8fa;
+            height: 42px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            border-radius: 7px;
+            color: #475569;
             font-size: 10px;
             font-weight: 700;
+            transition: .15s;
         }
 
         .seat:hover:not(.booked) {
-            border-color: #e63946;
+            border-color: var(--primary);
         }
 
         .seat.selected {
-            background: #e63946;
-            border-color: #e63946;
+            background: var(--primary);
+            border-color: var(--primary);
             color: white;
         }
 
         .seat.booked {
-            background: #d9dde3;
-            color: #8b929d;
+            background: #e5e7eb;
+            color: #9ca3af;
             cursor: not-allowed;
         }
 
@@ -744,222 +921,260 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 18px;
+            margin-top: 20px;
             font-size: 10px;
-            color: #697180;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            color: var(--muted);
         }
 
         .legend-box {
-            width: 15px;
-            height: 15px;
+            width: 14px;
+            height: 14px;
             border-radius: 4px;
-            background: #f7f8fa;
-            border: 1px solid #cfd5de;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 4px;
+            border: 1px solid #ddd;
         }
 
-        .legend-box.selected {
-            background: #e63946;
-            border-color: #e63946;
+        .legend-available {
+            background: white;
         }
 
-        .legend-box.booked {
-            background: #d9dde3;
+        .legend-selected {
+            background: var(--primary);
+        }
+
+        .legend-booked {
+            background: #e5e7eb;
         }
 
         .booking-summary {
-            border: 1px solid #e5e8ed;
-            border-radius: 15px;
-            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
             height: fit-content;
         }
 
-        .summary-bus {
-            padding-bottom: 15px;
-            border-bottom: 1px solid #edf0f4;
+        .booking-summary h4 {
             margin-bottom: 15px;
+            font-size: 14px;
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin: 11px 0;
-            font-size: 13px;
-            color: #697180;
+            margin: 10px 0;
+            font-size: 12px;
         }
 
-        .summary-row.total {
-            padding-top: 13px;
-            border-top: 1px solid #edf0f4;
-            color: #172033;
-            font-size: 18px;
+        .summary-total {
+            border-top: 1px solid var(--border);
+            margin-top: 15px;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
             font-weight: 800;
+            font-size: 17px;
         }
 
         .continue-btn {
             width: 100%;
-            height: 45px;
-            background: #e63946;
-            border: none;
+            margin-top: 18px;
+            padding: 13px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--primary);
             color: white;
-            border-radius: 9px;
             font-weight: 800;
-            margin-top: 10px;
         }
 
-        /* ================= PASSENGER FORM ================= */
+        .continue-btn:disabled {
+            background: #d1d5db;
+            cursor: not-allowed;
+        }
+
+        /* ================= CHECKOUT ================= */
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 20px;
+        }
+
+        .form-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .form-card h4 {
+            margin-bottom: 18px;
+        }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 13px;
+        }
+
+        .form-group {
+            margin-bottom: 13px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
         }
 
         .form-group label {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            margin-bottom: 7px;
-            color: #566071;
+            color: #4b5563;
+            margin-bottom: 5px;
         }
 
         .form-group input,
         .form-group select {
             width: 100%;
-            height: 45px;
-            border: 1px solid #dfe3ea;
-            border-radius: 8px;
-            padding: 0 12px;
+            height: 44px;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            padding: 0 11px;
             outline: none;
         }
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: #e63946;
+            border-color: var(--primary);
         }
 
-        .full {
-            grid-column: 1/-1;
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
         }
 
-        /* ================= SUCCESS ================= */
-
-        .success {
+        .payment-option {
+            border: 1px solid var(--border);
+            padding: 13px;
+            border-radius: 8px;
             text-align: center;
-            padding: 45px 25px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .payment-option.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* ================= CONFIRMATION ================= */
+
+        .confirmation {
+            text-align: center;
+            padding: 35px 25px;
         }
 
         .success-icon {
             width: 75px;
             height: 75px;
             margin: auto;
-            background: #e8f8ef;
-            color: #16934f;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: var(--green-light);
+            color: var(--green);
+            display: grid;
+            place-items: center;
             font-size: 38px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .ticket {
-            max-width: 500px;
-            margin: 25px auto;
-            text-align: left;
-            background: #f7f8fa;
-            border-radius: 12px;
-            padding: 20px;
+        .booking-id {
+            display: inline-block;
+            background: #f3f4f6;
+            padding: 8px 13px;
+            border-radius: 7px;
+            margin: 15px 0;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
 
         /* ================= FOOTER ================= */
 
         footer {
-            background: #101827;
+            background: #111827;
             color: white;
-            padding: 60px 0 25px;
+            margin-top: 30px;
         }
 
-        .footer-grid {
+        .footer-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 50px 20px 25px;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.3fr;
             gap: 40px;
         }
 
         .footer-brand p {
-            color: #9da6b5;
-            line-height: 1.7;
-            font-size: 13px;
-            margin-top: 15px;
+            color: #9ca3af;
+            font-size: 12px;
             max-width: 350px;
+            margin-top: 12px;
         }
 
-        footer h3 {
-            font-size: 14px;
-            margin-bottom: 18px;
+        footer h4 {
+            font-size: 13px;
+            margin-bottom: 14px;
         }
 
         footer a {
             display: block;
-            color: #9da6b5;
-            text-decoration: none;
-            margin: 10px 0;
-            font-size: 13px;
+            color: #9ca3af;
+            font-size: 12px;
+            margin: 9px 0;
         }
 
         footer a:hover {
             color: white;
         }
 
-        .footer-bottom {
-            border-top: 1px solid #263143;
-            margin-top: 40px;
-            padding-top: 20px;
-            color: #858f9f;
-            font-size: 12px;
-            display: flex;
-            justify-content: space-between;
+        .copyright {
+            border-top: 1px solid #374151;
+            max-width: 1180px;
+            margin: auto;
+            padding: 18px 20px;
+            color: #9ca3af;
+            font-size: 11px;
         }
 
         /* ================= TOAST ================= */
 
         .toast {
             position: fixed;
-            right: 25px;
-            bottom: 25px;
-            z-index: 5000;
-            background: #172033;
+            right: 20px;
+            bottom: 20px;
+            background: #111827;
             color: white;
-            padding: 14px 18px;
-            border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,.2);
-            transform: translateY(100px);
+            padding: 13px 17px;
+            border-radius: 8px;
+            font-size: 12px;
+            z-index: 5000;
             opacity: 0;
-            transition: .3s;
-            font-size: 13px;
+            transform: translateY(15px);
+            transition: .25s;
+            pointer-events: none;
         }
 
         .toast.show {
-            transform: translateY(0);
             opacity: 1;
-        }
-
-        .no-results {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            color: #707887;
+            transform: translateY(0);
         }
 
         /* ================= RESPONSIVE ================= */
 
-        @media(max-width:1000px) {
+        @media (max-width: 1000px) {
             .search-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -968,72 +1183,108 @@
                 width: 100%;
             }
 
-            .features,
-            .routes-grid {
-                grid-template-columns: 1fr 1fr;
+            .route-grid {
+                grid-template-columns: repeat(2,1fr);
             }
 
             .bus-main {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1.5fr 1fr 1fr;
             }
 
-            .bus-price {
-                text-align: left;
-            }
-
-            .results-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .filters {
+            .bus-main > :nth-child(3) {
                 display: none;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+            .bus-main > :nth-child(5) {
+                grid-column: 3;
+                grid-row: 1;
+            }
+
+            .seat-layout {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media(max-width:700px) {
+        @media (max-width: 760px) {
+            .navbar {
+                padding: 0 18px;
+            }
+
             .nav-links {
                 display: none;
+            }
+
+            .nav-actions {
+                margin-left: auto;
             }
 
             .mobile-menu {
                 display: block;
             }
 
-            .nav-actions .icon-btn {
-                display: none;
-            }
-
             .hero {
-                min-height: 500px;
+                padding: 35px 18px 55px;
             }
 
-            .hero-container {
-                padding-top: 45px;
-            }
-
-            .search-card {
-                margin: -35px 15px 0;
-                padding: 18px;
+            .hero h1 {
+                font-size: 32px;
             }
 
             .search-grid {
                 grid-template-columns: 1fr;
             }
 
-            .features,
-            .routes-grid {
+            .swap-button {
+                right: 12px;
+                bottom: -21px;
+            }
+
+            .trust-row {
+                margin: -20px 18px 0;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .trust-item {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .trust-item:nth-child(2) {
+                border-right: 0;
+            }
+
+            .route-grid,
+            .offer-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .results-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-card {
+                position: static;
             }
 
             .bus-main {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
             }
 
-            .booking-grid {
+            .bus-main > :nth-child(3) {
+                display: block;
+            }
+
+            .bus-main > :nth-child(5) {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+
+            .view-seat-btn {
+                width: 100%;
+            }
+
+            .points,
+            .checkout-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1041,17 +1292,42 @@
                 grid-template-columns: 1fr;
             }
 
-            .full {
+            .form-group.full {
                 grid-column: auto;
             }
 
-            .footer-grid {
+            .payment-options {
                 grid-template-columns: 1fr;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                gap: 10px;
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-main {
+                font-size: 17px;
+            }
+
+            .logo-sub {
+                font-size: 7px;
+            }
+
+            .trust-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-item {
+                border-right: 0;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-overlay {
+                padding: 8px;
             }
         }
     </style>
@@ -1061,354 +1337,400 @@
 
 <!-- ================= NAVBAR ================= -->
 
-<nav class="navbar">
-    <div class="nav-container">
-
-        <a href="#" class="logo">
-            <div class="logo-icon">🚌</div>
-            <div class="logo-text">
-                <strong>Ralis Bus</strong>
-                <span>TOURS & TRAVELS</span>
-            </div>
-        </a>
-
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#routes">Routes</a>
-            <a href="#buses">Buses</a>
-            <a href="#offers">Offers</a>
-            <a href="#contact">Contact</a>
+<header class="navbar">
+    <a href="#home" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div class="logo-text">
+            <div class="logo-main">Ralis Bus</div>
+            <div class="logo-sub">TOURS & TRAVELS</div>
         </div>
+    </a>
 
-        <div class="nav-actions">
-            <button class="icon-btn" onclick="toggleDarkMode()" title="Dark Mode">🌙</button>
-            <button class="login-btn" onclick="showToast('Login feature coming soon!')">
-                Login
-            </button>
-            <button class="icon-btn mobile-menu" onclick="showToast('Use the menu links below to explore')">
-                ☰
-            </button>
-        </div>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#routes">Routes</a>
+        <a href="#resultsSection">Buses</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
+    <div class="nav-actions">
+        <button class="login-btn" onclick="openLogin()">Login</button>
+        <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
     </div>
-</nav>
+</header>
 
 
 <!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
-    <div class="hero-container">
+    <div class="hero-content">
 
-        <div class="hero-content">
-
-            <div class="hero-badge">
-                🛡️ Safe • Reliable • Comfortable Travel
-            </div>
-
-            <h1>
-                Travel More.<br>
-                <span>Worry Less.</span>
-            </h1>
-
-            <p>
-                Book buses across Andhra Pradesh, Telangana and major cities
-                with Ralis Bus Tours & Travels. Find the best routes,
-                timings and fares in seconds.
-            </p>
-
+        <div class="hero-small">
+            🛡️ Safe & Reliable Bus Travel
         </div>
 
+        <h1>Book Bus Tickets. Travel Without Worry.</h1>
+
+        <p>
+            Search, compare and book buses across Andhra Pradesh,
+            Telangana and major cities in India.
+        </p>
+
+        <!-- SEARCH -->
+
+        <div class="search-card">
+
+            <div class="trip-tabs">
+                <button class="trip-tab active" onclick="selectTrip(this)">
+                    One Way
+                </button>
+
+                <button class="trip-tab" onclick="selectTrip(this)">
+                    Round Trip
+                </button>
+            </div>
+
+            <div class="search-grid">
+
+                <div class="field">
+                    <label>From</label>
+
+                    <div class="input-wrap">
+                        <span>📍</span>
+
+                        <select id="fromCity">
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Vijayawada">Vijayawada</option>
+                            <option value="Visakhapatnam">Visakhapatnam</option>
+                            <option value="Tirupati">Tirupati</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Kandukur">Kandukur</option>
+                            <option value="Warangal">Warangal</option>
+                            <option value="Nellore">Nellore</option>
+                        </select>
+                    </div>
+
+                    <button class="swap-button" onclick="swapCities()" title="Swap cities">
+                        ⇄
+                    </button>
+                </div>
+
+
+                <div class="field">
+                    <label>To</label>
+
+                    <div class="input-wrap">
+                        <span>📍</span>
+
+                        <select id="toCity">
+                            <option value="Vijayawada">Vijayawada</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="Visakhapatnam">Visakhapatnam</option>
+                            <option value="Tirupati">Tirupati</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Kandukur">Kandukur</option>
+                            <option value="Warangal">Warangal</option>
+                            <option value="Nellore">Nellore</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label>Journey Date</label>
+
+                    <div class="input-wrap">
+                        <span>📅</span>
+
+                        <input
+                            type="date"
+                            id="journeyDate"
+                            onchange="updateDateText()">
+                    </div>
+
+                    <div class="quick-dates">
+                        <button class="date-chip" onclick="setDate(0)">Today</button>
+                        <button class="date-chip" onclick="setDate(1)">Tomorrow</button>
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <label>Passengers</label>
+
+                    <div class="input-wrap">
+                        <span>👤</span>
+
+                        <select id="passengers">
+                            <option value="1">1 Passenger</option>
+                            <option value="2">2 Passengers</option>
+                            <option value="3">3 Passengers</option>
+                            <option value="4">4 Passengers</option>
+                            <option value="5">5 Passengers</option>
+                            <option value="6">6 Passengers</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <button class="search-btn" onclick="searchBuses()">
+                    🔎 Search Buses
+                </button>
+
+            </div>
+        </div>
     </div>
 </section>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- ================= TRUST ================= -->
 
-<div class="container">
+<div class="trust-row">
 
-    <div class="search-card">
-
-        <div class="trip-tabs">
-            <button class="trip-tab active">One Way</button>
-            <button class="trip-tab" onclick="showToast('Round trip search selected')">
-                Round Trip
-            </button>
+    <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div>
+            <strong>Safe Travel</strong>
+            <small>Verified operators</small>
         </div>
+    </div>
 
-        <div class="search-grid">
-
-            <div class="field">
-                <label>FROM</label>
-                <div class="field-box">
-                    <span>📍</span>
-                    <select id="fromCity">
-                        <option value="Hyderabad">Hyderabad</option>
-                        <option value="Vijayawada">Vijayawada</option>
-                        <option value="Visakhapatnam">Visakhapatnam</option>
-                        <option value="Tirupati">Tirupati</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Kandukur">Kandukur</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>TO</label>
-                <div class="field-box">
-                    <span>📍</span>
-                    <select id="toCity">
-                        <option value="Vijayawada">Vijayawada</option>
-                        <option value="Hyderabad">Hyderabad</option>
-                        <option value="Visakhapatnam">Visakhapatnam</option>
-                        <option value="Tirupati">Tirupati</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Bangalore">Bangalore</option>
-                        <option value="Kandukur">Kandukur</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>JOURNEY DATE</label>
-                <div class="field-box">
-                    <span>📅</span>
-                    <input type="date" id="journeyDate">
-                </div>
-            </div>
-
-            <div class="field">
-                <label>PASSENGERS</label>
-                <div class="field-box">
-                    <span>👤</span>
-                    <select id="passengers">
-                        <option value="1">1 Passenger</option>
-                        <option value="2">2 Passengers</option>
-                        <option value="3">3 Passengers</option>
-                        <option value="4">4 Passengers</option>
-                        <option value="5">5 Passengers</option>
-                    </select>
-                </div>
-            </div>
-
-            <button class="search-btn" onclick="searchBuses()">
-                🔎 Search Buses
-            </button>
-
+    <div class="trust-item">
+        <div class="trust-icon">₹</div>
+        <div>
+            <strong>Best Prices</strong>
+            <small>Compare bus fares</small>
         </div>
+    </div>
 
+    <div class="trust-item">
+        <div class="trust-icon">🎫</div>
+        <div>
+            <strong>Easy Booking</strong>
+            <small>Quick online booking</small>
+        </div>
+    </div>
+
+    <div class="trust-item">
+        <div class="trust-icon">📞</div>
+        <div>
+            <strong>24/7 Support</strong>
+            <small>We're here to help</small>
+        </div>
     </div>
 
 </div>
 
 
-<!-- ================= FEATURES ================= -->
-
-<section>
-    <div class="container">
-
-        <div class="features">
-
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h3>Safe Travel</h3>
-                <p>Verified buses and experienced drivers for a comfortable journey.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Best Prices</h3>
-                <p>Compare different buses and choose the fare that suits you.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🎫</div>
-                <h3>Easy Booking</h3>
-                <p>Search, select your seat and complete your booking in minutes.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📞</div>
-                <h3>24/7 Support</h3>
-                <p>Our support team is available whenever you need assistance.</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
 <!-- ================= POPULAR ROUTES ================= -->
 
-<section id="routes">
-    <div class="container">
+<section class="container" id="routes">
 
-        <div class="section-heading">
-            <h2>Popular Routes</h2>
-            <p>Book your next journey from our most popular destinations.</p>
+    <div class="section-title">
+        <h2>Popular Bus Routes</h2>
+        <p>Book your favourite route in just a few clicks.</p>
+    </div>
+
+    <div class="route-grid">
+
+        <div class="route-card" onclick="quickRoute('Hyderabad','Vijayawada')">
+            <div class="route-icon">🚌</div>
+            <strong>Hyderabad → Vijayawada</strong>
+            <small>Multiple buses available</small>
+            <div class="route-price">Starting ₹499</div>
         </div>
 
-        <div class="routes-grid">
+        <div class="route-card" onclick="quickRoute('Hyderabad','Tirupati')">
+            <div class="route-icon">🚌</div>
+            <strong>Hyderabad → Tirupati</strong>
+            <small>AC Sleeper available</small>
+            <div class="route-price">Starting ₹699</div>
+        </div>
 
-            <div class="route-card"
-                 onclick="selectRoute('Hyderabad','Vijayawada')"
-                 style="background-image:url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=700&q=80')">
-                <div class="route-content">
-                    <small>Popular Route</small>
-                    <h3>Hyderabad → Vijayawada</h3>
-                    <small>Starting from ₹499</small>
-                </div>
-            </div>
+        <div class="route-card" onclick="quickRoute('Vijayawada','Visakhapatnam')">
+            <div class="route-icon">🚌</div>
+            <strong>Vijayawada → Visakhapatnam</strong>
+            <small>Day & night services</small>
+            <div class="route-price">Starting ₹549</div>
+        </div>
 
-            <div class="route-card"
-                 onclick="selectRoute('Hyderabad','Tirupati')"
-                 style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80')">
-                <div class="route-content">
-                    <small>Popular Route</small>
-                    <h3>Hyderabad → Tirupati</h3>
-                    <small>Starting from ₹699</small>
-                </div>
-            </div>
-
-            <div class="route-card"
-                 onclick="selectRoute('Vijayawada','Visakhapatnam')"
-                 style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80')">
-                <div class="route-content">
-                    <small>Popular Route</small>
-                    <h3>Vijayawada → Vizag</h3>
-                    <small>Starting from ₹549</small>
-                </div>
-            </div>
-
-            <div class="route-card"
-                 onclick="selectRoute('Hyderabad','Bangalore')"
-                 style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80')">
-                <div class="route-content">
-                    <small>Popular Route</small>
-                    <h3>Hyderabad → Bangalore</h3>
-                    <small>Starting from ₹799</small>
-                </div>
-            </div>
-
+        <div class="route-card" onclick="quickRoute('Hyderabad','Bangalore')">
+            <div class="route-icon">🚌</div>
+            <strong>Hyderabad → Bangalore</strong>
+            <small>Premium sleeper buses</small>
+            <div class="route-price">Starting ₹799</div>
         </div>
 
     </div>
 </section>
 
 
-<!-- ================= BUS RESULTS ================= -->
+<!-- ================= RESULTS ================= -->
 
-<section class="results-section" id="buses">
+<section id="resultsSection">
 
-    <div class="container">
+    <div class="results-header">
 
-        <div class="section-heading">
-            <h2>Available Buses</h2>
-            <p>Choose from our comfortable and reliable buses.</p>
+        <div class="results-header-inner">
+
+            <div class="route-heading">
+                <span id="resultRoute">Hyderabad → Vijayawada</span>
+
+                <small>
+                    <span id="resultDate">Today</span>
+                    •
+                    <span id="busCount">8</span> buses available
+                </small>
+            </div>
+
+            <select class="sort-select" id="sortSelect" onchange="sortBuses()">
+                <option value="recommended">Recommended</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="departure">Earliest Departure</option>
+                <option value="rating">Highest Rating</option>
+            </select>
+
         </div>
+    </div>
 
-        <div class="results-layout">
 
-            <!-- FILTERS -->
+    <div class="results-layout">
 
-            <aside class="filters">
+        <!-- FILTERS -->
 
-                <h3>Filter Buses</h3>
+        <aside class="filter-card">
 
-                <div class="filter-group">
+            <div class="filter-header">
+                <strong>Filters</strong>
+                <button class="clear-filter" onclick="clearFilters()">Clear All</button>
+            </div>
 
-                    <div class="filter-title">Bus Type</div>
 
-                    <label class="filter-option">
+            <div class="filter-group">
+
+                <h4>Bus Type</h4>
+
+                <div class="check-row">
+                    <label>
                         <input type="checkbox" class="type-filter" value="AC">
                         AC
                     </label>
+                    <span class="filter-count">6</span>
+                </div>
 
-                    <label class="filter-option">
+                <div class="check-row">
+                    <label>
+                        <input type="checkbox" class="type-filter" value="Non-AC">
+                        Non-AC
+                    </label>
+                    <span class="filter-count">2</span>
+                </div>
+
+                <div class="check-row">
+                    <label>
                         <input type="checkbox" class="type-filter" value="Sleeper">
                         Sleeper
                     </label>
+                    <span class="filter-count">5</span>
+                </div>
 
-                    <label class="filter-option">
+                <div class="check-row">
+                    <label>
                         <input type="checkbox" class="type-filter" value="Seater">
                         Seater
                     </label>
-
+                    <span class="filter-count">5</span>
                 </div>
-
-                <div class="filter-group">
-
-                    <div class="filter-title">Departure</div>
-
-                    <label class="filter-option">
-                        <input type="radio" name="timeFilter" value="morning">
-                        Morning
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="radio" name="timeFilter" value="evening">
-                        Evening
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="radio" name="timeFilter" value="night">
-                        Night
-                    </label>
-
-                    <label class="filter-option">
-                        <input type="radio" name="timeFilter" value="all" checked>
-                        All
-                    </label>
-
-                </div>
-
-                <div class="filter-group">
-
-                    <div class="filter-title">Maximum Price</div>
-
-                    <input
-                        type="range"
-                        id="priceRange"
-                        min="300"
-                        max="2000"
-                        value="2000"
-                        style="width:100%; accent-color:#e63946;"
-                        oninput="updatePrice(this.value)"
-                    >
-
-                    <div style="font-size:12px;margin-top:8px;color:#687182;">
-                        Up to ₹<span id="priceValue">2000</span>
-                    </div>
-
-                </div>
-
-            </aside>
-
-
-            <!-- BUS LIST -->
-
-            <div>
-
-                <div class="results-header">
-
-                    <div>
-                        <h2 id="resultsTitle">Popular Bus Services</h2>
-                        <p id="resultCount">Showing available buses</p>
-                    </div>
-
-                    <select class="sort-select" onchange="sortBuses(this.value)">
-                        <option value="recommended">Recommended</option>
-                        <option value="priceLow">Price: Low to High</option>
-                        <option value="priceHigh">Price: High to Low</option>
-                        <option value="departure">Earliest Departure</option>
-                    </select>
-
-                </div>
-
-                <div class="bus-list" id="busList"></div>
 
             </div>
+
+
+            <div class="filter-group">
+
+                <h4>Departure Time</h4>
+
+                <div class="check-row">
+                    <label>
+                        <input type="checkbox" class="time-filter" value="morning">
+                        🌅 Morning
+                    </label>
+                </div>
+
+                <div class="check-row">
+                    <label>
+                        <input type="checkbox" class="time-filter" value="afternoon">
+                        ☀️ Afternoon
+                    </label>
+                </div>
+
+                <div class="check-row">
+                    <label>
+                        <input type="checkbox" class="time-filter" value="evening">
+                        🌆 Evening
+                    </label>
+                </div>
+
+                <div class="check-row">
+                    <label>
+                        <input type="checkbox" class="time-filter" value="night">
+                        🌙 Night
+                    </label>
+                </div>
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <h4>Price</h4>
+
+                <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+                    <span style="font-size:11px;color:#6b7280;">Up to</span>
+                    <span class="range-value" id="priceValue">₹2000</span>
+                </div>
+
+                <input
+                    type="range"
+                    id="priceRange"
+                    min="400"
+                    max="2000"
+                    value="2000"
+                    step="50"
+                    oninput="updatePriceFilter()">
+
+            </div>
+
+
+            <div class="filter-group">
+
+                <h4>Rating</h4>
+
+                <div class="check-row">
+                    <label>
+                        <input type="radio" name="rating" value="4">
+                        ⭐ 4+ Rating
+                    </label>
+                </div>
+
+                <div class="check-row">
+                    <label>
+                        <input type="radio" name="rating" value="3">
+                        ⭐ 3+ Rating
+                    </label>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- BUS LIST -->
+
+        <div class="bus-list" id="busList">
 
         </div>
 
@@ -1419,107 +1741,45 @@
 
 <!-- ================= OFFERS ================= -->
 
-<section id="offers">
+<section class="container" id="offers">
 
-    <div class="container">
+    <div class="section-title">
+        <h2>Offers & Discounts</h2>
+        <p>Save more on your next Ralis journey.</p>
+    </div>
 
-        <div class="section-heading">
-            <h2>Travel Offers</h2>
-            <p>Save more on your next journey.</p>
+    <div class="offer-grid">
+
+        <div class="offer">
+            <strong>First Booking Offer</strong>
+            <p style="font-size:12px;margin-top:6px;">
+                Get up to ₹150 OFF on your first booking.
+            </p>
+
+            <span class="offer-code">FIRST150</span>
         </div>
 
-        <div class="features">
+        <div class="offer">
+            <strong>UPI Payment Offer</strong>
+            <p style="font-size:12px;margin-top:6px;">
+                Get ₹100 instant discount on eligible UPI payments.
+            </p>
 
-            <div class="feature-card">
-                <div class="feature-icon">🎉</div>
-                <h3>FIRST50</h3>
-                <p>Get up to ₹50 OFF on your first booking.</p>
-            </div>
+            <span class="offer-code">UPI100</span>
+        </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">💳</div>
-                <h3>PAY20</h3>
-                <p>Save ₹20 when you pay online.</p>
-            </div>
+        <div class="offer">
+            <strong>Family Travel</strong>
+            <p style="font-size:12px;margin-top:6px;">
+                Special discounts for group bookings.
+            </p>
 
-            <div class="feature-card">
-                <div class="feature-icon">👨‍👩‍👧</div>
-                <h3>FAMILY100</h3>
-                <p>Group bookings can get up to ₹100 OFF.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">⭐</div>
-                <h3>Ralis Rewards</h3>
-                <p>Earn reward points with every booking.</p>
-            </div>
-
+            <span class="offer-code">FAMILY100</span>
         </div>
 
     </div>
 
 </section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer id="contact">
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-            <div class="footer-brand">
-
-                <div class="logo">
-                    <div class="logo-icon">🚌</div>
-
-                    <div class="logo-text">
-                        <strong style="color:white;">Ralis Bus</strong>
-                        <span style="color:#9da6b5;">TOURS & TRAVELS</span>
-                    </div>
-                </div>
-
-                <p>
-                    Your trusted travel partner for safe, comfortable and
-                    affordable bus journeys across South India.
-                </p>
-
-            </div>
-
-            <div>
-                <h3>Company</h3>
-                <a href="#home">About Us</a>
-                <a href="#routes">Routes</a>
-                <a href="#offers">Offers</a>
-                <a href="#">Careers</a>
-            </div>
-
-            <div>
-                <h3>Support</h3>
-                <a href="#">Help Center</a>
-                <a href="#">Cancellation</a>
-                <a href="#">Refund Policy</a>
-                <a href="#">Terms & Conditions</a>
-            </div>
-
-            <div>
-                <h3>Contact</h3>
-                <a href="tel:+919876543210">📞 +91 98765 43210</a>
-                <a href="mailto:support@ralisbus.com">✉️ support@ralisbus.com</a>
-                <a href="#">📍 Hyderabad, Telangana</a>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <span>© 2026 Ralis Bus Tours & Travels. All rights reserved.</span>
-            <span>Made for comfortable journeys 🚌</span>
-        </div>
-
-    </div>
-
-</footer>
 
 
 <!-- ================= BOOKING MODAL ================= -->
@@ -1529,531 +1789,78 @@
     <div class="modal">
 
         <div class="modal-header">
+            <h3 id="modalBusTitle">Select Your Seats</h3>
 
-            <h2 id="modalTitle">Select Your Seats</h2>
-
-            <button class="close-btn" onclick="closeModal()">×</button>
-
+            <button class="close-modal" onclick="closeModal()">
+                ×
+            </button>
         </div>
 
-        <div class="modal-body" id="modalBody"></div>
 
-    </div>
+        <div class="modal-body">
 
-</div>
+            <div class="seat-layout">
 
+                <!-- SEAT MAP -->
 
-<!-- ================= TOAST ================= -->
+                <div>
 
-<div class="toast" id="toast"></div>
+                    <div class="bus-seat-map">
 
-
-<script>
-
-    /* =========================================================
-       BUS DATABASE
-    ========================================================= */
-
-    const buses = [
-
-        {
-            id: 1,
-            company: "Ralis Express",
-            from: "Hyderabad",
-            to: "Vijayawada",
-            departure: "06:30 AM",
-            arrival: "11:00 AM",
-            duration: "4h 30m",
-            type: "AC Sleeper",
-            price: 650,
-            seats: 18,
-            rating: "4.7",
-            reviews: 328,
-            amenities: ["WiFi", "Charging", "Blanket"],
-            period: "morning"
-        },
-
-        {
-            id: 2,
-            company: "Ralis Premium",
-            from: "Hyderabad",
-            to: "Vijayawada",
-            departure: "09:15 AM",
-            arrival: "01:45 PM",
-            duration: "4h 30m",
-            type: "AC Seater",
-            price: 499,
-            seats: 26,
-            rating: "4.5",
-            reviews: 214,
-            amenities: ["Charging", "Water Bottle"],
-            period: "morning"
-        },
-
-        {
-            id: 3,
-            company: "Ralis Night Rider",
-            from: "Hyderabad",
-            to: "Vijayawada",
-            departure: "10:30 PM",
-            arrival: "05:00 AM",
-            duration: "6h 30m",
-            type: "AC Sleeper",
-            price: 799,
-            seats: 12,
-            rating: "4.8",
-            reviews: 451,
-            amenities: ["WiFi", "Blanket", "Pillow"],
-            period: "night"
-        },
-
-        {
-            id: 4,
-            company: "Ralis Travels",
-            from: "Hyderabad",
-            to: "Tirupati",
-            departure: "07:00 PM",
-            arrival: "06:00 AM",
-            duration: "11h",
-            type: "AC Sleeper",
-            price: 999,
-            seats: 15,
-            rating: "4.6",
-            reviews: 187,
-            amenities: ["WiFi", "Blanket", "Charging"],
-            period: "evening"
-        },
-
-        {
-            id: 5,
-            company: "Ralis Volvo",
-            from: "Hyderabad",
-            to: "Bangalore",
-            departure: "08:30 PM",
-            arrival: "06:30 AM",
-            duration: "10h",
-            type: "AC Sleeper",
-            price: 1199,
-            seats: 10,
-            rating: "4.9",
-            reviews: 672,
-            amenities: ["WiFi", "Blanket", "Pillow", "Charging"],
-            period: "evening"
-        },
-
-        {
-            id: 6,
-            company: "Ralis Super Fast",
-            from: "Vijayawada",
-            to: "Visakhapatnam",
-            departure: "05:45 AM",
-            arrival: "10:15 AM",
-            duration: "4h 30m",
-            type: "AC Seater",
-            price: 549,
-            seats: 21,
-            rating: "4.4",
-            reviews: 142,
-            amenities: ["Charging", "Water Bottle"],
-            period: "morning"
-        },
-
-        {
-            id: 7,
-            company: "Ralis Comfort",
-            from: "Hyderabad",
-            to: "Visakhapatnam",
-            departure: "08:00 PM",
-            arrival: "06:30 AM",
-            duration: "10h 30m",
-            type: "AC Sleeper",
-            price: 1099,
-            seats: 16,
-            rating: "4.7",
-            reviews: 293,
-            amenities: ["WiFi", "Blanket", "Charging"],
-            period: "evening"
-        },
-
-        {
-            id: 8,
-            company: "Ralis Budget",
-            from: "Kandukur",
-            to: "Hyderabad",
-            departure: "06:00 AM",
-            arrival: "11:30 AM",
-            duration: "5h 30m",
-            type: "Non-AC Seater",
-            price: 399,
-            seats: 29,
-            rating: "4.2",
-            reviews: 96,
-            amenities: ["Charging"],
-            period: "morning"
-        },
-
-        {
-            id: 9,
-            company: "Ralis Chennai Express",
-            from: "Hyderabad",
-            to: "Chennai",
-            departure: "09:00 PM",
-            arrival: "07:00 AM",
-            duration: "10h",
-            type: "AC Sleeper",
-            price: 1099,
-            seats: 14,
-            rating: "4.7",
-            reviews: 384,
-            amenities: ["WiFi", "Blanket", "Charging"],
-            period: "evening"
-        },
-
-        {
-            id: 10,
-            company: "Ralis Coastal Express",
-            from: "Vijayawada",
-            to: "Visakhapatnam",
-            departure: "08:30 PM",
-            arrival: "01:30 AM",
-            duration: "5h",
-            type: "AC Sleeper",
-            price: 699,
-            seats: 17,
-            rating: "4.6",
-            reviews: 221,
-            amenities: ["WiFi", "Charging"],
-            period: "evening"
-        }
-
-    ];
-
-
-    let currentBuses = [...buses];
-    let selectedBus = null;
-    let selectedSeats = [];
-
-
-    /* =========================================================
-       INITIALIZATION
-    ========================================================= */
-
-    document.addEventListener("DOMContentLoaded", function() {
-
-        const today = new Date();
-
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, "0");
-        const dd = String(today.getDate()).padStart(2, "0");
-
-        document.getElementById("journeyDate").value =
-            `${yyyy}-${mm}-${dd}`;
-
-        document.getElementById("journeyDate").min =
-            `${yyyy}-${mm}-${dd}`;
-
-        renderBuses(buses);
-
-        document.querySelectorAll(".type-filter").forEach(function(box) {
-            box.addEventListener("change", applyFilters);
-        });
-
-        document.querySelectorAll("input[name='timeFilter']").forEach(function(box) {
-            box.addEventListener("change", applyFilters);
-        });
-
-    });
-
-
-    /* =========================================================
-       SEARCH
-    ========================================================= */
-
-    function searchBuses() {
-
-        const from = document.getElementById("fromCity").value;
-        const to = document.getElementById("toCity").value;
-        const date = document.getElementById("journeyDate").value;
-
-        if (from === to) {
-            showToast("From and To locations cannot be the same.");
-            return;
-        }
-
-        currentBuses = buses.filter(function(bus) {
-
-            return bus.from === from && bus.to === to;
-
-        });
-
-        /*
-         If the exact route is not available in our demo database,
-         show all buses so the UI remains useful.
-        */
-
-        if (currentBuses.length === 0) {
-
-            showToast(
-                "No exact demo buses found for this route. Showing popular services."
-            );
-
-            currentBuses = [...buses];
-
-        } else {
-
-            showToast(
-                currentBuses.length + " buses found for " +
-                from + " → " + to
-            );
-
-        }
-
-        document.getElementById("resultsTitle").textContent =
-            from + " → " + to;
-
-        renderBuses(currentBuses);
-
-        document.getElementById("buses").scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-
-    /* =========================================================
-       ROUTE QUICK SEARCH
-    ========================================================= */
-
-    function selectRoute(from, to) {
-
-        document.getElementById("fromCity").value = from;
-        document.getElementById("toCity").value = to;
-
-        searchBuses();
-
-    }
-
-
-    /* =========================================================
-       RENDER BUSES
-    ========================================================= */
-
-    function renderBuses(list) {
-
-        const container = document.getElementById("busList");
-
-        container.innerHTML = "";
-
-        document.getElementById("resultCount").textContent =
-            list.length + " bus service(s) available";
-
-
-        if (list.length === 0) {
-
-            container.innerHTML = `
-                <div class="no-results">
-                    <div style="font-size:40px;margin-bottom:10px;">🚌</div>
-                    <h3>No buses found</h3>
-                    <p>Try changing your filters or search route.</p>
-                </div>
-            `;
-
-            return;
-        }
-
-
-        list.forEach(function(bus) {
-
-            const card = document.createElement("div");
-
-            card.className = "bus-card";
-
-            card.innerHTML = `
-
-                <div class="bus-main">
-
-                    <div class="bus-company">
-
-                        <div class="bus-logo">🚌</div>
-
-                        <div>
-                            <strong>${bus.company}</strong>
-                            <span>${bus.type}</span>
-                            <div class="rating">
-                                ★ ${bus.rating}
-                                <span style="color:#89919f;font-weight:400;">
-                                    (${bus.reviews} reviews)
-                                </span>
-                            </div>
+                        <div class="driver">
+                            🚍
                         </div>
 
-                    </div>
+                        <div id="seatMap"></div>
 
+                        <div class="seat-legend">
 
-                    <div class="timing">
+                            <span>
+                                <span class="legend-box legend-available"></span>
+                                Available
+                            </span>
 
-                        <div class="time">
-                            <strong>${bus.departure}</strong>
-                            <small>${bus.from}</small>
-                        </div>
+                            <span>
+                                <span class="legend-box legend-selected"></span>
+                                Selected
+                            </span>
 
-                        <div class="route-line">
-                            <span>${bus.duration}</span>
-                            <div></div>
-                            <span>Direct</span>
-                        </div>
+                            <span>
+                                <span class="legend-box legend-booked"></span>
+                                Booked
+                            </span>
 
-                        <div class="time">
-                            <strong>${bus.arrival}</strong>
-                            <small>${bus.to}</small>
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-                        <div style="font-size:12px;color:#697180;">
-                            Available Seats
-                        </div>
-
-                        <div style="font-size:18px;font-weight:800;margin-top:4px;">
-                            ${bus.seats}
-                        </div>
-
-                    </div>
-
-
-                    <div class="bus-price">
-
-                        <strong>₹${bus.price}</strong>
-
-                        <span>per passenger</span>
-
-                        <button
-                            class="select-seat-btn"
-                            onclick="openSeatSelection(${bus.id})">
-                            Select Seat
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="bus-extra">
-
-                    <span class="tag">❄ ${bus.type}</span>
-
-                    ${bus.amenities.map(function(item) {
-                        return `<span class="tag">✓ ${item}</span>`;
-                    }).join("")}
-
-                    <span class="tag">🛡️ Live Tracking</span>
-
-                </div>
-
-            `;
-
-            container.appendChild(card);
-
-        });
-
-    }
-
-
-    /* =========================================================
-       SEAT SELECTION
-    ========================================================= */
-
-    function openSeatSelection(busId) {
-
-        selectedBus = buses.find(function(bus) {
-            return bus.id === busId;
-        });
-
-        selectedSeats = [];
-
-        document.getElementById("modalTitle").textContent =
-            "Select Your Seats";
-
-        const modalBody = document.getElementById("modalBody");
-
-        modalBody.innerHTML = `
-
-            <div class="booking-grid">
-
-                <div class="bus-preview">
-
-                    <h3>${selectedBus.company}</h3>
-
-                    <div class="driver">
-                        DRIVER
-                    </div>
-
-                    <div class="seat-layout">
-
-                        ${generateSeats()}
-
-                    </div>
-
-                    <div class="seat-legend">
-
-                        <div class="legend-item">
-                            <span class="legend-box"></span>
-                            Available
-                        </div>
-
-                        <div class="legend-item">
-                            <span class="legend-box selected"></span>
-                            Selected
-                        </div>
-
-                        <div class="legend-item">
-                            <span class="legend-box booked"></span>
-                            Booked
                         </div>
 
                     </div>
 
                 </div>
 
+
+                <!-- SUMMARY -->
 
                 <div class="booking-summary">
 
-                    <div class="summary-bus">
-
-                        <strong>
-                            ${selectedBus.from} → ${selectedBus.to}
-                        </strong>
-
-                        <div style="font-size:12px;color:#727b89;margin-top:6px;">
-                            ${selectedBus.departure}
-                            •
-                            ${selectedBus.duration}
-                        </div>
-
-                    </div>
-
+                    <h4>Booking Summary</h4>
 
                     <div class="summary-row">
                         <span>Bus</span>
-                        <strong>${selectedBus.company}</strong>
+                        <strong id="summaryBus">Ralis Express</strong>
                     </div>
 
                     <div class="summary-row">
-                        <span>Bus Type</span>
-                        <strong>${selectedBus.type}</strong>
+                        <span>Route</span>
+                        <strong id="summaryRoute">Hyderabad → Vijayawada</strong>
                     </div>
 
                     <div class="summary-row">
-                        <span>Selected Seats</span>
-                        <strong id="selectedSeatText">None</strong>
+                        <span>Seats</span>
+                        <strong id="selectedSeatsText">None</strong>
                     </div>
 
                     <div class="summary-row">
                         <span>Passengers</span>
-                        <strong id="passengerCount">0</strong>
+                        <strong id="summaryPassengers">1</strong>
                     </div>
 
                     <div class="summary-row">
@@ -2062,544 +1869,988 @@
                     </div>
 
                     <div class="summary-row">
-                        <span>Service Fee</span>
-                        <strong id="serviceFee">₹0</strong>
+                        <span>Convenience Fee</span>
+                        <strong id="convenienceFee">₹0</strong>
                     </div>
 
-                    <div class="summary-row total">
+                    <div class="summary-total">
                         <span>Total</span>
                         <span id="totalFare">₹0</span>
                     </div>
 
                     <button
                         class="continue-btn"
-                        onclick="continueToPassengerDetails()">
-                        Continue →
+                        id="continueSeatBtn"
+                        disabled
+                        onclick="openCheckout()">
+
+                        Continue
+
                     </button>
 
                 </div>
 
             </div>
 
-        `;
+        </div>
 
-        document.getElementById("bookingModal").classList.add("show");
+    </div>
 
-    }
+</div>
 
 
-    function generateSeats() {
+<!-- ================= CHECKOUT MODAL ================= -->
 
-        let html = "";
+<div class="modal-overlay" id="checkoutModal">
 
-        const bookedSeats = [3, 7, 12, 16, 21, 24];
+    <div class="modal">
 
-        for (let row = 0; row < 7; row++) {
+        <div class="modal-header">
 
-            html += `<div class="seat-row">`;
+            <h3>Passenger & Payment Details</h3>
 
-            for (let column = 0; column < 4; column++) {
+            <button class="close-modal" onclick="closeCheckout()">
+                ×
+            </button>
 
-                const seatNumber = row * 4 + column + 1;
+        </div>
 
-                const isBooked = bookedSeats.includes(seatNumber);
 
-                if (column === 2) {
-                    html += `<div style="width:15px;"></div>`;
-                }
+        <div class="modal-body">
 
-                html += `
-                    <button
-                        class="seat ${isBooked ? "booked" : ""}"
-                        ${isBooked ? "disabled" : ""}
-                        onclick="toggleSeat(this, ${seatNumber})">
-                        ${seatNumber}
-                    </button>
-                `;
+            <div class="checkout-grid">
 
-            }
+                <div>
 
-            html += `</div>`;
+                    <div class="form-card">
 
-        }
+                        <h4>Passenger Details</h4>
 
-        return html;
+                        <div class="form-grid">
 
-    }
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input
+                                    type="text"
+                                    id="passengerName"
+                                    placeholder="Enter passenger name">
+                            </div>
 
+                            <div class="form-group">
+                                <label>Age</label>
+                                <input
+                                    type="number"
+                                    id="passengerAge"
+                                    placeholder="Age"
+                                    min="1"
+                                    max="100">
+                            </div>
 
-    function toggleSeat(button, seatNumber) {
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <input
+                                    type="tel"
+                                    id="passengerMobile"
+                                    placeholder="10 digit mobile number"
+                                    maxlength="10">
+                            </div>
 
-        if (button.classList.contains("booked")) {
-            return;
-        }
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    id="passengerEmail"
+                                    placeholder="Email address">
+                            </div>
 
+                            <div class="form-group">
+                                <label>Boarding Point</label>
 
-        if (button.classList.contains("selected")) {
+                                <select id="boardingPoint">
 
-            button.classList.remove("selected");
+                                    <option>Hyderabad MGBS</option>
+                                    <option>Hyderabad LB Nagar</option>
+                                    <option>Hyderabad Kukatpally</option>
+                                    <option>Hyderabad Gachibowli</option>
 
-            selectedSeats =
-                selectedSeats.filter(function(seat) {
-                    return seat !== seatNumber;
-                });
+                                </select>
+                            </div>
 
-        } else {
+                            <div class="form-group">
+                                <label>Dropping Point</label>
 
-            const maxPassengers =
-                parseInt(document.getElementById("passengers").value);
+                                <select id="droppingPoint">
 
-            if (selectedSeats.length >= maxPassengers) {
+                                    <option>Vijayawada Bus Stand</option>
+                                    <option>Vijayawada Benz Circle</option>
+                                    <option>Vijayawada Ramavarappadu</option>
 
-                showToast(
-                    "You selected " +
-                    maxPassengers +
-                    " passenger(s)."
-                );
+                                </select>
+                            </div>
 
-                return;
-            }
-
-            button.classList.add("selected");
-
-            selectedSeats.push(seatNumber);
-
-        }
-
-        updateBookingSummary();
-
-    }
-
-
-    function updateBookingSummary() {
-
-        const count = selectedSeats.length;
-
-        const baseFare =
-            count * selectedBus.price;
-
-        const serviceFee =
-            count > 0 ? count * 25 : 0;
-
-        const total =
-            baseFare + serviceFee;
-
-
-        document.getElementById("selectedSeatText").textContent =
-            count ? selectedSeats.join(", ") : "None";
-
-        document.getElementById("passengerCount").textContent =
-            count;
-
-        document.getElementById("baseFare").textContent =
-            "₹" + baseFare;
-
-        document.getElementById("serviceFee").textContent =
-            "₹" + serviceFee;
-
-        document.getElementById("totalFare").textContent =
-            "₹" + total;
-
-    }
-
-
-    /* =========================================================
-       PASSENGER DETAILS
-    ========================================================= */
-
-    function continueToPassengerDetails() {
-
-        if (selectedSeats.length === 0) {
-
-            showToast("Please select at least one seat.");
-
-            return;
-        }
-
-        document.getElementById("modalTitle").textContent =
-            "Passenger Details";
-
-        const total =
-            selectedSeats.length *
-            (selectedBus.price + 25);
-
-        document.getElementById("modalBody").innerHTML = `
-
-            <div>
-
-                <div style="
-                    background:#f5f7fa;
-                    padding:15px;
-                    border-radius:10px;
-                    margin-bottom:22px;
-                ">
-
-                    <strong>
-                        ${selectedBus.company}
-                    </strong>
-
-                    <div style="
-                        font-size:13px;
-                        color:#697180;
-                        margin-top:5px;
-                    ">
-                        ${selectedBus.from}
-                        →
-                        ${selectedBus.to}
-                        |
-                        ${selectedBus.departure}
-                        |
-                        Seats:
-                        ${selectedSeats.join(", ")}
-                    </div>
-
-                </div>
-
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-                        <label>FULL NAME</label>
-                        <input
-                            type="text"
-                            id="passengerName"
-                            placeholder="Enter passenger name">
-                    </div>
-
-                    <div class="form-group">
-                        <label>AGE</label>
-                        <input
-                            type="number"
-                            id="passengerAge"
-                            placeholder="Enter age"
-                            min="1"
-                            max="100">
-                    </div>
-
-                    <div class="form-group">
-                        <label>GENDER</label>
-                        <select id="passengerGender">
-                            <option value="">Select gender</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>PHONE NUMBER</label>
-                        <input
-                            type="tel"
-                            id="passengerPhone"
-                            placeholder="Enter mobile number">
-                    </div>
-
-                    <div class="form-group">
-                        <label>EMAIL</label>
-                        <input
-                            type="email"
-                            id="passengerEmail"
-                            placeholder="Enter email address">
-                    </div>
-
-                    <div class="form-group">
-                        <label>BOARDING POINT</label>
-                        <select id="boardingPoint">
-
-                            <option>
-                                ${selectedBus.from} Central Bus Station
-                            </option>
-
-                            <option>
-                                ${selectedBus.from} Main Road
-                            </option>
-
-                            <option>
-                                ${selectedBus.from} Railway Station
-                            </option>
-
-                        </select>
-                    </div>
-
-                    <div class="form-group full">
-                        <label>DROP POINT</label>
-
-                        <select id="dropPoint">
-
-                            <option>
-                                ${selectedBus.to} Central Bus Station
-                            </option>
-
-                            <option>
-                                ${selectedBus.to} Main Road
-                            </option>
-
-                            <option>
-                                ${selectedBus.to} Railway Station
-                            </option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-
-                <div style="
-                    margin-top:22px;
-                    padding:15px;
-                    border-radius:10px;
-                    background:#fff7e8;
-                    color:#75551b;
-                    font-size:12px;
-                ">
-                    ⚠️ Please carry a valid ID proof during travel.
-                    Boarding closes 15 minutes before departure.
-                </div>
-
-
-                <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    align-items:center;
-                    margin-top:25px;
-                    padding-top:18px;
-                    border-top:1px solid #edf0f4;
-                ">
-
-                    <div>
-                        <small style="color:#737c8b;">
-                            Total Amount
-                        </small>
-
-                        <div style="
-                            font-size:22px;
-                            font-weight:800;
-                            margin-top:3px;
-                        ">
-                            ₹${total}
                         </div>
+
                     </div>
 
-                    <button
-                        class="continue-btn"
-                        style="width:220px;"
-                        onclick="confirmBooking()">
-                        Proceed to Payment →
-                    </button>
+
+                    <div class="form-card" style="margin-top:15px;">
+
+                        <h4>Payment Method</h4>
+
+                        <div class="payment-options">
+
+                            <div
+                                class="payment-option active"
+                                onclick="selectPayment(this)">
+                                UPI
+                            </div>
+
+                            <div
+                                class="payment-option"
+                                onclick="selectPayment(this)">
+                                Cards
+                            </div>
+
+                            <div
+                                class="payment-option"
+                                onclick="selectPayment(this)">
+                                Net Banking
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
-            </div>
 
-        `;
+                <!-- CHECKOUT SUMMARY -->
 
-    }
+                <div class="booking-summary">
 
-
-    /* =========================================================
-       CONFIRM BOOKING
-    ========================================================= */
-
-    function confirmBooking() {
-
-        const name =
-            document.getElementById("passengerName").value.trim();
-
-        const age =
-            document.getElementById("passengerAge").value.trim();
-
-        const phone =
-            document.getElementById("passengerPhone").value.trim();
-
-        const email =
-            document.getElementById("passengerEmail").value.trim();
-
-
-        if (!name || !age || !phone || !email) {
-
-            showToast("Please complete all passenger details.");
-
-            return;
-        }
-
-
-        if (phone.length < 10) {
-
-            showToast("Please enter a valid phone number.");
-
-            return;
-        }
-
-
-        const bookingId =
-            "RAL" +
-            Math.floor(100000 + Math.random() * 900000);
-
-
-        const total =
-            selectedSeats.length *
-            (selectedBus.price + 25);
-
-
-        document.getElementById("modalTitle").textContent =
-            "Booking Confirmed 🎉";
-
-
-        document.getElementById("modalBody").innerHTML = `
-
-            <div class="success">
-
-                <div class="success-icon">
-                    ✓
-                </div>
-
-                <h2>
-                    Your booking is confirmed!
-                </h2>
-
-                <p style="
-                    color:#697180;
-                    margin-top:8px;
-                ">
-                    Thank you for booking with Ralis Bus Tours & Travels.
-                </p>
-
-
-                <div class="ticket">
-
-                    <div style="
-                        display:flex;
-                        justify-content:space-between;
-                        margin-bottom:15px;
-                    ">
-
-                        <strong>
-                            Ralis Bus
-                        </strong>
-
-                        <span style="
-                            color:#16934f;
-                            font-weight:800;
-                        ">
-                            CONFIRMED
-                        </span>
-
-                    </div>
-
+                    <h4>Fare Summary</h4>
 
                     <div class="summary-row">
-                        <span>Booking ID</span>
-                        <strong>${bookingId}</strong>
-                    </div>
-
-                    <div class="summary-row">
-                        <span>Passenger</span>
-                        <strong>${name}</strong>
+                        <span>Bus</span>
+                        <strong id="checkoutBus">Ralis Express</strong>
                     </div>
 
                     <div class="summary-row">
                         <span>Route</span>
-                        <strong>
-                            ${selectedBus.from}
-                            →
-                            ${selectedBus.to}
-                        </strong>
-                    </div>
-
-                    <div class="summary-row">
-                        <span>Departure</span>
-                        <strong>${selectedBus.departure}</strong>
+                        <strong id="checkoutRoute">Hyderabad → Vijayawada</strong>
                     </div>
 
                     <div class="summary-row">
                         <span>Seats</span>
-                        <strong>${selectedSeats.join(", ")}</strong>
+                        <strong id="checkoutSeats">-</strong>
                     </div>
 
-                    <div class="summary-row total">
-                        <span>Total Paid</span>
-                        <strong>₹${total}</strong>
+                    <div class="summary-row">
+                        <span>Ticket Fare</span>
+                        <strong id="checkoutFare">₹0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Convenience Fee</span>
+                        <strong>₹30</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>GST</span>
+                        <strong id="checkoutGst">₹0</strong>
+                    </div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="checkoutTotal">₹0</span>
+                    </div>
+
+                    <button
+                        class="continue-btn"
+                        onclick="confirmBooking()">
+
+                        🔒 Pay Securely
+
+                    </button>
+
+                    <p style="font-size:9px;color:#9ca3af;text-align:center;margin-top:10px;">
+                        Demo payment — no real money will be charged.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CONFIRMATION MODAL ================= -->
+
+<div class="modal-overlay" id="confirmationModal">
+
+    <div class="modal">
+
+        <div class="confirmation">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>Booking Confirmed!</h2>
+
+            <p style="color:#6b7280;margin-top:8px;">
+                Your Ralis Bus ticket has been successfully booked.
+            </p>
+
+            <div class="booking-id" id="bookingId">
+                RB000000
+            </div>
+
+            <div class="form-card" style="max-width:500px;margin:15px auto;text-align:left;">
+
+                <div class="summary-row">
+                    <span>Passenger</span>
+                    <strong id="confirmPassenger">-</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Route</span>
+                    <strong id="confirmRoute">-</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Seats</span>
+                    <strong id="confirmSeats">-</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Boarding</span>
+                    <strong id="confirmBoarding">-</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Total Paid</span>
+                    <strong id="confirmTotal">-</strong>
+                </div>
+
+            </div>
+
+            <button
+                class="continue-btn"
+                style="max-width:300px;"
+                onclick="closeAllModals()">
+
+                Done
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+
+                <div class="logo-icon">🚌</div>
+
+                <div class="logo-text">
+                    <div class="logo-main" style="color:white;">
+                        Ralis Bus
+                    </div>
+
+                    <div class="logo-sub">
+                        TOURS & TRAVELS
+                    </div>
+                </div>
+
+            </div>
+
+            <p>
+                Your trusted travel partner for safe, comfortable
+                and affordable bus journeys across South India.
+            </p>
+
+        </div>
+
+
+        <div>
+            <h4>Company</h4>
+            <a href="#home">Home</a>
+            <a href="#routes">Popular Routes</a>
+            <a href="#offers">Offers</a>
+            <a href="#">About Us</a>
+        </div>
+
+
+        <div>
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Cancellation Policy</a>
+            <a href="#">Refund Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+
+
+        <div>
+            <h4>Contact</h4>
+            <a href="tel:+919876543210">📞 +91 98765 43210</a>
+            <a href="mailto:support@ralisbus.com">✉️ support@ralisbus.com</a>
+            <a href="#">📍 Hyderabad, Telangana</a>
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Ralis Bus Tours & Travels. All rights reserved.
+    </div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+    /* ============================================================
+       BUS DATA
+       ============================================================ */
+
+    const buses = [
+
+        {
+            id: 1,
+            operator: "Ralis Express",
+            type: "AC Sleeper",
+            categories: ["AC", "Sleeper"],
+            rating: 4.7,
+            reviews: 326,
+            departure: "09:30 PM",
+            arrival: "04:30 AM",
+            duration: "7h 00m",
+            price: 699,
+            seats: 18,
+            departureHour: 21,
+            amenities: ["❄️ AC", "🔌 Charging", "💧 Water Bottle", "🛡️ Live Tracking"],
+            boarding: "MGBS Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        },
+
+        {
+            id: 2,
+            operator: "Ralis Super Fast",
+            type: "AC Seater",
+            categories: ["AC", "Seater"],
+            rating: 4.5,
+            reviews: 214,
+            departure: "06:15 AM",
+            arrival: "11:15 AM",
+            duration: "5h 00m",
+            price: 549,
+            seats: 24,
+            departureHour: 6,
+            amenities: ["❄️ AC", "🔌 Charging", "💧 Water Bottle"],
+            boarding: "LB Nagar Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        },
+
+        {
+            id: 3,
+            operator: "Ralis Coastal Express",
+            type: "AC Sleeper",
+            categories: ["AC", "Sleeper"],
+            rating: 4.8,
+            reviews: 488,
+            departure: "10:45 PM",
+            arrival: "05:45 AM",
+            duration: "7h 00m",
+            price: 799,
+            seats: 12,
+            departureHour: 22,
+            amenities: ["❄️ AC", "📶 WiFi", "🔌 Charging", "🛡️ Live Tracking"],
+            boarding: "Kukatpally Hyderabad",
+            dropping: "Benz Circle Vijayawada"
+        },
+
+        {
+            id: 4,
+            operator: "Ralis City Connect",
+            type: "Non-AC Seater",
+            categories: ["Non-AC", "Seater"],
+            rating: 4.1,
+            reviews: 146,
+            departure: "01:30 PM",
+            arrival: "06:45 PM",
+            duration: "5h 15m",
+            price: 449,
+            seats: 31,
+            departureHour: 13,
+            amenities: ["🔌 Charging", "💧 Water Bottle"],
+            boarding: "Gachibowli Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        },
+
+        {
+            id: 5,
+            operator: "Ralis Night Rider",
+            type: "AC Sleeper",
+            categories: ["AC", "Sleeper"],
+            rating: 4.6,
+            reviews: 277,
+            departure: "08:15 PM",
+            arrival: "03:30 AM",
+            duration: "7h 15m",
+            price: 749,
+            seats: 9,
+            departureHour: 20,
+            amenities: ["❄️ AC", "🛏️ Sleeper", "🔌 Charging", "💧 Water"],
+            boarding: "MGBS Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        },
+
+        {
+            id: 6,
+            operator: "Ralis Economy",
+            type: "Non-AC Seater",
+            categories: ["Non-AC", "Seater"],
+            rating: 3.9,
+            reviews: 98,
+            departure: "04:00 PM",
+            arrival: "09:15 PM",
+            duration: "5h 15m",
+            price: 399,
+            seats: 35,
+            departureHour: 16,
+            amenities: ["💧 Water Bottle"],
+            boarding: "LB Nagar Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        },
+
+        {
+            id: 7,
+            operator: "Ralis Premium",
+            type: "AC Seater",
+            categories: ["AC", "Seater"],
+            rating: 4.4,
+            reviews: 185,
+            departure: "11:30 AM",
+            arrival: "04:45 PM",
+            duration: "5h 15m",
+            price: 599,
+            seats: 19,
+            departureHour: 11,
+            amenities: ["❄️ AC", "🔌 Charging", "📺 Entertainment"],
+            boarding: "Gachibowli Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        },
+
+        {
+            id: 8,
+            operator: "Ralis Sleeper Plus",
+            type: "AC Sleeper",
+            categories: ["AC", "Sleeper"],
+            rating: 4.9,
+            reviews: 561,
+            departure: "11:00 PM",
+            arrival: "06:00 AM",
+            duration: "7h 00m",
+            price: 899,
+            seats: 7,
+            departureHour: 23,
+            amenities: ["❄️ AC", "🛏️ Sleeper", "📶 WiFi", "🔌 Charging"],
+            boarding: "MGBS Hyderabad",
+            dropping: "Vijayawada Bus Stand"
+        }
+
+    ];
+
+
+    let selectedBus = null;
+    let selectedSeats = [];
+    let currentFare = 0;
+
+
+    /* ============================================================
+       DATE
+       ============================================================ */
+
+    function initializeDate() {
+
+        const dateInput = document.getElementById("journeyDate");
+
+        const today = new Date();
+
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
+
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+    }
+
+    initializeDate();
+
+
+    function setDate(offset) {
+
+        const date = new Date();
+
+        date.setDate(date.getDate() + offset);
+
+        const yyyy = date.getFullYear();
+        const mm = String(date.getMonth() + 1).padStart(2, "0");
+        const dd = String(date.getDate()).padStart(2, "0");
+
+        document.getElementById("journeyDate").value =
+            `${yyyy}-${mm}-${dd}`;
+
+    }
+
+
+    function formattedDate() {
+
+        const value =
+            document.getElementById("journeyDate").value;
+
+        if (!value) {
+            return "Select date";
+        }
+
+        const date = new Date(value + "T00:00:00");
+
+        return date.toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+    }
+
+
+    /* ============================================================
+       SEARCH
+       ============================================================ */
+
+    function searchBuses() {
+
+        const from =
+            document.getElementById("fromCity").value;
+
+        const to =
+            document.getElementById("toCity").value;
+
+        if (from === to) {
+
+            showToast("From and To cities cannot be the same.");
+
+            return;
+        }
+
+        document.getElementById("resultRoute").textContent =
+            `${from} → ${to}`;
+
+        document.getElementById("resultDate").textContent =
+            formattedDate();
+
+        document.getElementById("resultsSection").style.display =
+            "block";
+
+        renderBuses(buses);
+
+        document.getElementById("resultsSection")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+    }
+
+
+    function quickRoute(from, to) {
+
+        document.getElementById("fromCity").value = from;
+        document.getElementById("toCity").value = to;
+
+        searchBuses();
+    }
+
+
+    function swapCities() {
+
+        const from =
+            document.getElementById("fromCity");
+
+        const to =
+            document.getElementById("toCity");
+
+        const temp = from.value;
+
+        from.value = to.value;
+        to.value = temp;
+    }
+
+
+    function selectTrip(button) {
+
+        document
+            .querySelectorAll(".trip-tab")
+            .forEach(tab => tab.classList.remove("active"));
+
+        button.classList.add("active");
+
+        if (button.textContent.includes("Round")) {
+
+            showToast("Round trip mode selected.");
+
+        }
+
+    }
+
+
+    /* ============================================================
+       BUS RENDER
+       ============================================================ */
+
+    function renderBuses(data) {
+
+        const list =
+            document.getElementById("busList");
+
+        list.innerHTML = "";
+
+        document.getElementById("busCount").textContent =
+            data.length;
+
+        if (data.length === 0) {
+
+            list.innerHTML = `
+                <div style="
+                    background:white;
+                    padding:45px;
+                    border-radius:12px;
+                    text-align:center;
+                    border:1px solid #e5e7eb;
+                ">
+                    <div style="font-size:40px;">🚌</div>
+
+                    <h3 style="margin-top:10px;">
+                        No buses found
+                    </h3>
+
+                    <p style="
+                        color:#6b7280;
+                        font-size:13px;
+                        margin-top:5px;
+                    ">
+                        Try changing your filters.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        data.forEach(bus => {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "bus-card";
+
+            card.innerHTML = `
+
+                <div class="bus-main">
+
+                    <div class="bus-operator">
+
+                        <div class="bus-logo">
+                            🚌
+                        </div>
+
+                        <div>
+
+                            <div class="operator-name">
+                                ${bus.operator}
+                            </div>
+
+                            <div class="bus-type">
+                                ${bus.type}
+                            </div>
+
+                            <div class="rating">
+                                ★ ${bus.rating}
+                            </div>
+
+                            <span style="
+                                font-size:9px;
+                                color:#9ca3af;
+                                margin-left:3px;
+                            ">
+                                ${bus.reviews} reviews
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="time">
+                            ${bus.departure}
+                        </div>
+
+                        <div class="city">
+                            ${getCityFrom()}
+                        </div>
+
+                    </div>
+
+
+                    <div class="duration">
+
+                        ${bus.duration}
+
+                        <div class="duration-line"></div>
+
+                        Direct
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="time">
+                            ${bus.arrival}
+                        </div>
+
+                        <div class="city">
+                            ${getCityTo()}
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="price">
+                            ₹${bus.price}
+                        </div>
+
+                        <div class="per-seat">
+                            per passenger
+                        </div>
+
+                        <div class="seat-left">
+                            ${bus.seats} seats left
+                        </div>
+
+                        <button
+                            class="view-seat-btn"
+                            onclick="openSeatSelection(${bus.id})">
+
+                            View Seats
+
+                        </button>
+
                     </div>
 
                 </div>
 
 
-                <p style="
-                    color:#737c8b;
-                    font-size:12px;
-                    margin-bottom:20px;
-                ">
-                    🎫 Your e-ticket details have been generated.
-                    Please show your booking ID while boarding.
-                </p>
+                <div class="bus-details" id="details-${bus.id}">
 
+                    <div class="amenities">
 
-                <button
-                    class="continue-btn"
-                    style="max-width:250px;"
-                    onclick="closeModal()">
-                    Done
-                </button>
+                        ${bus.amenities.map(a =>
+                            `<span class="amenity">${a}</span>`
+                        ).join("")}
 
-            </div>
+                    </div>
 
-        `;
+                    <div class="points">
 
-        showToast("Booking confirmed successfully!");
+                        <div class="point-box">
+
+                            <small>BOARDING POINT</small>
+
+                            <strong>
+                                ${bus.boarding}
+                            </strong>
+
+                        </div>
+
+                        <div class="point-box">
+
+                            <small>DROPPING POINT</small>
+
+                            <strong>
+                                ${bus.dropping}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            card.addEventListener("dblclick", () => {
+
+                const details =
+                    document.getElementById(`details-${bus.id}`);
+
+                details.classList.toggle("open");
+
+            });
+
+            list.appendChild(card);
+
+        });
 
     }
 
 
-    /* =========================================================
+    function getCityFrom() {
+
+        return document.getElementById("fromCity").value;
+    }
+
+
+    function getCityTo() {
+
+        return document.getElementById("toCity").value;
+    }
+
+
+    /* ============================================================
        FILTERS
-    ========================================================= */
+       ============================================================ */
+
+    document
+        .querySelectorAll(".type-filter, .time-filter")
+        .forEach(input => {
+
+            input.addEventListener("change", applyFilters);
+
+        });
+
+
+    document
+        .querySelectorAll("input[name='rating']")
+        .forEach(input => {
+
+            input.addEventListener("change", applyFilters);
+
+        });
+
+
+    function updatePriceFilter() {
+
+        const value =
+            document.getElementById("priceRange").value;
+
+        document.getElementById("priceValue").textContent =
+            `₹${value}`;
+
+        applyFilters();
+    }
+
 
     function applyFilters() {
 
+        let filtered = [...buses];
+
         const selectedTypes =
-            Array.from(
-                document.querySelectorAll(".type-filter:checked")
-            ).map(function(input) {
-                return input.value;
-            });
+            [...document.querySelectorAll(".type-filter:checked")]
+                .map(x => x.value);
 
+        const selectedTimes =
+            [...document.querySelectorAll(".time-filter:checked")]
+                .map(x => x.value);
 
-        const time =
-            document.querySelector(
-                "input[name='timeFilter']:checked"
-            ).value;
-
+        const selectedRating =
+            document.querySelector("input[name='rating']:checked");
 
         const maxPrice =
-            parseInt(
-                document.getElementById("priceRange").value
+            Number(document.getElementById("priceRange").value);
+
+
+        if (selectedTypes.length > 0) {
+
+            filtered = filtered.filter(bus =>
+
+                selectedTypes.some(type =>
+                    bus.categories.includes(type)
+                )
+
             );
 
+        }
 
-        let filtered = currentBuses.filter(function(bus) {
 
-            const typeMatch =
-                selectedTypes.length === 0 ||
-                selectedTypes.some(function(type) {
-                    return bus.type.includes(type);
+        if (selectedTimes.length > 0) {
+
+            filtered = filtered.filter(bus => {
+
+                const h = bus.departureHour;
+
+                return selectedTimes.some(time => {
+
+                    if (time === "morning") {
+                        return h >= 5 && h < 12;
+                    }
+
+                    if (time === "afternoon") {
+                        return h >= 12 && h < 17;
+                    }
+
+                    if (time === "evening") {
+                        return h >= 17 && h < 21;
+                    }
+
+                    if (time === "night") {
+                        return h >= 21 || h < 5;
+                    }
+
+                    return true;
+
                 });
 
+            });
 
-            const timeMatch =
-                time === "all" ||
-                bus.period === time;
-
-
-            const priceMatch =
-                bus.price <= maxPrice;
+        }
 
 
-            return typeMatch &&
-                   timeMatch &&
-                   priceMatch;
+        filtered = filtered.filter(bus =>
+            bus.price <= maxPrice
+        );
 
-        });
+
+        if (selectedRating) {
+
+            filtered = filtered.filter(bus =>
+                bus.rating >= Number(selectedRating.value)
+            );
+
+        }
 
 
         renderBuses(filtered);
@@ -2607,136 +2858,460 @@
     }
 
 
-    function updatePrice(value) {
+    function clearFilters() {
+
+        document
+            .querySelectorAll(".type-filter, .time-filter")
+            .forEach(x => x.checked = false);
+
+        document
+            .querySelectorAll("input[name='rating']")
+            .forEach(x => x.checked = false);
+
+        document.getElementById("priceRange").value = 2000;
 
         document.getElementById("priceValue").textContent =
-            value;
+            "₹2000";
 
-        applyFilters();
-
-    }
-
-
-    /* =========================================================
-       SORTING
-    ========================================================= */
-
-    function sortBuses(type) {
-
-        let sorted = [...currentBuses];
-
-
-        if (type === "priceLow") {
-
-            sorted.sort(function(a,b) {
-                return a.price - b.price;
-            });
-
-        }
-
-
-        if (type === "priceHigh") {
-
-            sorted.sort(function(a,b) {
-                return b.price - a.price;
-            });
-
-        }
-
-
-        if (type === "departure") {
-
-            sorted.sort(function(a,b) {
-                return convertTime(a.departure) -
-                       convertTime(b.departure);
-            });
-
-        }
-
-
-        renderBuses(sorted);
+        renderBuses(buses);
 
     }
 
 
-    function convertTime(time) {
+    /* ============================================================
+       SORT
+       ============================================================ */
 
-        const parts =
-            time.match(/(\d+):(\d+)\s*(AM|PM)/);
+    function sortBuses() {
 
-        let hour =
-            parseInt(parts[1]);
+        const sort =
+            document.getElementById("sortSelect").value;
 
-        const minute =
-            parseInt(parts[2]);
-
-        const period =
-            parts[3];
+        let data = [...buses];
 
 
-        if (period === "PM" && hour !== 12) {
-            hour += 12;
+        if (sort === "priceLow") {
+
+            data.sort((a,b) => a.price - b.price);
+
         }
 
-        if (period === "AM" && hour === 12) {
-            hour = 0;
+
+        if (sort === "priceHigh") {
+
+            data.sort((a,b) => b.price - a.price);
+
         }
 
-        return hour * 60 + minute;
+
+        if (sort === "departure") {
+
+            data.sort((a,b) =>
+                a.departureHour - b.departureHour
+            );
+
+        }
+
+
+        if (sort === "rating") {
+
+            data.sort((a,b) =>
+                b.rating - a.rating
+            );
+
+        }
+
+
+        renderBuses(data);
 
     }
 
 
-    /* =========================================================
-       DARK MODE
-    ========================================================= */
+    /* ============================================================
+       SEAT SELECTION
+       ============================================================ */
 
-    function toggleDarkMode() {
+    function openSeatSelection(busId) {
 
-        document.body.classList.toggle("dark-mode");
+        selectedBus =
+            buses.find(bus => bus.id === busId);
 
-        if (document.body.classList.contains("dark-mode")) {
+        selectedSeats = [];
 
-            showToast("Dark mode enabled");
+        currentFare = selectedBus.price;
+
+        document.getElementById("modalBusTitle").textContent =
+            `${selectedBus.operator} • ${selectedBus.type}`;
+
+        document.getElementById("summaryBus").textContent =
+            selectedBus.operator;
+
+        document.getElementById("summaryRoute").textContent =
+            `${getCityFrom()} → ${getCityTo()}`;
+
+        document.getElementById("summaryPassengers").textContent =
+            document.getElementById("passengers").value;
+
+        document.getElementById("bookingModal")
+            .classList.add("show");
+
+        createSeatMap();
+
+        updateSeatSummary();
+
+    }
+
+
+    function createSeatMap() {
+
+        const map =
+            document.getElementById("seatMap");
+
+        map.innerHTML = "";
+
+        const bookedSeats =
+            [3, 7, 11, 16, 21, 28, 33];
+
+
+        for (let row = 0; row < 10; row++) {
+
+            const rowElement =
+                document.createElement("div");
+
+            rowElement.className = "seat-row";
+
+
+            for (let position = 0; position < 4; position++) {
+
+                const seatNumber =
+                    row * 3 + position + 1;
+
+                if (position === 2) {
+
+                    const gap =
+                        document.createElement("div");
+
+                    rowElement.appendChild(gap);
+
+                    continue;
+                }
+
+
+                const seat =
+                    document.createElement("button");
+
+                seat.className = "seat";
+
+                seat.textContent =
+                    seatNumber;
+
+                if (bookedSeats.includes(seatNumber)) {
+
+                    seat.classList.add("booked");
+
+                    seat.disabled = true;
+
+                } else {
+
+                    seat.onclick = () =>
+                        toggleSeat(seatNumber, seat);
+
+                }
+
+                rowElement.appendChild(seat);
+
+            }
+
+            map.appendChild(rowElement);
+
+        }
+
+    }
+
+
+    function toggleSeat(number, element) {
+
+        const maxPassengers =
+            Number(
+                document.getElementById("passengers").value
+            );
+
+
+        if (selectedSeats.includes(number)) {
+
+            selectedSeats =
+                selectedSeats.filter(
+                    seat => seat !== number
+                );
+
+            element.classList.remove("selected");
 
         } else {
 
-            showToast("Light mode enabled");
+            if (selectedSeats.length >= maxPassengers) {
+
+                showToast(
+                    `You can select only ${maxPassengers} seat(s).`
+                );
+
+                return;
+            }
+
+            selectedSeats.push(number);
+
+            element.classList.add("selected");
+
+        }
+
+
+        updateSeatSummary();
+
+    }
+
+
+    function updateSeatSummary() {
+
+        const seatText =
+            selectedSeats.length > 0
+                ? selectedSeats.join(", ")
+                : "None";
+
+        document.getElementById("selectedSeatsText")
+            .textContent = seatText;
+
+
+        const fare =
+            selectedSeats.length *
+            (selectedBus ? selectedBus.price : 0);
+
+
+        const fee =
+            selectedSeats.length > 0 ? 30 : 0;
+
+
+        document.getElementById("baseFare")
+            .textContent = `₹${fare}`;
+
+        document.getElementById("convenienceFee")
+            .textContent = `₹${fee}`;
+
+        document.getElementById("totalFare")
+            .textContent = `₹${fare + fee}`;
+
+
+        document.getElementById("continueSeatBtn")
+            .disabled = selectedSeats.length === 0;
+
+    }
+
+
+    /* ============================================================
+       CHECKOUT
+       ============================================================ */
+
+    function openCheckout() {
+
+        if (!selectedBus || selectedSeats.length === 0) {
+
+            showToast("Please select a seat.");
+
+            return;
+        }
+
+
+        const fare =
+            selectedSeats.length * selectedBus.price;
+
+        const gst =
+            Math.round(fare * 0.05);
+
+        const total =
+            fare + 30 + gst;
+
+
+        document.getElementById("checkoutBus")
+            .textContent = selectedBus.operator;
+
+        document.getElementById("checkoutRoute")
+            .textContent =
+            `${getCityFrom()} → ${getCityTo()}`;
+
+        document.getElementById("checkoutSeats")
+            .textContent =
+            selectedSeats.join(", ");
+
+        document.getElementById("checkoutFare")
+            .textContent = `₹${fare}`;
+
+        document.getElementById("checkoutGst")
+            .textContent = `₹${gst}`;
+
+        document.getElementById("checkoutTotal")
+            .textContent = `₹${total}`;
+
+
+        document.getElementById("bookingModal")
+            .classList.remove("show");
+
+        document.getElementById("checkoutModal")
+            .classList.add("show");
+
+    }
+
+
+    function selectPayment(element) {
+
+        document
+            .querySelectorAll(".payment-option")
+            .forEach(x =>
+                x.classList.remove("active")
+            );
+
+        element.classList.add("active");
+
+    }
+
+
+    /* ============================================================
+       CONFIRM BOOKING
+       ============================================================ */
+
+    function confirmBooking() {
+
+        const name =
+            document.getElementById("passengerName").value.trim();
+
+        const age =
+            document.getElementById("passengerAge").value;
+
+        const mobile =
+            document.getElementById("passengerMobile").value.trim();
+
+        const email =
+            document.getElementById("passengerEmail").value.trim();
+
+
+        if (!name || !age || !mobile || !email) {
+
+            showToast("Please fill all passenger details.");
+
+            return;
+        }
+
+
+        if (!/^[0-9]{10}$/.test(mobile)) {
+
+            showToast("Please enter a valid 10-digit mobile number.");
+
+            return;
+        }
+
+
+        const fare =
+            selectedSeats.length * selectedBus.price;
+
+        const gst =
+            Math.round(fare * 0.05);
+
+        const total =
+            fare + 30 + gst;
+
+
+        const bookingNumber =
+            "RB" +
+            Date.now().toString().slice(-8);
+
+
+        document.getElementById("bookingId")
+            .textContent = bookingNumber;
+
+        document.getElementById("confirmPassenger")
+            .textContent = name;
+
+        document.getElementById("confirmRoute")
+            .textContent =
+            `${getCityFrom()} → ${getCityTo()}`;
+
+        document.getElementById("confirmSeats")
+            .textContent =
+            selectedSeats.join(", ");
+
+        document.getElementById("confirmBoarding")
+            .textContent =
+            document.getElementById("boardingPoint").value;
+
+        document.getElementById("confirmTotal")
+            .textContent = `₹${total}`;
+
+
+        document.getElementById("checkoutModal")
+            .classList.remove("show");
+
+        document.getElementById("confirmationModal")
+            .classList.add("show");
+
+    }
+
+
+    /* ============================================================
+       LOGIN
+       ============================================================ */
+
+    function openLogin() {
+
+        const phone =
+            prompt(
+                "Enter your 10-digit mobile number:"
+            );
+
+        if (phone) {
+
+            showToast(
+                "Login demo: OTP verification would happen here."
+            );
 
         }
 
     }
 
 
-    /* =========================================================
+    /* ============================================================
        MODAL
-    ========================================================= */
+       ============================================================ */
 
     function closeModal() {
 
-        document
-            .getElementById("bookingModal")
+        document.getElementById("bookingModal")
             .classList.remove("show");
 
     }
 
 
-    document
-        .getElementById("bookingModal")
-        .addEventListener("click", function(event) {
+    function closeCheckout() {
 
-            if (event.target === this) {
-                closeModal();
-            }
+        document.getElementById("checkoutModal")
+            .classList.remove("show");
 
-        });
+    }
 
 
-    /* =========================================================
+    function closeAllModals() {
+
+        document
+            .querySelectorAll(".modal-overlay")
+            .forEach(modal =>
+                modal.classList.remove("show")
+            );
+
+    }
+
+
+    /* ============================================================
        TOAST
-    ========================================================= */
+       ============================================================ */
 
     let toastTimer;
+
 
     function showToast(message) {
 
@@ -2749,13 +3324,65 @@
 
         clearTimeout(toastTimer);
 
-        toastTimer = setTimeout(function() {
+        toastTimer =
+            setTimeout(() => {
 
-            toast.classList.remove("show");
+                toast.classList.remove("show");
 
-        }, 3000);
+            }, 2800);
 
     }
+
+
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
+
+    function toggleMobileMenu() {
+
+        const nav =
+            document.querySelector(".nav-links");
+
+        if (nav.style.display === "flex") {
+
+            nav.style.display = "";
+
+        } else {
+
+            nav.style.display = "flex";
+            nav.style.position = "absolute";
+            nav.style.top = "72px";
+            nav.style.left = "0";
+            nav.style.right = "0";
+            nav.style.background = "white";
+            nav.style.padding = "20px";
+            nav.style.flexDirection = "column";
+            nav.style.boxShadow = "0 10px 25px rgba(0,0,0,.1)";
+
+        }
+
+    }
+
+
+    /* ============================================================
+       CLOSE MODAL ON BACKGROUND CLICK
+       ============================================================ */
+
+    document
+        .querySelectorAll(".modal-overlay")
+        .forEach(overlay => {
+
+            overlay.addEventListener("click", function(event) {
+
+                if (event.target === overlay) {
+
+                    overlay.classList.remove("show");
+
+                }
+
+            });
+
+        });
 
 </script>
 
