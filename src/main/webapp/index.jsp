@@ -3,60 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>NexusShop | Modern E-Commerce</title>
+    <title>Ralis Bus Tours & Travels | Bus Booking</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-
-        /* =========================================================
-           ROOT
-        ========================================================= */
-
-        :root {
-            --primary: #111827;
-            --primary-light: #1f2937;
-            --accent: #00c2ff;
-            --accent-dark: #0099cc;
-
-            --bg: #f7f9fc;
-            --card: #ffffff;
-            --text: #111827;
-            --muted: #6b7280;
-            --border: #e5e7eb;
-
-            --success: #16a34a;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-
-            --shadow-sm: 0 5px 20px rgba(15, 23, 42, .06);
-            --shadow-md: 0 15px 40px rgba(15, 23, 42, .10);
-            --shadow-lg: 0 25px 70px rgba(15, 23, 42, .18);
-
-            --radius: 18px;
-            --transition: .3s ease;
-        }
-
-        body.dark {
-            --bg: #0b1120;
-            --card: #111827;
-            --text: #f9fafb;
-            --muted: #9ca3af;
-            --border: #243044;
-            --primary: #f9fafb;
-            --primary-light: #e5e7eb;
-
-            background: var(--bg);
-            color: var(--text);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -68,24 +21,14 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            transition: background .3s ease, color .3s ease;
-        }
-
-        body.no-scroll {
-            overflow: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
+            font-family: "Inter", sans-serif;
+            background: #f5f7fb;
+            color: #172033;
         }
 
         button,
-        input {
+        input,
+        select {
             font-family: inherit;
         }
 
@@ -93,2784 +36,1432 @@
             cursor: pointer;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
+        /* ================= NAVBAR ================= */
 
-        .container {
-            width: min(1400px, calc(100% - 40px));
-            margin: auto;
-        }
-
-        .section {
-            padding: 90px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 45px;
-        }
-
-        .section-header .eyebrow {
-            color: var(--accent-dark);
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .section-header h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(30px, 4vw, 46px);
-            line-height: 1.15;
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           TOP BAR
-        ========================================================= */
-
-        .top-bar {
-            background: #0b1220;
-            color: #fff;
-            font-size: 13px;
-        }
-
-        .top-bar-inner {
-            min-height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .top-bar span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .top-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .top-links a:hover {
-            color: var(--accent);
-        }
-
-
-        /* =========================================================
-           HEADER
-        ========================================================= */
-
-        header {
+        .navbar {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255,255,255,.92);
+            background: rgba(255,255,255,.95);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(229,231,235,.7);
+            border-bottom: 1px solid #e8ebf2;
         }
 
-        body.dark header {
-            background: rgba(17,24,39,.92);
-            border-color: var(--border);
-        }
-
-        .header-inner {
-            min-height: 78px;
+        .nav-container {
+            max-width: 1250px;
+            margin: auto;
+            height: 74px;
+            padding: 0 20px;
             display: flex;
             align-items: center;
-            gap: 25px;
+            justify-content: space-between;
         }
 
         .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 27px;
-            font-weight: 800;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav {
-            margin-left: auto;
-        }
-
-        nav ul {
-            list-style: none;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            text-decoration: none;
+            color: #172033;
         }
 
-        nav a {
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 13px;
             display: flex;
             align-items: center;
-            gap: 7px;
-            padding: 10px 13px;
-            border-radius: 10px;
-            font-size: 14px;
+            justify-content: center;
+            font-size: 24px;
+            background: #e63946;
+            color: white;
+            box-shadow: 0 8px 20px rgba(230,57,70,.25);
+        }
+
+        .logo-text strong {
+            display: block;
+            font-family: "Poppins", sans-serif;
+            font-size: 19px;
+            line-height: 20px;
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
             font-weight: 600;
-            transition: var(--transition);
+            font-size: 14px;
+            transition: .2s;
         }
 
-        nav a:hover,
-        nav a.active {
-            background: rgba(0,194,255,.1);
-            color: var(--accent-dark);
+        .nav-links a:hover {
+            color: #e63946;
         }
 
-        .search-box {
-            width: 270px;
-            height: 44px;
+        .nav-actions {
             display: flex;
             align-items: center;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 30px;
-            padding: 0 15px;
-            transition: var(--transition);
-        }
-
-        .search-box:focus-within {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(0,194,255,.1);
-        }
-
-        .search-box i {
-            color: var(--muted);
-        }
-
-        .search-box input {
-            width: 100%;
-            border: 0;
-            outline: 0;
-            background: transparent;
-            color: var(--text);
-            padding-left: 10px;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 7px;
+            gap: 10px;
         }
 
         .icon-btn {
-            width: 42px;
-            height: 42px;
-            border: 0;
-            background: transparent;
-            color: var(--text);
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            position: relative;
-            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e5e7eb;
+            background: white;
+            border-radius: 10px;
+            font-size: 17px;
         }
 
         .icon-btn:hover {
-            background: rgba(0,194,255,.1);
-            color: var(--accent-dark);
-            transform: translateY(-2px);
+            background: #f7f8fa;
         }
 
-        .badge {
-            position: absolute;
-            top: 0;
-            right: 0;
-            min-width: 18px;
-            height: 18px;
-            padding: 0 5px;
-            border-radius: 20px;
-            display: grid;
-            place-items: center;
-            background: var(--danger);
-            color: #fff;
-            font-size: 10px;
-            font-weight: 800;
+        .login-btn {
+            border: none;
+            background: #172033;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 9px;
+            font-weight: 700;
         }
 
         .mobile-menu {
             display: none;
         }
 
-
-        /* =========================================================
-           HERO
-        ========================================================= */
+        /* ================= HERO ================= */
 
         .hero {
-            min-height: 650px;
+            min-height: 490px;
+            background:
+                linear-gradient(90deg, rgba(12,18,32,.95), rgba(12,18,32,.72), rgba(12,18,32,.3)),
+                url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+            color: white;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
+        }
 
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(4,12,27,.94) 0%,
-                    rgba(4,12,27,.72) 45%,
-                    rgba(4,12,27,.2) 100%
-                ),
-                url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85');
-
-            background-size: cover;
-            background-position: center;
+        .hero-container {
+            max-width: 1250px;
+            width: 100%;
+            margin: auto;
+            padding: 65px 20px;
         }
 
         .hero-content {
-            color: #fff;
             max-width: 720px;
         }
 
-        .hero-tag {
+        .hero-badge {
             display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0,194,255,.15);
-            border: 1px solid rgba(0,194,255,.4);
-            color: #7de5ff;
+            padding: 8px 14px;
             border-radius: 30px;
-            padding: 8px 15px;
+            background: rgba(255,255,255,.13);
+            border: 1px solid rgba(255,255,255,.2);
             font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(42px, 6vw, 72px);
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(38px, 5vw, 64px);
             line-height: 1.05;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
         .hero h1 span {
-            color: var(--accent);
+            color: #ff5964;
         }
 
         .hero p {
-            font-size: 18px;
-            color: rgba(255,255,255,.82);
+            font-size: 17px;
+            color: #dbe0ea;
             max-width: 620px;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            border: 0;
-            padding: 14px 25px;
-            border-radius: 12px;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
-            transition: var(--transition);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #06111d;
-        }
-
-        .btn-primary:hover {
-            background: #5bdcff;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,194,255,.25);
-        }
-
-        .btn-outline {
-            background: rgba(255,255,255,.08);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,.35);
-        }
-
-        .btn-outline:hover {
-            background: #fff;
-            color: #111827;
-            transform: translateY(-3px);
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 45px;
-        }
-
-        .hero-stat strong {
-            display: block;
-            font-size: 25px;
-        }
-
-        .hero-stat span {
-            font-size: 13px;
-            color: rgba(255,255,255,.65);
-        }
-
-
-        /* =========================================================
-           FEATURES
-        ========================================================= */
-
-        .features {
-            background: var(--card);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .feature {
-            padding: 28px 20px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            border-right: 1px solid var(--border);
-        }
-
-        .feature:last-child {
-            border-right: 0;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            flex-shrink: 0;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            background: rgba(0,194,255,.1);
-            color: var(--accent-dark);
-            font-size: 20px;
-        }
-
-        .feature strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .feature span {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           CATEGORIES
-        ========================================================= */
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 18px;
-        }
-
-        .category {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 25px 15px;
-            text-align: center;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .category:hover,
-        .category.selected {
-            transform: translateY(-7px);
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-        }
-
-        .category-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 15px;
-            border-radius: 20px;
-            display: grid;
-            place-items: center;
-            background: rgba(0,194,255,.08);
-            color: var(--accent-dark);
-            font-size: 27px;
-        }
-
-        .category h3 {
-            font-size: 15px;
-            margin-bottom: 5px;
-        }
-
-        .category p {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           PRODUCT TOOLBAR
-        ========================================================= */
-
-        .product-toolbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
+            line-height: 1.7;
             margin-bottom: 30px;
         }
 
-        .filter-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+        /* ================= SEARCH BOX ================= */
 
-        .filter-btn {
-            padding: 9px 16px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary);
-            color: var(--card);
-            border-color: var(--primary);
-        }
-
-        .sort-select {
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            padding: 10px 14px;
-            border-radius: 10px;
-            outline: none;
-        }
-
-
-        /* =========================================================
-           PRODUCTS
-        ========================================================= */
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .product-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
+        .search-card {
+            max-width: 1150px;
+            margin: -65px auto 0;
             position: relative;
-            transition: var(--transition);
+            z-index: 10;
+            background: white;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(20,30,50,.14);
         }
 
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .product-image {
-            height: 250px;
-            position: relative;
-            overflow: hidden;
-            background: #f1f5f9;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .5s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.08);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--success);
-            color: #fff;
-            border-radius: 7px;
-            padding: 5px 9px;
-            font-size: 11px;
-            font-weight: 800;
-            z-index: 2;
-        }
-
-        .product-badge.sale {
-            background: var(--danger);
-        }
-
-        .wishlist-btn {
-            position: absolute;
-            right: 12px;
-            top: 12px;
-            width: 38px;
-            height: 38px;
-            border: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,.95);
-            color: #64748b;
-            display: grid;
-            place-items: center;
-            z-index: 2;
-            transition: var(--transition);
-        }
-
-        .wishlist-btn:hover,
-        .wishlist-btn.liked {
-            color: var(--danger);
-            transform: scale(1.1);
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-category {
-            color: var(--accent-dark);
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-info h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 17px;
-            margin: 5px 0 8px;
-        }
-
-        .rating {
-            color: #f59e0b;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .rating span {
-            color: var(--muted);
-            margin-left: 5px;
-        }
-
-        .price-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .price {
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .old-price {
-            color: var(--muted);
-            font-size: 13px;
-            text-decoration: line-through;
-        }
-
-        .product-actions {
-            display: grid;
-            grid-template-columns: 1fr 42px;
-            gap: 8px;
-        }
-
-        .add-cart {
-            border: 0;
-            background: var(--primary);
-            color: var(--card);
-            border-radius: 10px;
-            padding: 11px;
-            font-size: 13px;
-            font-weight: 800;
-            transition: var(--transition);
-        }
-
-        .add-cart:hover {
-            background: var(--accent);
-            color: #06111d;
-        }
-
-        .quick-view {
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            border-radius: 10px;
-            transition: var(--transition);
-        }
-
-        .quick-view:hover {
-            border-color: var(--accent);
-            color: var(--accent-dark);
-        }
-
-        .no-results {
-            display: none;
-            text-align: center;
-            padding: 50px;
-            color: var(--muted);
-            grid-column: 1 / -1;
-        }
-
-
-        /* =========================================================
-           DEAL
-        ========================================================= */
-
-        .deal-section {
-            background: linear-gradient(135deg, #071426, #12263e);
-            color: #fff;
-        }
-
-        .deal-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 500px;
-            border-radius: 25px;
-            overflow: hidden;
-            background: #0e1d31;
-        }
-
-        .deal-image {
-            min-height: 500px;
-            background:
-                url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=85')
-                center/cover;
-        }
-
-        .deal-content {
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .deal-label {
-            color: #66ddff;
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .deal-content h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(32px, 4vw, 50px);
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .deal-content p {
-            color: rgba(255,255,255,.7);
-            margin-bottom: 25px;
-        }
-
-        .countdown {
+        .trip-tabs {
             display: flex;
             gap: 10px;
-            margin: 15px 0 30px;
+            margin-bottom: 22px;
         }
 
-        .time-box {
-            width: 75px;
-            height: 75px;
-            background: rgba(255,255,255,.08);
-            border: 1px solid rgba(255,255,255,.12);
-            border-radius: 12px;
+        .trip-tab {
+            border: none;
+            padding: 9px 18px;
+            border-radius: 20px;
+            background: #f1f3f7;
+            color: #5b6473;
+            font-weight: 700;
+        }
+
+        .trip-tab.active {
+            background: #172033;
+            color: white;
+        }
+
+        .search-grid {
             display: grid;
-            place-items: center;
-            align-content: center;
+            grid-template-columns: 1.25fr 1.25fr 1fr 1fr auto;
+            gap: 12px;
+            align-items: end;
         }
 
-        .time-box strong {
-            font-size: 25px;
+        .field label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #687182;
+            margin-bottom: 7px;
         }
 
-        .time-box span {
-            font-size: 10px;
-            color: rgba(255,255,255,.55);
-            text-transform: uppercase;
+        .field-box {
+            height: 52px;
+            border: 1px solid #dfe3ea;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 13px;
+            background: #fff;
         }
 
-        .deal-price {
-            font-size: 32px;
+        .field-box:focus-within {
+            border-color: #e63946;
+            box-shadow: 0 0 0 3px rgba(230,57,70,.08);
+        }
+
+        .field-box span {
+            margin-right: 8px;
+            font-size: 17px;
+        }
+
+        .field-box input,
+        .field-box select {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: #172033;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .search-btn {
+            height: 52px;
+            border: none;
+            border-radius: 10px;
+            padding: 0 23px;
+            background: #e63946;
+            color: white;
             font-weight: 800;
+            font-size: 14px;
+            transition: .2s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(230,57,70,.22);
+        }
+
+        /* ================= MAIN ================= */
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-family: "Poppins", sans-serif;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 18px;
+            padding-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #e8ebf0;
+            transition: .25s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(20,30,50,.08);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #fff0f1;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            margin-bottom: 7px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #747c8b;
+        }
+
+        /* ================= POPULAR ROUTES ================= */
+
+        .routes-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 18px;
+        }
+
+        .route-card {
+            min-height: 175px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .route-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 20%, rgba(0,0,0,.85));
+        }
+
+        .route-content {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            right: 18px;
+        }
+
+        .route-content small {
+            opacity: .8;
+        }
+
+        .route-content h3 {
+            font-size: 18px;
+            margin: 4px 0;
+        }
+
+        /* ================= RESULTS ================= */
+
+        .results-section {
+            background: #f0f2f6;
+        }
+
+        .results-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 25px;
+        }
+
+        .filters {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            height: fit-content;
+            border: 1px solid #e6e9ee;
+        }
+
+        .filters h3 {
+            font-size: 16px;
             margin-bottom: 20px;
         }
 
-        .deal-price del {
-            color: rgba(255,255,255,.4);
-            font-size: 18px;
-            margin-left: 8px;
+        .filter-group {
+            padding: 17px 0;
+            border-top: 1px solid #edf0f4;
         }
 
+        .filter-group:first-of-type {
+            border-top: none;
+        }
 
-        /* =========================================================
-           TESTIMONIALS
-        ========================================================= */
+        .filter-title {
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
 
-        .testimonial-grid {
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0;
+            color: #606979;
+            font-size: 13px;
+        }
+
+        .filter-option input {
+            accent-color: #e63946;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .results-header h2 {
+            font-size: 23px;
+        }
+
+        .results-header p {
+            font-size: 13px;
+            color: #727a89;
+            margin-top: 5px;
+        }
+
+        .sort-select {
+            border: 1px solid #dfe3ea;
+            padding: 10px 12px;
+            border-radius: 9px;
+            background: white;
+        }
+
+        /* ================= BUS CARD ================= */
+
+        .bus-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .bus-card {
+            background: white;
+            border: 1px solid #e5e8ed;
+            border-radius: 15px;
+            padding: 20px;
+            transition: .2s;
+        }
+
+        .bus-card:hover {
+            box-shadow: 0 12px 30px rgba(20,30,50,.08);
+            border-color: #d9dde5;
+        }
+
+        .bus-main {
+            display: grid;
+            grid-template-columns: 1.3fr 1.4fr 1fr .8fr;
             gap: 20px;
+            align-items: center;
         }
 
-        .testimonial {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px;
-            transition: var(--transition);
-        }
-
-        .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .testimonial .stars {
-            color: #f59e0b;
-            margin-bottom: 15px;
-        }
-
-        .testimonial > p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-
-        .customer {
+        .bus-company {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .customer img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .customer strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .customer span {
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-
-        /* =========================================================
-           NEWSLETTER
-        ========================================================= */
-
-        .newsletter {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #00bce8, #0077b6);
-            color: #fff;
-            text-align: center;
-        }
-
-        .newsletter h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        .newsletter p {
-            max-width: 600px;
-            margin: 0 auto 25px;
-            color: rgba(255,255,255,.85);
-        }
-
-        .newsletter-form {
-            width: min(560px, 100%);
-            margin: auto;
+        .bus-logo {
+            width: 50px;
+            height: 50px;
+            background: #f1f3f7;
+            border-radius: 12px;
             display: flex;
-            background: #fff;
-            padding: 5px;
-            border-radius: 50px;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
         }
 
-        .newsletter-form input {
+        .bus-company strong {
+            display: block;
+            font-size: 15px;
+        }
+
+        .bus-company span {
+            color: #7a8290;
+            font-size: 12px;
+        }
+
+        .timing {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .time strong {
+            font-size: 18px;
+        }
+
+        .time small {
+            display: block;
+            color: #818998;
+            margin-top: 3px;
+        }
+
+        .route-line {
             flex: 1;
-            border: 0;
-            outline: 0;
-            padding: 12px 18px;
-            border-radius: 40px;
-            color: #111827;
+            text-align: center;
+            color: #929aa8;
+            font-size: 11px;
         }
 
-        .newsletter-form button {
-            border: 0;
-            background: #111827;
-            color: #fff;
-            padding: 0 25px;
-            border-radius: 40px;
+        .route-line div {
+            border-top: 1px dashed #bdc3cc;
+            margin: 5px 0;
+        }
+
+        .bus-price {
+            text-align: right;
+        }
+
+        .bus-price strong {
+            display: block;
+            font-size: 20px;
+        }
+
+        .bus-price span {
+            color: #808896;
+            font-size: 11px;
+        }
+
+        .select-seat-btn {
+            margin-top: 15px;
+            width: 100%;
+            height: 42px;
+            border: none;
+            background: #172033;
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .select-seat-btn:hover {
+            background: #e63946;
+        }
+
+        .bus-extra {
+            margin-top: 17px;
+            padding-top: 14px;
+            border-top: 1px solid #edf0f4;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f4f6f8;
+            padding: 5px 9px;
+            border-radius: 6px;
+            color: #626b79;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .rating {
+            color: #18864b;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        /* ================= MODAL ================= */
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(8,12,20,.65);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: white;
+            width: 100%;
+            max-width: 900px;
+            max-height: 92vh;
+            overflow-y: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,.25);
+        }
+
+        .modal-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid #edf0f4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 20px;
+        }
+
+        .close-btn {
+            border: none;
+            background: #f1f3f6;
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            font-size: 18px;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        /* ================= SEAT SELECTION ================= */
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .bus-preview {
+            background: #f5f7fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .bus-preview h3 {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .driver {
+            background: #172033;
+            color: white;
+            width: 80px;
+            text-align: center;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            margin: 0 auto 20px;
+        }
+
+        .seat-layout {
+            max-width: 270px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 13px;
+        }
+
+        .seat-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .seat {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px 8px 5px 5px;
+            border: 1px solid #cfd5de;
+            background: #f7f8fa;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .seat:hover:not(.booked) {
+            border-color: #e63946;
+        }
+
+        .seat.selected {
+            background: #e63946;
+            border-color: #e63946;
+            color: white;
+        }
+
+        .seat.booked {
+            background: #d9dde3;
+            color: #8b929d;
+            cursor: not-allowed;
+        }
+
+        .seat-legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 18px;
+            font-size: 10px;
+            color: #697180;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .legend-box {
+            width: 15px;
+            height: 15px;
+            border-radius: 4px;
+            background: #f7f8fa;
+            border: 1px solid #cfd5de;
+        }
+
+        .legend-box.selected {
+            background: #e63946;
+            border-color: #e63946;
+        }
+
+        .legend-box.booked {
+            background: #d9dde3;
+        }
+
+        .booking-summary {
+            border: 1px solid #e5e8ed;
+            border-radius: 15px;
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .summary-bus {
+            padding-bottom: 15px;
+            border-bottom: 1px solid #edf0f4;
+            margin-bottom: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 11px 0;
+            font-size: 13px;
+            color: #697180;
+        }
+
+        .summary-row.total {
+            padding-top: 13px;
+            border-top: 1px solid #edf0f4;
+            color: #172033;
+            font-size: 18px;
             font-weight: 800;
         }
 
+        .continue-btn {
+            width: 100%;
+            height: 45px;
+            background: #e63946;
+            border: none;
+            color: white;
+            border-radius: 9px;
+            font-weight: 800;
+            margin-top: 10px;
+        }
 
-        /* =========================================================
-           FOOTER
-        ========================================================= */
+        /* ================= PASSENGER FORM ================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: #566071;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            height: 45px;
+            border: 1px solid #dfe3ea;
+            border-radius: 8px;
+            padding: 0 12px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #e63946;
+        }
+
+        .full {
+            grid-column: 1/-1;
+        }
+
+        /* ================= SUCCESS ================= */
+
+        .success {
+            text-align: center;
+            padding: 45px 25px;
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            margin: auto;
+            background: #e8f8ef;
+            color: #16934f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .ticket {
+            max-width: 500px;
+            margin: 25px auto;
+            text-align: left;
+            background: #f7f8fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        /* ================= FOOTER ================= */
 
         footer {
-            background: #080d17;
-            color: #fff;
-            padding: 70px 0 25px;
+            background: #101827;
+            color: white;
+            padding: 60px 0 25px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: 2fr 1fr 1fr 1.3fr;
+            gap: 40px;
         }
 
-        .footer-col h3 {
-            margin-bottom: 18px;
-            font-size: 16px;
-        }
-
-        .footer-col p {
-            color: #9ca3af;
-            font-size: 14px;
+        .footer-brand p {
+            color: #9da6b5;
+            line-height: 1.7;
+            font-size: 13px;
+            margin-top: 15px;
             max-width: 350px;
         }
 
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col a {
-            color: #9ca3af;
+        footer h3 {
             font-size: 14px;
-            transition: var(--transition);
+            margin-bottom: 18px;
         }
 
-        .footer-col a:hover {
-            color: var(--accent);
-            padding-left: 4px;
+        footer a {
+            display: block;
+            color: #9da6b5;
+            text-decoration: none;
+            margin: 10px 0;
+            font-size: 13px;
         }
 
-        .socials {
-            display: flex;
-            gap: 9px;
-            margin-top: 20px;
-        }
-
-        .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: rgba(255,255,255,.08);
-        }
-
-        .socials a:hover {
-            background: var(--accent);
-            color: #07111d;
+        footer a:hover {
+            color: white;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,.1);
-            padding-top: 22px;
-            display: flex;
-            justify-content: space-between;
-            color: #6b7280;
+            border-top: 1px solid #263143;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #858f9f;
             font-size: 12px;
-        }
-
-
-        /* =========================================================
-           CART DRAWER
-        ========================================================= */
-
-        .overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.55);
-            z-index: 1999;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .cart-drawer {
-            position: fixed;
-            right: -450px;
-            top: 0;
-            width: min(430px, 100%);
-            height: 100vh;
-            background: var(--card);
-            z-index: 2000;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: column;
-            transition: right .35s ease;
-        }
-
-        .cart-drawer.active {
-            right: 0;
-        }
-
-        .cart-header {
-            padding: 22px;
-            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
-            align-items: center;
         }
 
-        .cart-header h3 {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .close-btn {
-            width: 38px;
-            height: 38px;
-            border: 0;
-            border-radius: 50%;
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        .cart-items {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .empty-cart {
-            height: 100%;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            color: var(--muted);
-        }
-
-        .empty-cart i {
-            font-size: 50px;
-            margin-bottom: 15px;
-            opacity: .4;
-        }
-
-        .cart-item {
-            display: grid;
-            grid-template-columns: 70px 1fr auto;
-            gap: 12px;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .cart-item img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .cart-item h4 {
-            font-size: 13px;
-            margin-bottom: 4px;
-        }
-
-        .cart-item-price {
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .quantity {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 7px;
-        }
-
-        .quantity button {
-            width: 25px;
-            height: 25px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            border-radius: 6px;
-        }
-
-        .remove-item {
-            color: var(--danger);
-            border: 0;
-            background: transparent;
-        }
-
-        .cart-footer {
-            padding: 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            font-size: 19px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            border: 0;
-            background: var(--accent);
-            color: #06111d;
-            padding: 14px;
-            border-radius: 12px;
-            font-weight: 800;
-        }
-
-
-        /* =========================================================
-           QUICK VIEW MODAL
-        ========================================================= */
-
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.65);
-            z-index: 3000;
-            display: grid;
-            place-items: center;
-            padding: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s;
-        }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            width: min(850px, 100%);
-            max-height: 90vh;
-            overflow-y: auto;
-            background: var(--card);
-            color: var(--text);
-            border-radius: 22px;
-            position: relative;
-            padding: 30px;
-        }
-
-        .modal-close {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            width: 40px;
-            height: 40px;
-            border: 0;
-            border-radius: 50%;
-            background: var(--bg);
-            color: var(--text);
-            z-index: 2;
-        }
-
-        .quick-view-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .quick-view-grid img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-
-        .quick-view-info h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            margin: 10px 0;
-        }
-
-        .quick-view-info p {
-            color: var(--muted);
-            margin: 15px 0 25px;
-        }
-
-
-        /* =========================================================
-           TOAST
-        ========================================================= */
-
-        .toast-container {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            z-index: 5000;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        /* ================= TOAST ================= */
 
         .toast {
-            background: #111827;
-            color: #fff;
-            padding: 13px 18px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-width: 250px;
-            animation: toastIn .3s ease;
-        }
-
-        .toast.success i {
-            color: #4ade80;
-        }
-
-        .toast.error i {
-            color: #f87171;
-        }
-
-        @keyframes toastIn {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-
-        /* =========================================================
-           BACK TO TOP
-        ========================================================= */
-
-        .back-top {
             position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 45px;
-            height: 45px;
-            border: 0;
-            border-radius: 50%;
-            background: var(--accent);
-            color: #06111d;
-            z-index: 100;
+            right: 25px;
+            bottom: 25px;
+            z-index: 5000;
+            background: #172033;
+            color: white;
+            padding: 14px 18px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,.2);
+            transform: translateY(100px);
             opacity: 0;
-            visibility: hidden;
             transition: .3s;
+            font-size: 13px;
         }
 
-        .back-top.show {
+        .toast.show {
+            transform: translateY(0);
             opacity: 1;
-            visibility: visible;
-            bottom: 80px;
         }
 
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
-
-        @media(max-width:1200px) {
-
-            .product-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .category-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .search-box {
-                width: 220px;
-            }
-
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .feature:nth-child(2) {
-                border-right: 0;
-            }
+        .no-results {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: #707887;
         }
 
-        @media(max-width:950px) {
+        /* ================= RESPONSIVE ================= */
 
-            .top-links {
-                display: none;
-            }
-
-            .header-inner {
-                position: relative;
-            }
-
-            .mobile-menu {
-                display: grid;
-                margin-left: auto;
-            }
-
-            nav {
-                position: absolute;
-                top: 78px;
-                left: 0;
-                width: 100%;
-                background: var(--card);
-                border-top: 1px solid var(--border);
-                box-shadow: var(--shadow-md);
-                display: none;
-                padding: 15px 20px;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            nav a {
-                padding: 13px;
-            }
-
-            .search-box {
-                order: 3;
-                width: 100%;
-            }
-
-            .header-inner {
-                flex-wrap: wrap;
-                padding: 12px 0;
-            }
-
-            .hero {
-                min-height: 600px;
-            }
-
-            .deal-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .deal-image {
-                min-height: 350px;
-            }
-
-            .testimonial-grid {
+        @media(max-width:1000px) {
+            .search-grid {
                 grid-template-columns: 1fr 1fr;
             }
 
+            .search-btn {
+                width: 100%;
+            }
+
+            .features,
+            .routes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bus-main {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bus-price {
+                text-align: left;
+            }
+
+            .results-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                display: none;
+            }
+
             .footer-grid {
-                grid-template-columns: 2fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
         }
 
         @media(max-width:700px) {
-
-            .container {
-                width: min(100% - 28px, 1400px);
-            }
-
-            .section {
-                padding: 65px 0;
-            }
-
-            .top-bar {
+            .nav-links {
                 display: none;
             }
 
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
+            .mobile-menu {
+                display: block;
             }
 
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .product-image {
-                height: 210px;
-            }
-
-            .product-info {
-                padding: 15px;
+            .nav-actions .icon-btn {
+                display: none;
             }
 
             .hero {
-                min-height: 580px;
+                min-height: 500px;
             }
 
-            .hero-stats {
-                gap: 20px;
+            .hero-container {
+                padding-top: 45px;
             }
 
-            .hero-stat strong {
-                font-size: 20px;
+            .search-card {
+                margin: -35px 15px 0;
+                padding: 18px;
             }
 
-            .product-toolbar {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .sort-select {
-                width: 100%;
-            }
-
-            .deal-content {
-                padding: 35px 25px;
-            }
-
-            .testimonial-grid {
+            .search-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-grid .footer-col:first-child {
-                grid-column: 1 / -1;
-            }
-
-            .quick-view-grid {
+            .features,
+            .routes-grid {
                 grid-template-columns: 1fr;
             }
 
-            .quick-view-grid img {
-                height: 280px;
-            }
-        }
-
-        @media(max-width:480px) {
-
-            .logo {
-                font-size: 23px;
-            }
-
-            .header-actions .icon-btn:nth-child(1) {
-                display: none;
-            }
-
-            .product-grid {
+            .bus-main {
                 grid-template-columns: 1fr;
             }
 
-            .category-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .hero-stats {
-                flex-wrap: wrap;
-            }
-
-            .feature-grid {
+            .booking-grid {
                 grid-template-columns: 1fr;
             }
 
-            .feature {
-                border-right: 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .countdown {
-                gap: 6px;
-            }
-
-            .time-box {
-                width: 65px;
-                height: 65px;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-                background: transparent;
-                gap: 8px;
-            }
-
-            .newsletter-form input,
-            .newsletter-form button {
-                height: 48px;
-            }
-
-            .footer-grid {
+            .form-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer-grid .footer-col:first-child {
+            .full {
                 grid-column: auto;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-bottom {
                 flex-direction: column;
-                gap: 8px;
-                text-align: center;
+                gap: 10px;
             }
         }
-
     </style>
 </head>
 
 <body>
 
-<!-- =========================================================
-     TOP BAR
-========================================================= -->
+<!-- ================= NAVBAR ================= -->
 
-<div class="top-bar">
-    <div class="container top-bar-inner">
-
-        <span>
-            <i class="fa-solid fa-truck-fast"></i>
-            Free shipping on orders over $50
-        </span>
-
-        <div class="top-links">
-            <a href="#deals">Today's Deals</a>
-            <a href="#contact">Help Center</a>
-            <a href="#newsletter">Newsletter</a>
-        </div>
-
-    </div>
-</div>
-
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
-
-<header>
-
-    <div class="container header-inner">
+<nav class="navbar">
+    <div class="nav-container">
 
         <a href="#" class="logo">
-            Nexus<span>Shop</span>
+            <div class="logo-icon">🚌</div>
+            <div class="logo-text">
+                <strong>Ralis Bus</strong>
+                <span>TOURS & TRAVELS</span>
+            </div>
         </a>
 
-        <nav id="mainNav">
-
-            <ul>
-
-                <li>
-                    <a href="#home" class="active">
-                        <i class="fa-solid fa-house"></i>
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#categories">
-                        <i class="fa-solid fa-layer-group"></i>
-                        Categories
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#products">
-                        <i class="fa-solid fa-fire"></i>
-                        Trending
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#deals">
-                        <i class="fa-solid fa-bolt"></i>
-                        Deals
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        <i class="fa-solid fa-circle-info"></i>
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        <i class="fa-solid fa-envelope"></i>
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-
-        <div class="search-box">
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search products..."
-                autocomplete="off">
-
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#routes">Routes</a>
+            <a href="#buses">Buses</a>
+            <a href="#offers">Offers</a>
+            <a href="#contact">Contact</a>
         </div>
 
-
-        <div class="header-actions">
-
-            <button class="icon-btn"
-                    id="themeToggle"
-                    title="Toggle dark mode">
-
-                <i class="fa-solid fa-moon"></i>
-
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="toggleDarkMode()" title="Dark Mode">🌙</button>
+            <button class="login-btn" onclick="showToast('Login feature coming soon!')">
+                Login
             </button>
-
-            <button class="icon-btn"
-                    title="Wishlist"
-                    onclick="showToast('Wishlist opened')">
-
-                <i class="fa-regular fa-heart"></i>
-
-                <span class="badge" id="wishlistCount">0</span>
-
+            <button class="icon-btn mobile-menu" onclick="showToast('Use the menu links below to explore')">
+                ☰
             </button>
-
-            <button class="icon-btn"
-                    title="Shopping cart"
-                    id="cartButton">
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                <span class="badge" id="cartCount">0</span>
-
-            </button>
-
-            <button class="icon-btn mobile-menu"
-                    id="mobileMenuBtn">
-
-                <i class="fa-solid fa-bars"></i>
-
-            </button>
-
         </div>
 
     </div>
+</nav>
 
-</header>
 
-
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
-
-    <div class="container">
+    <div class="hero-container">
 
         <div class="hero-content">
 
-            <div class="hero-tag">
-                <i class="fa-solid fa-sparkles"></i>
-                NEW SEASON • 2026 COLLECTION
+            <div class="hero-badge">
+                🛡️ Safe • Reliable • Comfortable Travel
             </div>
 
             <h1>
-                Shop Smarter.<br>
-                Live <span>Better.</span>
+                Travel More.<br>
+                <span>Worry Less.</span>
             </h1>
 
             <p>
-                Discover premium technology, fashion and lifestyle products
-                carefully selected for the modern generation.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a href="#products" class="btn btn-primary">
-                    Shop Now
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-                <a href="#deals" class="btn btn-outline">
-                    View Deals
-                </a>
-
-            </div>
-
-            <div class="hero-stats">
-
-                <div class="hero-stat">
-                    <strong>25K+</strong>
-                    <span>Happy Customers</span>
-                </div>
-
-                <div class="hero-stat">
-                    <strong>4.9/5</strong>
-                    <span>Customer Rating</span>
-                </div>
-
-                <div class="hero-stat">
-                    <strong>500+</strong>
-                    <span>Premium Products</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FEATURES
-========================================================= -->
-
-<section class="features">
-
-    <div class="container feature-grid">
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                <i class="fa-solid fa-truck-fast"></i>
-            </div>
-
-            <div>
-                <strong>Fast Delivery</strong>
-                <span>2-5 business days</span>
-            </div>
-
-        </div>
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-
-            <div>
-                <strong>Secure Payment</strong>
-                <span>100% secure checkout</span>
-            </div>
-
-        </div>
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                <i class="fa-solid fa-rotate-left"></i>
-            </div>
-
-            <div>
-                <strong>Easy Returns</strong>
-                <span>30-day return policy</span>
-            </div>
-
-        </div>
-
-        <div class="feature">
-
-            <div class="feature-icon">
-                <i class="fa-solid fa-headset"></i>
-            </div>
-
-            <div>
-                <strong>24/7 Support</strong>
-                <span>We're here to help</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CATEGORIES
-========================================================= -->
-
-<section class="section" id="categories">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div class="eyebrow">
-                Explore
-            </div>
-
-            <h2>
-                Shop By Category
-            </h2>
-
-            <p>
-                Find exactly what you're looking for from our carefully
-                selected product categories.
+                Book buses across Andhra Pradesh, Telangana and major cities
+                with Ralis Bus Tours & Travels. Find the best routes,
+                timings and fares in seconds.
             </p>
 
         </div>
 
-
-        <div class="category-grid">
-
-            <div class="category" data-category="Electronics">
-
-                <div class="category-icon">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                </div>
-
-                <h3>Electronics</h3>
-                <p>120+ Products</p>
-
-            </div>
-
-
-            <div class="category" data-category="Computers">
-
-                <div class="category-icon">
-                    <i class="fa-solid fa-laptop"></i>
-                </div>
-
-                <h3>Computers</h3>
-                <p>85+ Products</p>
-
-            </div>
-
-
-            <div class="category" data-category="Fashion">
-
-                <div class="category-icon">
-                    <i class="fa-solid fa-shirt"></i>
-                </div>
-
-                <h3>Fashion</h3>
-                <p>200+ Products</p>
-
-            </div>
-
-
-            <div class="category" data-category="Audio">
-
-                <div class="category-icon">
-                    <i class="fa-solid fa-headphones"></i>
-                </div>
-
-                <h3>Audio</h3>
-                <p>70+ Products</p>
-
-            </div>
-
-
-            <div class="category" data-category="Footwear">
-
-                <div class="category-icon">
-                    <i class="fa-solid fa-shoe-prints"></i>
-                </div>
-
-                <h3>Footwear</h3>
-                <p>90+ Products</p>
-
-            </div>
-
-
-            <div class="category" data-category="Accessories">
-
-                <div class="category-icon">
-                    <i class="fa-solid fa-watch"></i>
-                </div>
-
-                <h3>Accessories</h3>
-                <p>150+ Products</p>
-
-            </div>
-
-        </div>
-
     </div>
-
 </section>
 
 
-<!-- =========================================================
-     PRODUCTS
-========================================================= -->
+<!-- ================= SEARCH ================= -->
 
-<section class="section" id="products">
+<div class="container">
 
-    <div class="container">
+    <div class="search-card">
 
-        <div class="section-header">
-
-            <div class="eyebrow">
-                Trending Now
-            </div>
-
-            <h2>
-                Popular Products
-            </h2>
-
-            <p>
-                Discover products our customers are loving right now.
-            </p>
-
+        <div class="trip-tabs">
+            <button class="trip-tab active">One Way</button>
+            <button class="trip-tab" onclick="showToast('Round trip search selected')">
+                Round Trip
+            </button>
         </div>
 
+        <div class="search-grid">
 
-        <div class="product-toolbar">
-
-            <div class="filter-buttons">
-
-                <button class="filter-btn active"
-                        data-filter="all">
-                    All
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="Electronics">
-                    Electronics
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="Computers">
-                    Computers
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="Fashion">
-                    Fashion
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="Audio">
-                    Audio
-                </button>
-
-                <button class="filter-btn"
-                        data-filter="Footwear">
-                    Footwear
-                </button>
-
+            <div class="field">
+                <label>FROM</label>
+                <div class="field-box">
+                    <span>📍</span>
+                    <select id="fromCity">
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Vijayawada">Vijayawada</option>
+                        <option value="Visakhapatnam">Visakhapatnam</option>
+                        <option value="Tirupati">Tirupati</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Kandukur">Kandukur</option>
+                    </select>
+                </div>
             </div>
 
-
-            <select class="sort-select" id="sortSelect">
-
-                <option value="default">
-                    Sort: Featured
-                </option>
-
-                <option value="low">
-                    Price: Low to High
-                </option>
-
-                <option value="high">
-                    Price: High to Low
-                </option>
-
-                <option value="rating">
-                    Highest Rated
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div class="product-grid" id="productGrid">
-
-
-            <!-- PRODUCT 1 -->
-
-            <div class="product-card"
-                 data-category="Electronics"
-                 data-price="1299"
-                 data-rating="4.9">
-
-                <div class="product-image">
-
-                    <span class="product-badge">
-                        New
-                    </span>
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=700&q=80"
-                        alt="Smartphone">
-
+            <div class="field">
+                <label>TO</label>
+                <div class="field-box">
+                    <span>📍</span>
+                    <select id="toCity">
+                        <option value="Vijayawada">Vijayawada</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Visakhapatnam">Visakhapatnam</option>
+                        <option value="Tirupati">Tirupati</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Kandukur">Kandukur</option>
+                    </select>
                 </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Electronics
-                    </span>
-
-                    <h3>iPhone 16 Pro</h3>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(248)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$1,299</span>
-
-                        <span class="old-price">
-                            $1,399
-                        </span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="iPhone 16 Pro"
-                                data-price="1299"
-                                data-image="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="iPhone 16 Pro"
-                                data-price="$1,299"
-                                data-image="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
             </div>
 
-
-            <!-- PRODUCT 2 -->
-
-            <div class="product-card"
-                 data-category="Computers"
-                 data-price="1999"
-                 data-rating="4.8">
-
-                <div class="product-image">
-
-                    <span class="product-badge sale">
-                        -15%
-                    </span>
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80"
-                        alt="MacBook">
-
+            <div class="field">
+                <label>JOURNEY DATE</label>
+                <div class="field-box">
+                    <span>📅</span>
+                    <input type="date" id="journeyDate">
                 </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Computers
-                    </span>
-
-                    <h3>MacBook Pro M4</h3>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(186)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$1,999</span>
-
-                        <span class="old-price">
-                            $2,299
-                        </span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="MacBook Pro M4"
-                                data-price="1999"
-                                data-image="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="MacBook Pro M4"
-                                data-price="$1,999"
-                                data-image="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
             </div>
 
-
-            <!-- PRODUCT 3 -->
-
-            <div class="product-card"
-                 data-category="Electronics"
-                 data-price="449"
-                 data-rating="4.9">
-
-                <div class="product-image">
-
-                    <span class="product-badge">
-                        Bestseller
-                    </span>
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=700&q=80"
-                        alt="Smartwatch">
-
+            <div class="field">
+                <label>PASSENGERS</label>
+                <div class="field-box">
+                    <span>👤</span>
+                    <select id="passengers">
+                        <option value="1">1 Passenger</option>
+                        <option value="2">2 Passengers</option>
+                        <option value="3">3 Passengers</option>
+                        <option value="4">4 Passengers</option>
+                        <option value="5">5 Passengers</option>
+                    </select>
                 </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Electronics
-                    </span>
-
-                    <h3>Smart Watch Ultra</h3>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(421)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$449</span>
-
-                        <span class="old-price">
-                            $499
-                        </span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="Smart Watch Ultra"
-                                data-price="449"
-                                data-image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="Smart Watch Ultra"
-                                data-price="$449"
-                                data-image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
             </div>
 
-
-            <!-- PRODUCT 4 -->
-
-            <div class="product-card"
-                 data-category="Footwear"
-                 data-price="159"
-                 data-rating="4.7">
-
-                <div class="product-image">
-
-                    <span class="product-badge sale">
-                        -20%
-                    </span>
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
-                        alt="Sneakers">
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Footwear
-                    </span>
-
-                    <h3>Air Max Running Shoes</h3>
-
-                    <div class="rating">
-                        ★★★★☆
-                        <span>(153)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$159</span>
-
-                        <span class="old-price">
-                            $199
-                        </span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="Air Max Running Shoes"
-                                data-price="159"
-                                data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="Air Max Running Shoes"
-                                data-price="$159"
-                                data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 5 -->
-
-            <div class="product-card"
-                 data-category="Audio"
-                 data-price="399"
-                 data-rating="4.8">
-
-                <div class="product-image">
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80"
-                        alt="Headphones">
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Audio
-                    </span>
-
-                    <h3>Premium Wireless Headphones</h3>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(310)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$399</span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="Premium Wireless Headphones"
-                                data-price="399"
-                                data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="Premium Wireless Headphones"
-                                data-price="$399"
-                                data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 6 -->
-
-            <div class="product-card"
-                 data-category="Fashion"
-                 data-price="89"
-                 data-rating="4.6">
-
-                <div class="product-image">
-
-                    <span class="product-badge">
-                        New
-                    </span>
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
-                        alt="T-Shirt">
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Fashion
-                    </span>
-
-                    <h3>Premium Cotton T-Shirt</h3>
-
-                    <div class="rating">
-                        ★★★★☆
-                        <span>(94)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$89</span>
-
-                        <span class="old-price">
-                            $109
-                        </span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="Premium Cotton T-Shirt"
-                                data-price="89"
-                                data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="Premium Cotton T-Shirt"
-                                data-price="$89"
-                                data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 7 -->
-
-            <div class="product-card"
-                 data-category="Accessories"
-                 data-price="129"
-                 data-rating="4.7">
-
-                <div class="product-image">
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
-                        alt="Watch">
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Accessories
-                    </span>
-
-                    <h3>Classic Premium Watch</h3>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(129)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$129</span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="Classic Premium Watch"
-                                data-price="129"
-                                data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="Classic Premium Watch"
-                                data-price="$129"
-                                data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCT 8 -->
-
-            <div class="product-card"
-                 data-category="Electronics"
-                 data-price="799"
-                 data-rating="4.8">
-
-                <div class="product-image">
-
-                    <span class="product-badge sale">
-                        -10%
-                    </span>
-
-                    <button class="wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <img
-                        src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=700&q=80"
-                        alt="Camera">
-
-                </div>
-
-                <div class="product-info">
-
-                    <span class="product-category">
-                        Electronics
-                    </span>
-
-                    <h3>Professional Mirrorless Camera</h3>
-
-                    <div class="rating">
-                        ★★★★★
-                        <span>(76)</span>
-                    </div>
-
-                    <div class="price-row">
-
-                        <span class="price">$799</span>
-
-                        <span class="old-price">
-                            $899
-                        </span>
-
-                    </div>
-
-                    <div class="product-actions">
-
-                        <button class="add-cart"
-                                data-name="Professional Mirrorless Camera"
-                                data-price="799"
-                                data-image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-cart-plus"></i>
-                            Add to Cart
-
-                        </button>
-
-                        <button class="quick-view"
-                                data-name="Professional Mirrorless Camera"
-                                data-price="$799"
-                                data-image="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=700&q=80">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="no-results" id="noResults">
-
-                <i class="fa-solid fa-box-open"
-                   style="font-size:45px;margin-bottom:15px;">
-                </i>
-
-                <h3>No products found</h3>
-
-                <p>
-                    Try another search or category.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FLASH DEAL
-========================================================= -->
-
-<section class="section deal-section" id="deals">
-
-    <div class="container">
-
-        <div class="deal-wrapper">
-
-            <div class="deal-image"></div>
-
-            <div class="deal-content">
-
-                <div class="deal-label">
-                    <i class="fa-solid fa-bolt"></i>
-                    Limited Time Offer
-                </div>
-
-                <h2>
-                    Flash Sale
-                </h2>
-
-                <p>
-                    Upgrade your workspace with our premium laptop collection.
-                    Limited stock available at an exclusive price.
-                </p>
-
-
-                <div class="countdown">
-
-                    <div class="time-box">
-                        <strong id="days">00</strong>
-                        <span>Days</span>
-                    </div>
-
-                    <div class="time-box">
-                        <strong id="hours">00</strong>
-                        <span>Hours</span>
-                    </div>
-
-                    <div class="time-box">
-                        <strong id="minutes">00</strong>
-                        <span>Minutes</span>
-                    </div>
-
-                    <div class="time-box">
-                        <strong id="seconds">00</strong>
-                        <span>Seconds</span>
-                    </div>
-
-                </div>
-
-
-                <div class="deal-price">
-                    $999
-                    <del>$1,299</del>
-                </div>
-
-                <div>
-
-                    <button class="btn btn-primary"
-                            onclick="showToast('Flash deal added to cart!')">
-
-                        Grab The Deal
-                        <i class="fa-solid fa-arrow-right"></i>
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section class="section" id="about">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div class="eyebrow">
-                Why NexusShop
-            </div>
-
-            <h2>
-                Built For Modern Shoppers
-            </h2>
-
-            <p>
-                We combine great products, transparent pricing and a
-                simple shopping experience.
-            </p>
-
-        </div>
-
-
-        <div class="testimonial-grid">
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "The shopping experience is incredibly smooth.
-                    The website is easy to navigate and my order arrived
-                    much faster than expected."
-                </p>
-
-                <div class="customer">
-
-                    <img
-                        src="https://randomuser.me/api/portraits/women/44.jpg"
-                        alt="Sarah">
-
-                    <div>
-                        <strong>Sarah Johnson</strong>
-                        <span>Verified Customer</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "Great products, excellent prices and very responsive
-                    customer support. NexusShop has become my favorite
-                    online store."
-                </p>
-
-                <div class="customer">
-
-                    <img
-                        src="https://randomuser.me/api/portraits/men/32.jpg"
-                        alt="Michael">
-
-                    <div>
-                        <strong>Michael Thomas</strong>
-                        <span>Verified Customer</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="testimonial">
-
-                <div class="stars">
-                    ★★★★★
-                </div>
-
-                <p>
-                    "I found exactly what I wanted and checkout was super
-                    easy. The product quality exceeded my expectations."
-                </p>
-
-                <div class="customer">
-
-                    <img
-                        src="https://randomuser.me/api/portraits/women/65.jpg"
-                        alt="Emma">
-
-                    <div>
-                        <strong>Emma Williams</strong>
-                        <span>Verified Customer</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     NEWSLETTER
-========================================================= -->
-
-<section class="newsletter" id="newsletter">
-
-    <div class="container">
-
-        <h2>
-            Get 10% Off Your First Order
-        </h2>
-
-        <p>
-            Subscribe to our newsletter for exclusive deals,
-            new arrivals and special offers.
-        </p>
-
-        <form class="newsletter-form"
-              id="newsletterForm">
-
-            <input
-                type="email"
-                placeholder="Enter your email address"
-                required>
-
-            <button type="submit">
-                Subscribe
+            <button class="search-btn" onclick="searchBuses()">
+                🔎 Search Buses
             </button>
 
-        </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section>
+    <div class="container">
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Safe Travel</h3>
+                <p>Verified buses and experienced drivers for a comfortable journey.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Best Prices</h3>
+                <p>Compare different buses and choose the fare that suits you.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎫</div>
+                <h3>Easy Booking</h3>
+                <p>Search, select your seat and complete your booking in minutes.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>24/7 Support</h3>
+                <p>Our support team is available whenever you need assistance.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= POPULAR ROUTES ================= -->
+
+<section id="routes">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Popular Routes</h2>
+            <p>Book your next journey from our most popular destinations.</p>
+        </div>
+
+        <div class="routes-grid">
+
+            <div class="route-card"
+                 onclick="selectRoute('Hyderabad','Vijayawada')"
+                 style="background-image:url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?auto=format&fit=crop&w=700&q=80')">
+                <div class="route-content">
+                    <small>Popular Route</small>
+                    <h3>Hyderabad → Vijayawada</h3>
+                    <small>Starting from ₹499</small>
+                </div>
+            </div>
+
+            <div class="route-card"
+                 onclick="selectRoute('Hyderabad','Tirupati')"
+                 style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80')">
+                <div class="route-content">
+                    <small>Popular Route</small>
+                    <h3>Hyderabad → Tirupati</h3>
+                    <small>Starting from ₹699</small>
+                </div>
+            </div>
+
+            <div class="route-card"
+                 onclick="selectRoute('Vijayawada','Visakhapatnam')"
+                 style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=80')">
+                <div class="route-content">
+                    <small>Popular Route</small>
+                    <h3>Vijayawada → Vizag</h3>
+                    <small>Starting from ₹549</small>
+                </div>
+            </div>
+
+            <div class="route-card"
+                 onclick="selectRoute('Hyderabad','Bangalore')"
+                 style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80')">
+                <div class="route-content">
+                    <small>Popular Route</small>
+                    <h3>Hyderabad → Bangalore</h3>
+                    <small>Starting from ₹799</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= BUS RESULTS ================= -->
+
+<section class="results-section" id="buses">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Available Buses</h2>
+            <p>Choose from our comfortable and reliable buses.</p>
+        </div>
+
+        <div class="results-layout">
+
+            <!-- FILTERS -->
+
+            <aside class="filters">
+
+                <h3>Filter Buses</h3>
+
+                <div class="filter-group">
+
+                    <div class="filter-title">Bus Type</div>
+
+                    <label class="filter-option">
+                        <input type="checkbox" class="type-filter" value="AC">
+                        AC
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox" class="type-filter" value="Sleeper">
+                        Sleeper
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="checkbox" class="type-filter" value="Seater">
+                        Seater
+                    </label>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <div class="filter-title">Departure</div>
+
+                    <label class="filter-option">
+                        <input type="radio" name="timeFilter" value="morning">
+                        Morning
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="radio" name="timeFilter" value="evening">
+                        Evening
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="radio" name="timeFilter" value="night">
+                        Night
+                    </label>
+
+                    <label class="filter-option">
+                        <input type="radio" name="timeFilter" value="all" checked>
+                        All
+                    </label>
+
+                </div>
+
+                <div class="filter-group">
+
+                    <div class="filter-title">Maximum Price</div>
+
+                    <input
+                        type="range"
+                        id="priceRange"
+                        min="300"
+                        max="2000"
+                        value="2000"
+                        style="width:100%; accent-color:#e63946;"
+                        oninput="updatePrice(this.value)"
+                    >
+
+                    <div style="font-size:12px;margin-top:8px;color:#687182;">
+                        Up to ₹<span id="priceValue">2000</span>
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- BUS LIST -->
+
+            <div>
+
+                <div class="results-header">
+
+                    <div>
+                        <h2 id="resultsTitle">Popular Bus Services</h2>
+                        <p id="resultCount">Showing available buses</p>
+                    </div>
+
+                    <select class="sort-select" onchange="sortBuses(this.value)">
+                        <option value="recommended">Recommended</option>
+                        <option value="priceLow">Price: Low to High</option>
+                        <option value="priceHigh">Price: High to Low</option>
+                        <option value="departure">Earliest Departure</option>
+                    </select>
+
+                </div>
+
+                <div class="bus-list" id="busList"></div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- ================= OFFERS ================= -->
+
+<section id="offers">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Travel Offers</h2>
+            <p>Save more on your next journey.</p>
+        </div>
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="feature-icon">🎉</div>
+                <h3>FIRST50</h3>
+                <p>Get up to ₹50 OFF on your first booking.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>PAY20</h3>
+                <p>Save ₹20 when you pay online.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧</div>
+                <h3>FAMILY100</h3>
+                <p>Group bookings can get up to ₹100 OFF.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h3>Ralis Rewards</h3>
+                <p>Earn reward points with every booking.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer id="contact">
 
@@ -2878,100 +1469,52 @@
 
         <div class="footer-grid">
 
-            <div class="footer-col">
+            <div class="footer-brand">
 
-                <a href="#" class="logo">
-                    Nexus<span>Shop</span>
-                </a>
+                <div class="logo">
+                    <div class="logo-icon">🚌</div>
 
-                <p style="margin-top:15px;">
-                    Your modern destination for premium technology,
-                    fashion and lifestyle products.
-                </p>
-
-                <div class="socials">
-
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-
+                    <div class="logo-text">
+                        <strong style="color:white;">Ralis Bus</strong>
+                        <span style="color:#9da6b5;">TOURS & TRAVELS</span>
+                    </div>
                 </div>
 
-            </div>
-
-
-            <div class="footer-col">
-
-                <h3>Shop</h3>
-
-                <ul>
-
-                    <li><a href="#products">All Products</a></li>
-                    <li><a href="#products">New Arrivals</a></li>
-                    <li><a href="#deals">Deals</a></li>
-                    <li><a href="#categories">Categories</a></li>
-
-                </ul>
+                <p>
+                    Your trusted travel partner for safe, comfortable and
+                    affordable bus journeys across South India.
+                </p>
 
             </div>
 
-
-            <div class="footer-col">
-
-                <h3>Support</h3>
-
-                <ul>
-
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">FAQs</a></li>
-
-                </ul>
-
-            </div>
-
-
-            <div class="footer-col">
-
+            <div>
                 <h3>Company</h3>
+                <a href="#home">About Us</a>
+                <a href="#routes">Routes</a>
+                <a href="#offers">Offers</a>
+                <a href="#">Careers</a>
+            </div>
 
-                <ul>
+            <div>
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Cancellation</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
 
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Careers</a></li>
-
-                </ul>
-
+            <div>
+                <h3>Contact</h3>
+                <a href="tel:+919876543210">📞 +91 98765 43210</a>
+                <a href="mailto:support@ralisbus.com">✉️ support@ralisbus.com</a>
+                <a href="#">📍 Hyderabad, Telangana</a>
             </div>
 
         </div>
 
-
         <div class="footer-bottom">
-
-            <span>
-                © 2026 NexusShop. All rights reserved.
-            </span>
-
-            <span>
-                Built with HTML, CSS & JavaScript
-            </span>
-
+            <span>© 2026 Ralis Bus Tours & Travels. All rights reserved.</span>
+            <span>Made for comfortable journeys 🚌</span>
         </div>
 
     </div>
@@ -2979,301 +1522,245 @@
 </footer>
 
 
-<!-- =========================================================
-     CART DRAWER
-========================================================= -->
+<!-- ================= BOOKING MODAL ================= -->
 
-<div class="overlay" id="overlay"></div>
+<div class="modal-overlay" id="bookingModal">
 
-<aside class="cart-drawer" id="cartDrawer">
+    <div class="modal">
 
-    <div class="cart-header">
+        <div class="modal-header">
 
-        <h3>
-            Shopping Cart
-        </h3>
+            <h2 id="modalTitle">Select Your Seats</h2>
 
-        <button class="close-btn"
-                id="closeCart">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-    </div>
-
-
-    <div class="cart-items" id="cartItems">
-
-        <div class="empty-cart">
-
-            <div>
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-                <h3>Your cart is empty</h3>
-
-                <p>
-                    Add some products to get started.
-                </p>
-
-            </div>
+            <button class="close-btn" onclick="closeModal()">×</button>
 
         </div>
 
-    </div>
-
-
-    <div class="cart-footer">
-
-        <div class="cart-total">
-
-            <span>Total</span>
-
-            <span id="cartTotal">
-                $0
-            </span>
-
-        </div>
-
-        <button class="checkout-btn"
-                onclick="checkout()">
-
-            Proceed to Checkout
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </button>
-
-    </div>
-
-</aside>
-
-
-<!-- =========================================================
-     QUICK VIEW MODAL
-========================================================= -->
-
-<div class="modal" id="quickViewModal">
-
-    <div class="modal-content">
-
-        <button class="modal-close"
-                id="closeModal">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-
-        <div class="quick-view-grid">
-
-            <img id="modalImage"
-                 src=""
-                 alt="Product">
-
-            <div class="quick-view-info">
-
-                <span class="product-category">
-                    Featured Product
-                </span>
-
-                <h2 id="modalName">
-                    Product
-                </h2>
-
-                <div class="rating">
-                    ★★★★★
-                    <span>Excellent rating</span>
-                </div>
-
-                <h3 id="modalPrice">
-                    $0
-                </h3>
-
-                <p>
-                    Premium quality product designed for modern
-                    lifestyles. Add it to your cart and enjoy a
-                    seamless shopping experience.
-                </p>
-
-                <button class="btn btn-primary"
-                        id="modalAddCart">
-
-                    <i class="fa-solid fa-cart-plus"></i>
-                    Add To Cart
-
-                </button>
-
-            </div>
-
-        </div>
+        <div class="modal-body" id="modalBody"></div>
 
     </div>
 
 </div>
 
 
-<!-- =========================================================
-     TOAST
-========================================================= -->
+<!-- ================= TOAST ================= -->
 
-<div class="toast-container"
-     id="toastContainer">
-</div>
+<div class="toast" id="toast"></div>
 
-
-<button class="back-top"
-        id="backTop">
-
-    <i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
 
 <script>
 
     /* =========================================================
-       GLOBAL STATE
+       BUS DATABASE
     ========================================================= */
 
-    let cart = JSON.parse(localStorage.getItem("nexusCart")) || [];
-    let wishlist = JSON.parse(localStorage.getItem("nexusWishlist")) || [];
+    const buses = [
 
+        {
+            id: 1,
+            company: "Ralis Express",
+            from: "Hyderabad",
+            to: "Vijayawada",
+            departure: "06:30 AM",
+            arrival: "11:00 AM",
+            duration: "4h 30m",
+            type: "AC Sleeper",
+            price: 650,
+            seats: 18,
+            rating: "4.7",
+            reviews: 328,
+            amenities: ["WiFi", "Charging", "Blanket"],
+            period: "morning"
+        },
 
-    /* =========================================================
-       TOAST
-    ========================================================= */
+        {
+            id: 2,
+            company: "Ralis Premium",
+            from: "Hyderabad",
+            to: "Vijayawada",
+            departure: "09:15 AM",
+            arrival: "01:45 PM",
+            duration: "4h 30m",
+            type: "AC Seater",
+            price: 499,
+            seats: 26,
+            rating: "4.5",
+            reviews: 214,
+            amenities: ["Charging", "Water Bottle"],
+            period: "morning"
+        },
 
-    function showToast(message, type = "success") {
+        {
+            id: 3,
+            company: "Ralis Night Rider",
+            from: "Hyderabad",
+            to: "Vijayawada",
+            departure: "10:30 PM",
+            arrival: "05:00 AM",
+            duration: "6h 30m",
+            type: "AC Sleeper",
+            price: 799,
+            seats: 12,
+            rating: "4.8",
+            reviews: 451,
+            amenities: ["WiFi", "Blanket", "Pillow"],
+            period: "night"
+        },
 
-        const container =
-            document.getElementById("toastContainer");
+        {
+            id: 4,
+            company: "Ralis Travels",
+            from: "Hyderabad",
+            to: "Tirupati",
+            departure: "07:00 PM",
+            arrival: "06:00 AM",
+            duration: "11h",
+            type: "AC Sleeper",
+            price: 999,
+            seats: 15,
+            rating: "4.6",
+            reviews: 187,
+            amenities: ["WiFi", "Blanket", "Charging"],
+            period: "evening"
+        },
 
-        const toast =
-            document.createElement("div");
+        {
+            id: 5,
+            company: "Ralis Volvo",
+            from: "Hyderabad",
+            to: "Bangalore",
+            departure: "08:30 PM",
+            arrival: "06:30 AM",
+            duration: "10h",
+            type: "AC Sleeper",
+            price: 1199,
+            seats: 10,
+            rating: "4.9",
+            reviews: 672,
+            amenities: ["WiFi", "Blanket", "Pillow", "Charging"],
+            period: "evening"
+        },
 
-        toast.className =
-            "toast " + type;
+        {
+            id: 6,
+            company: "Ralis Super Fast",
+            from: "Vijayawada",
+            to: "Visakhapatnam",
+            departure: "05:45 AM",
+            arrival: "10:15 AM",
+            duration: "4h 30m",
+            type: "AC Seater",
+            price: 549,
+            seats: 21,
+            rating: "4.4",
+            reviews: 142,
+            amenities: ["Charging", "Water Bottle"],
+            period: "morning"
+        },
 
-        toast.innerHTML = `
-            <i class="fa-solid ${
-                type === "error"
-                ? "fa-circle-exclamation"
-                : "fa-circle-check"
-            }"></i>
+        {
+            id: 7,
+            company: "Ralis Comfort",
+            from: "Hyderabad",
+            to: "Visakhapatnam",
+            departure: "08:00 PM",
+            arrival: "06:30 AM",
+            duration: "10h 30m",
+            type: "AC Sleeper",
+            price: 1099,
+            seats: 16,
+            rating: "4.7",
+            reviews: 293,
+            amenities: ["WiFi", "Blanket", "Charging"],
+            period: "evening"
+        },
 
-            <span>${message}</span>
-        `;
+        {
+            id: 8,
+            company: "Ralis Budget",
+            from: "Kandukur",
+            to: "Hyderabad",
+            departure: "06:00 AM",
+            arrival: "11:30 AM",
+            duration: "5h 30m",
+            type: "Non-AC Seater",
+            price: 399,
+            seats: 29,
+            rating: "4.2",
+            reviews: 96,
+            amenities: ["Charging"],
+            period: "morning"
+        },
 
-        container.appendChild(toast);
+        {
+            id: 9,
+            company: "Ralis Chennai Express",
+            from: "Hyderabad",
+            to: "Chennai",
+            departure: "09:00 PM",
+            arrival: "07:00 AM",
+            duration: "10h",
+            type: "AC Sleeper",
+            price: 1099,
+            seats: 14,
+            rating: "4.7",
+            reviews: 384,
+            amenities: ["WiFi", "Blanket", "Charging"],
+            period: "evening"
+        },
 
-        setTimeout(() => {
-
-            toast.style.opacity = "0";
-            toast.style.transform = "translateX(30px)";
-
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
-
-        }, 2500);
-    }
-
-
-    /* =========================================================
-       MOBILE MENU
-    ========================================================= */
-
-    const mobileMenuBtn =
-        document.getElementById("mobileMenuBtn");
-
-    const mainNav =
-        document.getElementById("mainNav");
-
-    mobileMenuBtn.addEventListener("click", () => {
-
-        mainNav.classList.toggle("active");
-
-        const icon =
-            mobileMenuBtn.querySelector("i");
-
-        if (mainNav.classList.contains("active")) {
-
-            icon.className =
-                "fa-solid fa-xmark";
-
-        } else {
-
-            icon.className =
-                "fa-solid fa-bars";
+        {
+            id: 10,
+            company: "Ralis Coastal Express",
+            from: "Vijayawada",
+            to: "Visakhapatnam",
+            departure: "08:30 PM",
+            arrival: "01:30 AM",
+            duration: "5h",
+            type: "AC Sleeper",
+            price: 699,
+            seats: 17,
+            rating: "4.6",
+            reviews: 221,
+            amenities: ["WiFi", "Charging"],
+            period: "evening"
         }
 
-    });
+    ];
 
 
-    document.querySelectorAll("#mainNav a")
-        .forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                mainNav.classList.remove("active");
-
-                const icon =
-                    mobileMenuBtn.querySelector("i");
-
-                icon.className =
-                    "fa-solid fa-bars";
-
-            });
-
-        });
+    let currentBuses = [...buses];
+    let selectedBus = null;
+    let selectedSeats = [];
 
 
     /* =========================================================
-       DARK MODE
+       INITIALIZATION
     ========================================================= */
 
-    const themeToggle =
-        document.getElementById("themeToggle");
+    document.addEventListener("DOMContentLoaded", function() {
 
-    const savedTheme =
-        localStorage.getItem("nexusTheme");
+        const today = new Date();
 
-    if (savedTheme === "dark") {
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const dd = String(today.getDate()).padStart(2, "0");
 
-        document.body.classList.add("dark");
+        document.getElementById("journeyDate").value =
+            `${yyyy}-${mm}-${dd}`;
 
-        themeToggle.innerHTML =
-            '<i class="fa-solid fa-sun"></i>';
-    }
+        document.getElementById("journeyDate").min =
+            `${yyyy}-${mm}-${dd}`;
 
+        renderBuses(buses);
 
-    themeToggle.addEventListener("click", () => {
+        document.querySelectorAll(".type-filter").forEach(function(box) {
+            box.addEventListener("change", applyFilters);
+        });
 
-        document.body.classList.toggle("dark");
-
-        const dark =
-            document.body.classList.contains("dark");
-
-        localStorage.setItem(
-            "nexusTheme",
-            dark ? "dark" : "light"
-        );
-
-        themeToggle.innerHTML = dark
-            ? '<i class="fa-solid fa-sun"></i>'
-            : '<i class="fa-solid fa-moon"></i>';
-
-        showToast(
-            dark
-                ? "Dark mode enabled"
-                : "Light mode enabled"
-        );
+        document.querySelectorAll("input[name='timeFilter']").forEach(function(box) {
+            box.addEventListener("change", applyFilters);
+        });
 
     });
 
@@ -3282,345 +1769,92 @@
        SEARCH
     ========================================================= */
 
-    const searchInput =
-        document.getElementById("searchInput");
+    function searchBuses() {
 
-    searchInput.addEventListener("input", filterProducts);
+        const from = document.getElementById("fromCity").value;
+        const to = document.getElementById("toCity").value;
+        const date = document.getElementById("journeyDate").value;
 
+        if (from === to) {
+            showToast("From and To locations cannot be the same.");
+            return;
+        }
 
-    /* =========================================================
-       FILTER
-    ========================================================= */
+        currentBuses = buses.filter(function(bus) {
 
-    let currentFilter = "all";
-
-    document.querySelectorAll(".filter-btn")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                document
-                    .querySelectorAll(".filter-btn")
-                    .forEach(btn =>
-                        btn.classList.remove("active")
-                    );
-
-                button.classList.add("active");
-
-                currentFilter =
-                    button.dataset.filter;
-
-                filterProducts();
-
-            });
+            return bus.from === from && bus.to === to;
 
         });
 
+        /*
+         If the exact route is not available in our demo database,
+         show all buses so the UI remains useful.
+        */
 
-    function filterProducts() {
+        if (currentBuses.length === 0) {
 
-        const search =
-            searchInput.value
-                .trim()
-                .toLowerCase();
-
-        const products =
-            document.querySelectorAll(".product-card");
-
-        let visible = 0;
-
-        products.forEach(product => {
-
-            const category =
-                product.dataset.category;
-
-            const name =
-                product.querySelector("h3")
-                    .textContent
-                    .toLowerCase();
-
-            const matchesSearch =
-                name.includes(search);
-
-            const matchesCategory =
-                currentFilter === "all" ||
-                category === currentFilter;
-
-            if (matchesSearch && matchesCategory) {
-
-                product.style.display = "";
-
-                visible++;
-
-            } else {
-
-                product.style.display = "none";
-            }
-
-        });
-
-        document.getElementById("noResults")
-            .style.display =
-                visible === 0 ? "block" : "none";
-    }
-
-
-    /* =========================================================
-       CATEGORY CARDS
-    ========================================================= */
-
-    document.querySelectorAll(".category")
-        .forEach(category => {
-
-            category.addEventListener("click", () => {
-
-                const selected =
-                    category.dataset.category;
-
-                currentFilter = selected;
-
-                document
-                    .querySelectorAll(".filter-btn")
-                    .forEach(btn => {
-
-                        btn.classList.toggle(
-                            "active",
-                            btn.dataset.filter === selected
-                        );
-
-                    });
-
-                document.getElementById("products")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                filterProducts();
-
-            });
-
-        });
-
-
-    /* =========================================================
-       SORT
-    ========================================================= */
-
-    document
-        .getElementById("sortSelect")
-        .addEventListener("change", function () {
-
-            const grid =
-                document.getElementById("productGrid");
-
-            const products =
-                [...grid.querySelectorAll(".product-card")];
-
-            const value = this.value;
-
-            products.sort((a, b) => {
-
-                if (value === "low") {
-
-                    return Number(a.dataset.price) -
-                           Number(b.dataset.price);
-
-                }
-
-                if (value === "high") {
-
-                    return Number(b.dataset.price) -
-                           Number(a.dataset.price);
-
-                }
-
-                if (value === "rating") {
-
-                    return Number(b.dataset.rating) -
-                           Number(a.dataset.rating);
-
-                }
-
-                return 0;
-
-            });
-
-            products.forEach(product =>
-                grid.appendChild(product)
+            showToast(
+                "No exact demo buses found for this route. Showing popular services."
             );
 
-        });
-
-
-    /* =========================================================
-       WISHLIST
-    ========================================================= */
-
-    function updateWishlist() {
-
-        document.getElementById("wishlistCount")
-            .textContent = wishlist.length;
-
-        localStorage.setItem(
-            "nexusWishlist",
-            JSON.stringify(wishlist)
-        );
-    }
-
-
-    document.querySelectorAll(".wishlist-btn")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                const product =
-                    button.closest(".product-card");
-
-                const name =
-                    product.querySelector("h3")
-                        .textContent;
-
-                const index =
-                    wishlist.indexOf(name);
-
-                if (index === -1) {
-
-                    wishlist.push(name);
-
-                    button.classList.add("liked");
-
-                    button.innerHTML =
-                        '<i class="fa-solid fa-heart"></i>';
-
-                    showToast(
-                        name + " added to wishlist"
-                    );
-
-                } else {
-
-                    wishlist.splice(index, 1);
-
-                    button.classList.remove("liked");
-
-                    button.innerHTML =
-                        '<i class="fa-regular fa-heart"></i>';
-
-                    showToast(
-                        name + " removed from wishlist"
-                    );
-                }
-
-                updateWishlist();
-
-            });
-
-        });
-
-
-    updateWishlist();
-
-
-    /* =========================================================
-       CART
-    ========================================================= */
-
-    function saveCart() {
-
-        localStorage.setItem(
-            "nexusCart",
-            JSON.stringify(cart)
-        );
-
-    }
-
-
-    function updateCart() {
-
-        const count =
-            cart.reduce(
-                (total, item) =>
-                    total + item.quantity,
-                0
-            );
-
-        const total =
-            cart.reduce(
-                (sum, item) =>
-                    sum + item.price * item.quantity,
-                0
-            );
-
-        document.getElementById("cartCount")
-            .textContent = count;
-
-        document.getElementById("cartTotal")
-            .textContent =
-                "$" + total.toLocaleString();
-
-        renderCart();
-
-        saveCart();
-
-    }
-
-
-    function addToCart(
-        name,
-        price,
-        image
-    ) {
-
-        const existing =
-            cart.find(item =>
-                item.name === name
-            );
-
-        if (existing) {
-
-            existing.quantity++;
+            currentBuses = [...buses];
 
         } else {
 
-            cart.push({
-                name: name,
-                price: Number(price),
-                image: image,
-                quantity: 1
-            });
+            showToast(
+                currentBuses.length + " buses found for " +
+                from + " → " + to
+            );
 
         }
 
-        updateCart();
+        document.getElementById("resultsTitle").textContent =
+            from + " → " + to;
 
-        showToast(
-            name + " added to cart"
-        );
+        renderBuses(currentBuses);
+
+        document.getElementById("buses").scrollIntoView({
+            behavior: "smooth"
+        });
 
     }
 
 
-    function renderCart() {
+    /* =========================================================
+       ROUTE QUICK SEARCH
+    ========================================================= */
 
-        const container =
-            document.getElementById("cartItems");
+    function selectRoute(from, to) {
 
-        if (cart.length === 0) {
+        document.getElementById("fromCity").value = from;
+        document.getElementById("toCity").value = to;
+
+        searchBuses();
+
+    }
+
+
+    /* =========================================================
+       RENDER BUSES
+    ========================================================= */
+
+    function renderBuses(list) {
+
+        const container = document.getElementById("busList");
+
+        container.innerHTML = "";
+
+        document.getElementById("resultCount").textContent =
+            list.length + " bus service(s) available";
+
+
+        if (list.length === 0) {
 
             container.innerHTML = `
-                <div class="empty-cart">
-
-                    <div>
-
-                        <i class="fa-solid fa-cart-shopping"></i>
-
-                        <h3>Your cart is empty</h3>
-
-                        <p>
-                            Add some products to get started.
-                        </p>
-
-                    </div>
-
+                <div class="no-results">
+                    <div style="font-size:40px;margin-bottom:10px;">🚌</div>
+                    <h3>No buses found</h3>
+                    <p>Try changing your filters or search route.</p>
                 </div>
             `;
 
@@ -3628,518 +1862,900 @@
         }
 
 
-        container.innerHTML =
-            cart.map((item, index) => `
+        list.forEach(function(bus) {
 
-                <div class="cart-item">
+            const card = document.createElement("div");
 
-                    <img
-                        src="${item.image}"
-                        alt="${item.name}">
+            card.className = "bus-card";
 
-                    <div>
+            card.innerHTML = `
 
-                        <h4>
-                            ${item.name}
-                        </h4>
+                <div class="bus-main">
 
-                        <div class="cart-item-price">
-                            $${item.price.toLocaleString()}
-                        </div>
+                    <div class="bus-company">
 
-                        <div class="quantity">
+                        <div class="bus-logo">🚌</div>
 
-                            <button
-                                onclick="changeQuantity(${index}, -1)">
-                                -
-                            </button>
-
-                            <strong>
-                                ${item.quantity}
-                            </strong>
-
-                            <button
-                                onclick="changeQuantity(${index}, 1)">
-                                +
-                            </button>
-
+                        <div>
+                            <strong>${bus.company}</strong>
+                            <span>${bus.type}</span>
+                            <div class="rating">
+                                ★ ${bus.rating}
+                                <span style="color:#89919f;font-weight:400;">
+                                    (${bus.reviews} reviews)
+                                </span>
+                            </div>
                         </div>
 
                     </div>
 
+
+                    <div class="timing">
+
+                        <div class="time">
+                            <strong>${bus.departure}</strong>
+                            <small>${bus.from}</small>
+                        </div>
+
+                        <div class="route-line">
+                            <span>${bus.duration}</span>
+                            <div></div>
+                            <span>Direct</span>
+                        </div>
+
+                        <div class="time">
+                            <strong>${bus.arrival}</strong>
+                            <small>${bus.to}</small>
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div style="font-size:12px;color:#697180;">
+                            Available Seats
+                        </div>
+
+                        <div style="font-size:18px;font-weight:800;margin-top:4px;">
+                            ${bus.seats}
+                        </div>
+
+                    </div>
+
+
+                    <div class="bus-price">
+
+                        <strong>₹${bus.price}</strong>
+
+                        <span>per passenger</span>
+
+                        <button
+                            class="select-seat-btn"
+                            onclick="openSeatSelection(${bus.id})">
+                            Select Seat
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="bus-extra">
+
+                    <span class="tag">❄ ${bus.type}</span>
+
+                    ${bus.amenities.map(function(item) {
+                        return `<span class="tag">✓ ${item}</span>`;
+                    }).join("")}
+
+                    <span class="tag">🛡️ Live Tracking</span>
+
+                </div>
+
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    /* =========================================================
+       SEAT SELECTION
+    ========================================================= */
+
+    function openSeatSelection(busId) {
+
+        selectedBus = buses.find(function(bus) {
+            return bus.id === busId;
+        });
+
+        selectedSeats = [];
+
+        document.getElementById("modalTitle").textContent =
+            "Select Your Seats";
+
+        const modalBody = document.getElementById("modalBody");
+
+        modalBody.innerHTML = `
+
+            <div class="booking-grid">
+
+                <div class="bus-preview">
+
+                    <h3>${selectedBus.company}</h3>
+
+                    <div class="driver">
+                        DRIVER
+                    </div>
+
+                    <div class="seat-layout">
+
+                        ${generateSeats()}
+
+                    </div>
+
+                    <div class="seat-legend">
+
+                        <div class="legend-item">
+                            <span class="legend-box"></span>
+                            Available
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box selected"></span>
+                            Selected
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box booked"></span>
+                            Booked
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-summary">
+
+                    <div class="summary-bus">
+
+                        <strong>
+                            ${selectedBus.from} → ${selectedBus.to}
+                        </strong>
+
+                        <div style="font-size:12px;color:#727b89;margin-top:6px;">
+                            ${selectedBus.departure}
+                            •
+                            ${selectedBus.duration}
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-row">
+                        <span>Bus</span>
+                        <strong>${selectedBus.company}</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Bus Type</span>
+                        <strong>${selectedBus.type}</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Selected Seats</span>
+                        <strong id="selectedSeatText">None</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Passengers</span>
+                        <strong id="passengerCount">0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Base Fare</span>
+                        <strong id="baseFare">₹0</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Service Fee</span>
+                        <strong id="serviceFee">₹0</strong>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="totalFare">₹0</span>
+                    </div>
+
                     <button
-                        class="remove-item"
-                        onclick="removeFromCart(${index})">
-
-                        <i class="fa-solid fa-trash"></i>
-
+                        class="continue-btn"
+                        onclick="continueToPassengerDetails()">
+                        Continue →
                     </button>
 
                 </div>
 
-            `).join("");
+            </div>
+
+        `;
+
+        document.getElementById("bookingModal").classList.add("show");
 
     }
 
 
-    function changeQuantity(index, amount) {
+    function generateSeats() {
 
-        cart[index].quantity += amount;
+        let html = "";
 
-        if (cart[index].quantity <= 0) {
+        const bookedSeats = [3, 7, 12, 16, 21, 24];
 
-            cart.splice(index, 1);
+        for (let row = 0; row < 7; row++) {
+
+            html += `<div class="seat-row">`;
+
+            for (let column = 0; column < 4; column++) {
+
+                const seatNumber = row * 4 + column + 1;
+
+                const isBooked = bookedSeats.includes(seatNumber);
+
+                if (column === 2) {
+                    html += `<div style="width:15px;"></div>`;
+                }
+
+                html += `
+                    <button
+                        class="seat ${isBooked ? "booked" : ""}"
+                        ${isBooked ? "disabled" : ""}
+                        onclick="toggleSeat(this, ${seatNumber})">
+                        ${seatNumber}
+                    </button>
+                `;
+
+            }
+
+            html += `</div>`;
 
         }
 
-        updateCart();
+        return html;
 
     }
 
 
-    function removeFromCart(index) {
+    function toggleSeat(button, seatNumber) {
+
+        if (button.classList.contains("booked")) {
+            return;
+        }
+
+
+        if (button.classList.contains("selected")) {
+
+            button.classList.remove("selected");
+
+            selectedSeats =
+                selectedSeats.filter(function(seat) {
+                    return seat !== seatNumber;
+                });
+
+        } else {
+
+            const maxPassengers =
+                parseInt(document.getElementById("passengers").value);
+
+            if (selectedSeats.length >= maxPassengers) {
+
+                showToast(
+                    "You selected " +
+                    maxPassengers +
+                    " passenger(s)."
+                );
+
+                return;
+            }
+
+            button.classList.add("selected");
+
+            selectedSeats.push(seatNumber);
+
+        }
+
+        updateBookingSummary();
+
+    }
+
+
+    function updateBookingSummary() {
+
+        const count = selectedSeats.length;
+
+        const baseFare =
+            count * selectedBus.price;
+
+        const serviceFee =
+            count > 0 ? count * 25 : 0;
+
+        const total =
+            baseFare + serviceFee;
+
+
+        document.getElementById("selectedSeatText").textContent =
+            count ? selectedSeats.join(", ") : "None";
+
+        document.getElementById("passengerCount").textContent =
+            count;
+
+        document.getElementById("baseFare").textContent =
+            "₹" + baseFare;
+
+        document.getElementById("serviceFee").textContent =
+            "₹" + serviceFee;
+
+        document.getElementById("totalFare").textContent =
+            "₹" + total;
+
+    }
+
+
+    /* =========================================================
+       PASSENGER DETAILS
+    ========================================================= */
+
+    function continueToPassengerDetails() {
+
+        if (selectedSeats.length === 0) {
+
+            showToast("Please select at least one seat.");
+
+            return;
+        }
+
+        document.getElementById("modalTitle").textContent =
+            "Passenger Details";
+
+        const total =
+            selectedSeats.length *
+            (selectedBus.price + 25);
+
+        document.getElementById("modalBody").innerHTML = `
+
+            <div>
+
+                <div style="
+                    background:#f5f7fa;
+                    padding:15px;
+                    border-radius:10px;
+                    margin-bottom:22px;
+                ">
+
+                    <strong>
+                        ${selectedBus.company}
+                    </strong>
+
+                    <div style="
+                        font-size:13px;
+                        color:#697180;
+                        margin-top:5px;
+                    ">
+                        ${selectedBus.from}
+                        →
+                        ${selectedBus.to}
+                        |
+                        ${selectedBus.departure}
+                        |
+                        Seats:
+                        ${selectedSeats.join(", ")}
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>FULL NAME</label>
+                        <input
+                            type="text"
+                            id="passengerName"
+                            placeholder="Enter passenger name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>AGE</label>
+                        <input
+                            type="number"
+                            id="passengerAge"
+                            placeholder="Enter age"
+                            min="1"
+                            max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>GENDER</label>
+                        <select id="passengerGender">
+                            <option value="">Select gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>PHONE NUMBER</label>
+                        <input
+                            type="tel"
+                            id="passengerPhone"
+                            placeholder="Enter mobile number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>EMAIL</label>
+                        <input
+                            type="email"
+                            id="passengerEmail"
+                            placeholder="Enter email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label>BOARDING POINT</label>
+                        <select id="boardingPoint">
+
+                            <option>
+                                ${selectedBus.from} Central Bus Station
+                            </option>
+
+                            <option>
+                                ${selectedBus.from} Main Road
+                            </option>
+
+                            <option>
+                                ${selectedBus.from} Railway Station
+                            </option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>DROP POINT</label>
+
+                        <select id="dropPoint">
+
+                            <option>
+                                ${selectedBus.to} Central Bus Station
+                            </option>
+
+                            <option>
+                                ${selectedBus.to} Main Road
+                            </option>
+
+                            <option>
+                                ${selectedBus.to} Railway Station
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div style="
+                    margin-top:22px;
+                    padding:15px;
+                    border-radius:10px;
+                    background:#fff7e8;
+                    color:#75551b;
+                    font-size:12px;
+                ">
+                    ⚠️ Please carry a valid ID proof during travel.
+                    Boarding closes 15 minutes before departure.
+                </div>
+
+
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    margin-top:25px;
+                    padding-top:18px;
+                    border-top:1px solid #edf0f4;
+                ">
+
+                    <div>
+                        <small style="color:#737c8b;">
+                            Total Amount
+                        </small>
+
+                        <div style="
+                            font-size:22px;
+                            font-weight:800;
+                            margin-top:3px;
+                        ">
+                            ₹${total}
+                        </div>
+                    </div>
+
+                    <button
+                        class="continue-btn"
+                        style="width:220px;"
+                        onclick="confirmBooking()">
+                        Proceed to Payment →
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =========================================================
+       CONFIRM BOOKING
+    ========================================================= */
+
+    function confirmBooking() {
 
         const name =
-            cart[index].name;
+            document.getElementById("passengerName").value.trim();
 
-        cart.splice(index, 1);
+        const age =
+            document.getElementById("passengerAge").value.trim();
 
-        updateCart();
+        const phone =
+            document.getElementById("passengerPhone").value.trim();
 
-        showToast(
-            name + " removed from cart"
-        );
+        const email =
+            document.getElementById("passengerEmail").value.trim();
 
-    }
 
+        if (!name || !age || !phone || !email) {
 
-    document.querySelectorAll(".add-cart")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                addToCart(
-                    button.dataset.name,
-                    button.dataset.price,
-                    button.dataset.image
-                );
-
-            });
-
-        });
-
-
-    /* =========================================================
-       CART DRAWER
-    ========================================================= */
-
-    const cartButton =
-        document.getElementById("cartButton");
-
-    const cartDrawer =
-        document.getElementById("cartDrawer");
-
-    const overlay =
-        document.getElementById("overlay");
-
-    const closeCart =
-        document.getElementById("closeCart");
-
-
-    function openCart() {
-
-        cartDrawer.classList.add("active");
-
-        overlay.classList.add("active");
-
-        document.body.classList.add("no-scroll");
-
-    }
-
-
-    function closeCartDrawer() {
-
-        cartDrawer.classList.remove("active");
-
-        overlay.classList.remove("active");
-
-        document.body.classList.remove("no-scroll");
-
-    }
-
-
-    cartButton.addEventListener(
-        "click",
-        openCart
-    );
-
-    closeCart.addEventListener(
-        "click",
-        closeCartDrawer
-    );
-
-    overlay.addEventListener(
-        "click",
-        closeCartDrawer
-    );
-
-
-    /* =========================================================
-       QUICK VIEW
-    ========================================================= */
-
-    const modal =
-        document.getElementById("quickViewModal");
-
-    const modalImage =
-        document.getElementById("modalImage");
-
-    const modalName =
-        document.getElementById("modalName");
-
-    const modalPrice =
-        document.getElementById("modalPrice");
-
-    const modalAddCart =
-        document.getElementById("modalAddCart");
-
-    const closeModal =
-        document.getElementById("closeModal");
-
-
-    let modalProduct = null;
-
-
-    document.querySelectorAll(".quick-view")
-        .forEach(button => {
-
-            button.addEventListener("click", () => {
-
-                modalProduct = {
-                    name: button.dataset.name,
-                    price: button.dataset.price,
-                    image: button.dataset.image
-                };
-
-                modalImage.src =
-                    modalProduct.image;
-
-                modalName.textContent =
-                    modalProduct.name;
-
-                modalPrice.textContent =
-                    modalProduct.price;
-
-                modal.classList.add("active");
-
-                document.body.classList.add(
-                    "no-scroll"
-                );
-
-            });
-
-        });
-
-
-    closeModal.addEventListener(
-        "click",
-        closeProductModal
-    );
-
-
-    modal.addEventListener("click", event => {
-
-        if (event.target === modal) {
-
-            closeProductModal();
-
-        }
-
-    });
-
-
-    function closeProductModal() {
-
-        modal.classList.remove("active");
-
-        document.body.classList.remove(
-            "no-scroll"
-        );
-
-    }
-
-
-    modalAddCart.addEventListener(
-        "click",
-        () => {
-
-            if (!modalProduct) return;
-
-            const numericPrice =
-                Number(
-                    modalProduct.price
-                        .replace("$", "")
-                        .replace(",", "")
-                );
-
-            addToCart(
-                modalProduct.name,
-                numericPrice,
-                modalProduct.image
-            );
-
-            closeProductModal();
-
-        }
-    );
-
-
-    /* =========================================================
-       COUNTDOWN
-    ========================================================= */
-
-    const saleEnd =
-        new Date(
-            Date.now() +
-            2 * 24 * 60 * 60 * 1000 +
-            7 * 60 * 60 * 1000 +
-            32 * 60 * 1000
-        );
-
-
-    function updateCountdown() {
-
-        const now =
-            new Date();
-
-        const diff =
-            saleEnd - now;
-
-        if (diff <= 0) {
-
-            document.getElementById("days")
-                .textContent = "00";
-
-            document.getElementById("hours")
-                .textContent = "00";
-
-            document.getElementById("minutes")
-                .textContent = "00";
-
-            document.getElementById("seconds")
-                .textContent = "00";
+            showToast("Please complete all passenger details.");
 
             return;
         }
 
 
-        const days =
-            Math.floor(
-                diff /
-                (1000 * 60 * 60 * 24)
-            );
+        if (phone.length < 10) {
 
-        const hours =
-            Math.floor(
-                (diff %
-                (1000 * 60 * 60 * 24)) /
-                (1000 * 60 * 60)
-            );
+            showToast("Please enter a valid phone number.");
 
-        const minutes =
-            Math.floor(
-                (diff %
-                (1000 * 60 * 60)) /
-                (1000 * 60)
-            );
-
-        const seconds =
-            Math.floor(
-                (diff %
-                (1000 * 60)) /
-                1000
-            );
+            return;
+        }
 
 
-        document.getElementById("days")
-            .textContent =
-                String(days).padStart(2, "0");
+        const bookingId =
+            "RAL" +
+            Math.floor(100000 + Math.random() * 900000);
 
-        document.getElementById("hours")
-            .textContent =
-                String(hours).padStart(2, "0");
 
-        document.getElementById("minutes")
-            .textContent =
-                String(minutes).padStart(2, "0");
+        const total =
+            selectedSeats.length *
+            (selectedBus.price + 25);
 
-        document.getElementById("seconds")
-            .textContent =
-                String(seconds).padStart(2, "0");
+
+        document.getElementById("modalTitle").textContent =
+            "Booking Confirmed 🎉";
+
+
+        document.getElementById("modalBody").innerHTML = `
+
+            <div class="success">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    Your booking is confirmed!
+                </h2>
+
+                <p style="
+                    color:#697180;
+                    margin-top:8px;
+                ">
+                    Thank you for booking with Ralis Bus Tours & Travels.
+                </p>
+
+
+                <div class="ticket">
+
+                    <div style="
+                        display:flex;
+                        justify-content:space-between;
+                        margin-bottom:15px;
+                    ">
+
+                        <strong>
+                            Ralis Bus
+                        </strong>
+
+                        <span style="
+                            color:#16934f;
+                            font-weight:800;
+                        ">
+                            CONFIRMED
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+                        <span>Booking ID</span>
+                        <strong>${bookingId}</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Passenger</span>
+                        <strong>${name}</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Route</span>
+                        <strong>
+                            ${selectedBus.from}
+                            →
+                            ${selectedBus.to}
+                        </strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Departure</span>
+                        <strong>${selectedBus.departure}</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Seats</span>
+                        <strong>${selectedSeats.join(", ")}</strong>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total Paid</span>
+                        <strong>₹${total}</strong>
+                    </div>
+
+                </div>
+
+
+                <p style="
+                    color:#737c8b;
+                    font-size:12px;
+                    margin-bottom:20px;
+                ">
+                    🎫 Your e-ticket details have been generated.
+                    Please show your booking ID while boarding.
+                </p>
+
+
+                <button
+                    class="continue-btn"
+                    style="max-width:250px;"
+                    onclick="closeModal()">
+                    Done
+                </button>
+
+            </div>
+
+        `;
+
+        showToast("Booking confirmed successfully!");
 
     }
 
 
-    updateCountdown();
+    /* =========================================================
+       FILTERS
+    ========================================================= */
 
-    setInterval(
-        updateCountdown,
-        1000
-    );
+    function applyFilters() {
+
+        const selectedTypes =
+            Array.from(
+                document.querySelectorAll(".type-filter:checked")
+            ).map(function(input) {
+                return input.value;
+            });
+
+
+        const time =
+            document.querySelector(
+                "input[name='timeFilter']:checked"
+            ).value;
+
+
+        const maxPrice =
+            parseInt(
+                document.getElementById("priceRange").value
+            );
+
+
+        let filtered = currentBuses.filter(function(bus) {
+
+            const typeMatch =
+                selectedTypes.length === 0 ||
+                selectedTypes.some(function(type) {
+                    return bus.type.includes(type);
+                });
+
+
+            const timeMatch =
+                time === "all" ||
+                bus.period === time;
+
+
+            const priceMatch =
+                bus.price <= maxPrice;
+
+
+            return typeMatch &&
+                   timeMatch &&
+                   priceMatch;
+
+        });
+
+
+        renderBuses(filtered);
+
+    }
+
+
+    function updatePrice(value) {
+
+        document.getElementById("priceValue").textContent =
+            value;
+
+        applyFilters();
+
+    }
 
 
     /* =========================================================
-       NEWSLETTER
+       SORTING
     ========================================================= */
 
+    function sortBuses(type) {
+
+        let sorted = [...currentBuses];
+
+
+        if (type === "priceLow") {
+
+            sorted.sort(function(a,b) {
+                return a.price - b.price;
+            });
+
+        }
+
+
+        if (type === "priceHigh") {
+
+            sorted.sort(function(a,b) {
+                return b.price - a.price;
+            });
+
+        }
+
+
+        if (type === "departure") {
+
+            sorted.sort(function(a,b) {
+                return convertTime(a.departure) -
+                       convertTime(b.departure);
+            });
+
+        }
+
+
+        renderBuses(sorted);
+
+    }
+
+
+    function convertTime(time) {
+
+        const parts =
+            time.match(/(\d+):(\d+)\s*(AM|PM)/);
+
+        let hour =
+            parseInt(parts[1]);
+
+        const minute =
+            parseInt(parts[2]);
+
+        const period =
+            parts[3];
+
+
+        if (period === "PM" && hour !== 12) {
+            hour += 12;
+        }
+
+        if (period === "AM" && hour === 12) {
+            hour = 0;
+        }
+
+        return hour * 60 + minute;
+
+    }
+
+
+    /* =========================================================
+       DARK MODE
+    ========================================================= */
+
+    function toggleDarkMode() {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            showToast("Dark mode enabled");
+
+        } else {
+
+            showToast("Light mode enabled");
+
+        }
+
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    function closeModal() {
+
+        document
+            .getElementById("bookingModal")
+            .classList.remove("show");
+
+    }
+
+
     document
-        .getElementById("newsletterForm")
-        .addEventListener("submit", function(event) {
+        .getElementById("bookingModal")
+        .addEventListener("click", function(event) {
 
-            event.preventDefault();
-
-            const email =
-                this.querySelector("input")
-                    .value;
-
-            if (email) {
-
-                showToast(
-                    "Thanks! You're subscribed."
-                );
-
-                this.reset();
-
+            if (event.target === this) {
+                closeModal();
             }
 
         });
 
 
     /* =========================================================
-       CHECKOUT
+       TOAST
     ========================================================= */
 
-    function checkout() {
+    let toastTimer;
 
-        if (cart.length === 0) {
+    function showToast(message) {
 
-            showToast(
-                "Your cart is empty",
-                "error"
-            );
+        const toast =
+            document.getElementById("toast");
 
-            return;
-        }
+        toast.textContent = message;
 
-        showToast(
-            "Checkout demo — payment integration can be added next."
-        );
+        toast.classList.add("show");
+
+        clearTimeout(toastTimer);
+
+        toastTimer = setTimeout(function() {
+
+            toast.classList.remove("show");
+
+        }, 3000);
 
     }
-
-
-    /* =========================================================
-       BACK TO TOP
-    ========================================================= */
-
-    const backTop =
-        document.getElementById("backTop");
-
-
-    window.addEventListener("scroll", () => {
-
-        if (window.scrollY > 500) {
-
-            backTop.classList.add("show");
-
-        } else {
-
-            backTop.classList.remove("show");
-
-        }
-
-    });
-
-
-    backTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-
-    /* =========================================================
-       ACTIVE NAVIGATION
-    ========================================================= */
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-    const navLinks =
-        document.querySelectorAll(
-            "#mainNav a"
-        );
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            let current = "";
-
-            sections.forEach(section => {
-
-                const top =
-                    section.offsetTop - 150;
-
-                if (
-                    window.scrollY >= top
-                ) {
-
-                    current =
-                        section.id;
-
-                }
-
-            });
-
-
-            navLinks.forEach(link => {
-
-                link.classList.remove(
-                    "active"
-                );
-
-                if (
-                    link.getAttribute("href") ===
-                    "#" + current
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            });
-
-        }
-    );
-
-
-    /* =========================================================
-       INITIALIZE
-    ========================================================= */
-
-    updateCart();
 
 </script>
 
