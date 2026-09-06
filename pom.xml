@@ -1,130 +1,106 @@
-```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="
-            http://maven.apache.org/POM/4.0.0
-            https://maven.apache.org/xsd/maven-4.0.0.xsd">
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- Project Information -->
-    <modelVersion>4.0.0</modelVersion>
+```
+<modelVersion>4.0.0</modelVersion>
 
-    <groupId>in.javahome</groupId>
-    <artifactId>myweb</artifactId>
-    <version>8.6.9</version>
-    <packaging>war</packaging>
+<!-- Project Information -->
+<groupId>in.javahome</groupId>
+<artifactId>myweb</artifactId>
+<version>8.6.9</version>
+<packaging>war</packaging>
 
-    <name>MyWeb Application</name>
-    <description>Java Web Application - DevOps CI/CD Demo</description>
+<name>MyWeb Application</name>
+<description>Java Web Application - DevOps CI/CD Demo</description>
 
-    <!-- ========================================================= -->
-    <!-- Properties                                                -->
-    <!-- ========================================================= -->
+<!-- Properties -->
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <properties>
+    <!-- Java Version -->
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
 
-        <!-- Java -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+    <!-- Maven Plugin Versions -->
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
 
-        <!-- Plugin Versions -->
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.war.plugin.version>3.3.2</maven.war.plugin.version>
+    <!-- SonarQube -->
+    <sonar.host.url>http://18.181.164.81:9000</sonar.host.url>
 
-        <!-- SonarQube -->
-        <sonar.host.url>http://18.181.164.81:9000</sonar.host.url>
+    <!-- Docker -->
+    <docker.image.prefix>kammana</docker.image.prefix>
+</properties>
 
-        <!-- Docker -->
-        <docker.image.prefix>kammana</docker.image.prefix>
+<!-- Dependencies -->
+<dependencies>
 
-    </properties>
+    <!-- JUnit -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+    </dependency>
 
+</dependencies>
 
-    <!-- ========================================================= -->
-    <!-- Dependencies                                               -->
-    <!-- ========================================================= -->
+<!-- Build Configuration -->
+<build>
 
-    <dependencies>
+    <finalName>myweb</finalName>
 
-        <!-- JUnit Testing -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
-        </dependency>
+    <plugins>
 
-    </dependencies>
+        <!-- Maven Compiler Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven.compiler.plugin.version}</version>
 
+            <configuration>
+                <source>${maven.compiler.source}</source>
+                <target>${maven.compiler.target}</target>
+                <encoding>${project.build.sourceEncoding}</encoding>
+            </configuration>
+        </plugin>
 
-    <!-- ========================================================= -->
-    <!-- Build Configuration                                        -->
-    <!-- ========================================================= -->
+        <!-- Maven WAR Plugin -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>${maven.war.plugin.version}</version>
 
-    <build>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
 
-        <!-- WAR file name -->
-        <finalName>myweb</finalName>
+    </plugins>
 
-        <plugins>
+</build>
 
-            <!-- Java Compiler -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version} </version>
+<!-- Nexus Repository -->
+<distributionManagement>
 
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
+    <!-- Snapshot Repository -->
+    <snapshotRepository>
+        <id>nexusRepo</id>
+        <name>Nexus Snapshot Repository</name>
+        <url>http://34.208.218.12:8081/repository/sample-snapshots/</url>
+    </snapshotRepository>
 
+    <!-- Release Repository -->
+    <repository>
+        <id>nexusRepo</id>
+        <name>Nexus Release Repository</name>
+        <url>http://44.202.251.20:8081/repository/flm-releases/</url>
+    </repository>
 
-            <!-- WAR Packaging -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${maven.war.plugin.version}</version>
-
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-
-        </plugins>
-
-    </build>
-
-
-    <!-- ========================================================= -->
-    <!-- Nexus Repository Configuration                             -->
-    <!-- ========================================================= -->
-
-    <distributionManagement>
-
-        <!-- Snapshot Repository -->
-        <snapshotRepository>
-            <id>nexusRepo</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>
-                http://34.208.218.12:8081/repository/sample-snapshots/
-            </url>
-        </snapshotRepository>
-
-        <!-- Release Repository -->
-        <repository>
-            <id>nexusRepo</id>
-            <name>Nexus Release Repository</name>
-            <url>
-                http://44.202.251.20:8081/repository/flm-releases/
-            </url>
-        </repository>
-
-    </distributionManagement>
+</distributionManagement>
+```
 
 </project>
-```
