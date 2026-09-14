@@ -6,9 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ralis Bus Tours & Travels - Online Bus Ticket Booking">
+    <meta name="description" content="Ralis SmartBus Tours & Travels - Online Bus Ticket Booking">
 
-    <title>Ralis Bus Tours & Travels | Bus Ticket Booking</title>
+    <title>Ralis SmartBus Tours & Travels | Bus Ticket Booking</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,8 +100,9 @@
         }
 
         .logo-main {
-            font-size: 20px;
+            font-size: 17px;
             color: #171717;
+            letter-spacing: -.3px;
         }
 
         .logo-sub {
@@ -153,14 +154,41 @@
         /* ================= HERO ================= */
 
         .hero {
+            position: relative;
+            isolation: isolate;
             background:
-                linear-gradient(120deg, rgba(82, 10, 18, .92), rgba(217, 35, 46, .82)),
-                url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1800&q=80");
+                linear-gradient(120deg, rgba(9, 18, 35, .88) 0%, rgba(125, 12, 24, .74) 48%, rgba(217, 35, 46, .62) 100%),
+                url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=2000&q=85");
             background-size: cover;
             background-position: center;
-            min-height: 430px;
-            padding: 55px 6% 70px;
+            min-height: 500px;
+            padding: 62px 6% 92px;
             color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -150px;
+            top: -180px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            left: -120px;
+            bottom: -150px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.07);
+            z-index: -1;
         }
 
         .hero-content {
@@ -1172,6 +1200,208 @@
             transform: translateY(0);
         }
 
+        /* ================= SMARTBUS ENHANCEMENTS ================= */
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            border: 1px solid rgba(255,255,255,.28);
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(10px);
+            border-radius: 999px;
+            margin-bottom: 14px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .7px;
+        }
+
+        .brand-badge .mini-bus {
+            width: 26px;
+            height: 26px;
+            display: grid;
+            place-items: center;
+            background: white;
+            color: var(--primary);
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        .hero h1 span {
+            color: #ffd9dd;
+        }
+
+        .hero-content {
+            animation: heroIn .65s ease both;
+        }
+
+        @keyframes heroIn {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .hero-stat {
+            min-width: 130px;
+            padding: 11px 13px;
+            border: 1px solid rgba(255,255,255,.18);
+            background: rgba(0,0,0,.18);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 16px;
+        }
+
+        .hero-stat small {
+            color: rgba(255,255,255,.72);
+            font-size: 10px;
+        }
+
+        .logo {
+            position: relative;
+        }
+
+        .logo-icon {
+            box-shadow: 0 7px 18px rgba(217,35,46,.24);
+            transition: transform .25s ease;
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(-4deg) scale(1.06);
+        }
+
+        .search-card {
+            position: relative;
+            z-index: 5;
+            backdrop-filter: blur(8px);
+        }
+
+        .search-btn.loading {
+            pointer-events: none;
+            opacity: .82;
+        }
+
+        .search-btn.loading::after {
+            content: "  •••";
+            animation: pulseDots 1s infinite;
+        }
+
+        @keyframes pulseDots {
+            0%, 100% { opacity: .25; }
+            50% { opacity: 1; }
+        }
+
+        .route-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .route-card::after {
+            content: "→";
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 900;
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: .2s;
+        }
+
+        .route-card:hover::after {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .bus-card {
+            position: relative;
+        }
+
+        .bus-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: transparent;
+            transition: .2s;
+        }
+
+        .bus-card:hover::before {
+            background: var(--primary);
+        }
+
+        .empty-state {
+            background: white;
+            border: 1px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 35px 20px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .empty-state .empty-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .scroll-top {
+            position: fixed;
+            right: 20px;
+            bottom: 78px;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,.18);
+            z-index: 1200;
+            opacity: 0;
+            transform: translateY(10px);
+            pointer-events: none;
+            transition: .25s;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-brand .logo-icon {
+            background: white;
+            color: var(--primary);
+        }
+
         /* ================= RESPONSIVE ================= */
 
         @media (max-width: 1000px) {
@@ -1339,9 +1569,9 @@
 
 <header class="navbar">
     <a href="#home" class="logo">
-        <div class="logo-icon">🚌</div>
+        <div class="logo-icon" aria-label="Ralis SmartBus logo">🚌</div>
         <div class="logo-text">
-            <div class="logo-main">Ralis Bus</div>
+            <div class="logo-main">Ralis SmartBus</div>
             <div class="logo-sub">TOURS & TRAVELS</div>
         </div>
     </a>
@@ -1366,16 +1596,27 @@
 <section class="hero" id="home">
     <div class="hero-content">
 
+        <div class="brand-badge">
+            <span class="mini-bus">🚌</span>
+            RALIS SMARTBUS TOURS & TRAVELS
+        </div>
+
         <div class="hero-small">
             🛡️ Safe & Reliable Bus Travel
         </div>
 
-        <h1>Book Bus Tickets. Travel Without Worry.</h1>
+        <h1>Book Bus Tickets.<br><span>Travel Smarter with Ralis.</span></h1>
 
         <p>
             Search, compare and book buses across Andhra Pradesh,
             Telangana and major cities in India.
         </p>
+
+        <div class="hero-stats">
+            <div class="hero-stat"><strong>50+</strong><small>Routes & Destinations</small></div>
+            <div class="hero-stat"><strong>24/7</strong><small>Travel Assistance</small></div>
+            <div class="hero-stat"><strong>100%</strong><small>Secure Booking Demo</small></div>
+        </div>
 
         <!-- SEARCH -->
 
@@ -1482,13 +1723,17 @@
 
             </div>
         </div>
+
+        <div style="margin-top:18px;font-size:11px;color:rgba(255,255,255,.72);">
+            ✨ Smart search • Easy seat selection • Instant booking confirmation
+        </div>
     </div>
 </section>
 
 
 <!-- ================= TRUST ================= -->
 
-<div class="trust-row">
+<div class="trust-row reveal">
 
     <div class="trust-item">
         <div class="trust-icon">🛡️</div>
@@ -1527,7 +1772,7 @@
 
 <!-- ================= POPULAR ROUTES ================= -->
 
-<section class="container" id="routes">
+<section class="container reveal" id="routes">
 
     <div class="section-title">
         <h2>Popular Bus Routes</h2>
@@ -1741,11 +1986,11 @@
 
 <!-- ================= OFFERS ================= -->
 
-<section class="container" id="offers">
+<section class="container reveal" id="offers">
 
     <div class="section-title">
         <h2>Offers & Discounts</h2>
-        <p>Save more on your next Ralis journey.</p>
+        <p>Save more on your next Ralis SmartBus journey.</p>
     </div>
 
     <div class="offer-grid">
@@ -1845,7 +2090,7 @@
 
                     <div class="summary-row">
                         <span>Bus</span>
-                        <strong id="summaryBus">Ralis Express</strong>
+                        <strong id="summaryBus">Ralis SmartBus</strong>
                     </div>
 
                     <div class="summary-row">
@@ -2032,7 +2277,7 @@
 
                     <div class="summary-row">
                         <span>Bus</span>
-                        <strong id="checkoutBus">Ralis Express</strong>
+                        <strong id="checkoutBus">Ralis SmartBus</strong>
                     </div>
 
                     <div class="summary-row">
@@ -2103,7 +2348,7 @@
             <h2>Booking Confirmed!</h2>
 
             <p style="color:#6b7280;margin-top:8px;">
-                Your Ralis Bus ticket has been successfully booked.
+                Your Ralis SmartBus ticket has been successfully booked.
             </p>
 
             <div class="booking-id" id="bookingId">
@@ -2165,11 +2410,11 @@
 
             <div class="logo">
 
-                <div class="logo-icon">🚌</div>
+                <div class="logo-icon" aria-label="Ralis SmartBus logo">🚌</div>
 
                 <div class="logo-text">
                     <div class="logo-main" style="color:white;">
-                        Ralis Bus
+                        Ralis SmartBus
                     </div>
 
                     <div class="logo-sub">
@@ -2216,7 +2461,7 @@
 
 
     <div class="copyright">
-        © 2026 Ralis Bus Tours & Travels. All rights reserved.
+        © 2026 Ralis SmartBus Tours & Travels. All rights reserved.
     </div>
 
 </footer>
@@ -2237,7 +2482,7 @@
 
         {
             id: 1,
-            operator: "Ralis Express",
+            operator: "Ralis SmartBus",
             type: "AC Sleeper",
             categories: ["AC", "Sleeper"],
             rating: 4.7,
@@ -2422,6 +2667,8 @@
         document.getElementById("journeyDate").value =
             `${yyyy}-${mm}-${dd}`;
 
+        showToast(offset === 0 ? "Journey date set to today." : "Journey date set to tomorrow.");
+
     }
 
 
@@ -2450,34 +2697,43 @@
 
     function searchBuses() {
 
-        const from =
-            document.getElementById("fromCity").value;
-
-        const to =
-            document.getElementById("toCity").value;
+        const from = document.getElementById("fromCity").value;
+        const to = document.getElementById("toCity").value;
+        const searchButton = document.querySelector(".search-btn");
 
         if (from === to) {
-
-            showToast("From and To cities cannot be the same.");
-
+            showToast("Please choose different From and To cities.");
             return;
         }
 
-        document.getElementById("resultRoute").textContent =
-            `${from} → ${to}`;
+        if (!document.getElementById("journeyDate").value) {
+            showToast("Please select your journey date.");
+            return;
+        }
 
-        document.getElementById("resultDate").textContent =
-            formattedDate();
+        searchButton.classList.add("loading");
+        searchButton.textContent = "Searching";
 
-        document.getElementById("resultsSection").style.display =
-            "block";
+        setTimeout(() => {
+            document.getElementById("resultRoute").textContent =
+                `${from} → ${to}`;
 
-        renderBuses(buses);
+            document.getElementById("resultDate").textContent =
+                formattedDate();
 
-        document.getElementById("resultsSection")
-            .scrollIntoView({
-                behavior: "smooth"
+            document.getElementById("resultsSection").style.display = "block";
+
+            renderBuses(buses);
+
+            document.getElementById("resultsSection").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
+
+            searchButton.classList.remove("loading");
+            searchButton.textContent = "🔎 Search Buses";
+            showToast(`${buses.length} Ralis SmartBus services found.`);
+        }, 450);
     }
 
 
@@ -2565,6 +2821,23 @@
             return;
         }
 
+
+        if (data.length === 0) {
+            list.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">🚌</div>
+                    <strong>No buses match your filters</strong>
+                    <p style="margin-top:6px;font-size:12px;">
+                        Try clearing a filter or increasing the maximum fare.
+                    </p>
+                    <button class="view-seat-btn" style="margin-top:14px;" onclick="clearFilters()">
+                        Reset Filters
+                    </button>
+                </div>
+            `;
+            document.getElementById("busCount").textContent = "0";
+            return;
+        }
 
         data.forEach(bus => {
 
@@ -3383,6 +3656,35 @@
             });
 
         });
+
+
+
+    /* ============================================================
+       INTERACTIVE POLISH
+       ============================================================ */
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    const scrollTopButton = document.getElementById("scrollTop");
+
+    window.addEventListener("scroll", () => {
+        scrollTopButton.classList.toggle("show", window.scrollY > 450);
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeAllModals();
+        }
+    });
 
 </script>
 
